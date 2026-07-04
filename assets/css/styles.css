@@ -228,7 +228,10 @@ img {
 
 .nav-right {
   display: flex;
+  flex-direction: row;
   align-items: center;
+  justify-content: flex-end;
+  flex-wrap: nowrap;
   gap: 2rem;
 }
 
@@ -239,12 +242,17 @@ img {
   cursor: pointer;
   width: 40px;
   height: 40px;
+  min-width: 40px;
+  min-height: 40px;
+  padding: 0;
+  margin: 0;
   border-radius: 50%;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   color: var(--text-primary);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  flex-shrink: 0;
   transition: all var(--transition-normal);
 }
 
@@ -259,6 +267,7 @@ img {
 .theme-toggle-btn svg {
   width: 20px;
   height: 20px;
+  display: block;
   fill: none;
   stroke: currentColor;
   stroke-width: 2;
@@ -1135,13 +1144,46 @@ textarea.form-input {
   }
   
   .app-detail-grid {
-    grid-template-columns: 1fr;
-    gap: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+  
+  .app-sidebar {
+    order: -1;
   }
   
   .sidebar-meta-card {
     position: relative;
     top: 0;
+  }
+
+  .metadata-grid {
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .meta-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .sidebar-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  #btn-privacy {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: auto;
+    margin-top: 0.25rem;
   }
 }
 
@@ -1230,14 +1272,24 @@ textarea.form-input {
     border-radius: 18px;
   }
   
+  .app-detail-hero {
+    padding: 90px 0 20px;
+  }
+
   .app-detail-header-card {
     flex-direction: column;
     text-align: center;
     gap: 1.2rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .app-detail-identity h1 {
+    font-size: 1.8rem;
   }
 
   .hero-screen-banner {
     height: 180px;
+    margin-bottom: 2rem;
   }
   
   .related-apps-grid {
@@ -1260,5 +1312,13 @@ textarea.form-input {
     flex-direction: column;
     gap: 1.2rem;
     align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .changelog-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
   }
 }
