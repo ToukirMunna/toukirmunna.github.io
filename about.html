@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Blue Pixel Studio</title>
+  <meta name="description" content="Learn more about Blue Pixel Studio, our Android development philosophy, and how to contact us.">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  
+  <!-- Navigation Header -->
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-brand">
+        <svg style="width:24px;height:24px;fill:var(--accent-secondary)" viewBox="0 0 24 24">
+          <rect x="2" y="2" width="6" height="6" fill="var(--accent-primary)"/>
+          <rect x="10" y="2" width="6" height="6" fill="var(--accent-secondary)"/>
+          <rect x="18" y="2" width="4" height="4" fill="var(--text-muted)"/>
+          <rect x="2" y="10" width="6" height="6" fill="var(--accent-secondary)"/>
+          <rect x="10" y="10" width="6" height="6" fill="var(--accent-primary)"/>
+          <rect x="18" y="10" width="4" height="4" fill="var(--accent-secondary)"/>
+          <rect x="2" y="18" width="4" height="4" fill="var(--text-muted)"/>
+          <rect x="10" y="18" width="4" height="4" fill="var(--accent-secondary)"/>
+          <rect x="16" y="16" width="6" height="6" fill="var(--accent-cyan)"/>
+        </svg>
+        <span>Blue</span>Pixel
+      </a>
+      <nav class="nav-menu" id="nav-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link active">About</a>
+        <a href="index.html#apps" class="nav-link">Apps</a>
+      </nav>
+      <button class="hamburger" aria-label="Toggle Navigation Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- About Layout Container -->
+  <main class="container about-hero">
+    <div class="about-layout">
+      <!-- Profile sticky column -->
+      <aside class="about-profile reveal">
+        <div class="profile-avatar-container">
+          <img src="assets/images/profile.png" alt="Developer Avatar" class="profile-avatar" onerror="this.src='assets/images/logo.png'">
+        </div>
+        <h2>Blue Pixel Studio</h2>
+        <div class="dev-tag">Independent Android Studio</div>
+        <p>Designing and engineering pixel-perfect native Android apps with beautiful usability.</p>
+        
+        <div class="social-links">
+          <a href="https://github.com" target="_blank" class="social-icon" aria-label="GitHub">
+            <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+          </a>
+          <a href="mailto:support@example.com" class="social-icon" aria-label="Email">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </a>
+        </div>
+      </aside>
+
+      <!-- Biography & Contact Column -->
+      <div class="about-content">
+        <section class="reveal">
+          <h3>Our Philosophy</h3>
+          <p>Blue Pixel Studio is an independent Android software workshop dedicated to developing high-performance, fluid mobile solutions. Leveraging modern native technologies like Kotlin, Coroutines, Jetpack Compose, and clean architecture, we build tools that solve daily problems while maintaining exceptional performance.</p>
+          <p style="margin-top: 1rem;">We believe app development is a craft. Every pixel, transition flow, and database query is engineered to offer a premium, lightweight experience that respects user privacy and system resources.</p>
+        </section>
+
+        <section class="reveal">
+          <h3>Technical Expertise</h3>
+          <div class="skills-grid">
+            <span class="skill-tag">Kotlin</span>
+            <span class="skill-tag">Android SDK</span>
+            <span class="skill-tag">Jetpack Compose</span>
+            <span class="skill-tag">Coroutines / Flow</span>
+            <span class="skill-tag">Clean Architecture</span>
+            <span class="skill-tag">MVI / MVVM</span>
+            <span class="skill-tag">Dagger / Hilt</span>
+            <span class="skill-tag">Room / SQLite</span>
+            <span class="skill-tag">Git / CI-CD</span>
+            <span class="skill-tag">UI / UX Design</span>
+          </div>
+        </section>
+
+        <!-- Premium Contact Form -->
+        <section class="reveal">
+          <h3>Get In Touch</h3>
+          <p>Have an interesting project or want to collaborate? Send me a message, and I'll get back to you shortly.</p>
+          
+          <div class="contact-form-container">
+            <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Message sent successfully!');">
+              <div class="form-group">
+                <label for="name" class="form-label">Full Name</label>
+                <input type="text" id="name" name="name" class="form-input" placeholder="e.g. John Doe" required>
+              </div>
+              <div class="form-group">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" id="email" name="email" class="form-input" placeholder="e.g. john@example.com" required>
+              </div>
+              <div class="form-group">
+                <label for="message" class="form-label">Your Message</label>
+                <textarea id="message" name="message" class="form-input" placeholder="Describe your project or inquiry..." required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary form-submit-btn">Send Message</button>
+            </form>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-layout">
+        <a href="index.html" class="footer-brand">
+          <span>Blue</span>Pixel
+        </a>
+        <div class="footer-links">
+          <a href="index.html" class="footer-link">Home</a>
+          <a href="about.html" class="footer-link">About</a>
+          <a href="privacy.html" class="footer-link">Privacy Policy</a>
+          <a href="mailto:alex@example.com" class="footer-link">Email Support</a>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 Blue Pixel Studio. All rights reserved. Crafting premium mobile software.</p>
+        <div class="footer-socials">
+          <a href="https://github.com" target="_blank" aria-label="GitHub" class="social-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

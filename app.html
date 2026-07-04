@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Application Details - Blue Pixel Studio</title>
+  <meta name="description" content="View details, key features, and download links for our applications at Blue Pixel Studio.">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  
+  <!-- Navigation Header -->
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-brand">
+        <svg style="width:24px;height:24px;fill:var(--accent-secondary)" viewBox="0 0 24 24">
+          <rect x="2" y="2" width="6" height="6" fill="var(--accent-primary)"/>
+          <rect x="10" y="2" width="6" height="6" fill="var(--accent-secondary)"/>
+          <rect x="18" y="2" width="4" height="4" fill="var(--text-muted)"/>
+          <rect x="2" y="10" width="6" height="6" fill="var(--accent-secondary)"/>
+          <rect x="10" y="10" width="6" height="6" fill="var(--accent-primary)"/>
+          <rect x="18" y="10" width="4" height="4" fill="var(--accent-secondary)"/>
+          <rect x="2" y="18" width="4" height="4" fill="var(--text-muted)"/>
+          <rect x="10" y="18" width="4" height="4" fill="var(--accent-secondary)"/>
+          <rect x="16" y="16" width="6" height="6" fill="var(--accent-cyan)"/>
+        </svg>
+        <span>Blue</span>Pixel
+      </a>
+      <nav class="nav-menu" id="nav-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="index.html#apps" class="nav-link">Apps</a>
+      </nav>
+      <button class="hamburger" aria-label="Toggle Navigation Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- App details content wrapper (populated by app-details.js) -->
+  <main id="app-detail-container">
+    
+    <!-- Hero Details Header -->
+    <section class="app-detail-hero">
+      <div class="container">
+        <div class="app-detail-header-card reveal active">
+          <img src="" id="app-icon" alt="App Icon" class="app-detail-icon">
+          <div class="app-detail-identity">
+            <div><span class="category-pill" id="app-category">Category</span></div>
+            <h1 id="app-title">Loading Application...</h1>
+            <p id="app-tagline" style="font-size:1.05rem;font-weight:500;color:var(--accent-primary);margin-top:0.4rem;"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Detail Grid -->
+    <section class="app-detail-body">
+      <div class="container">
+        <div class="app-detail-grid">
+          
+          <!-- Main Content (Screenshots, description, features) -->
+          <div class="app-main-content">
+            
+            <!-- Hero Screen Banner -->
+            <div class="hero-screen-banner reveal">
+              <img src="" id="hero-screen-img" alt="App Banner Mockup" onerror="this.style.display='none'">
+            </div>
+            
+            <!-- Screenshots Carousel -->
+            <div class="gallery-section reveal">
+              <div class="gallery-container" id="gallery-container">
+                <!-- Screenshots dynamically inserted here -->
+              </div>
+            </div>
+
+            <!-- Description -->
+            <div class="desc-section reveal">
+              <h3>About the App</h3>
+              <p id="app-description"></p>
+            </div>
+
+            <!-- Features -->
+            <div class="features-section reveal">
+              <h3>Key Features</h3>
+              <div class="features-list" id="features-list">
+                <!-- Features dynamically inserted here -->
+              </div>
+            </div>
+
+            <!-- Changelog -->
+            <div class="changelog-section reveal">
+              <h3>Changelog & History</h3>
+              <div class="changelog-timeline" id="changelog-timeline">
+                <!-- Populated dynamically by app-details.js -->
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Sidebar Metadata (APK info, download buttons) -->
+          <aside class="app-sidebar">
+            <div class="glass-card sidebar-meta-card reveal">
+              <div class="metadata-grid">
+                <div class="meta-row">
+                  <span class="meta-label">Version</span>
+                  <span class="meta-value" id="meta-version">-</span>
+                </div>
+                <div class="meta-row">
+                  <span class="meta-label">File Size</span>
+                  <span class="meta-value" id="meta-size">-</span>
+                </div>
+                <div class="meta-row">
+                  <span class="meta-label">Last Updated</span>
+                  <span class="meta-value" id="meta-updated">-</span>
+                </div>
+                <div class="meta-row">
+                  <span class="meta-label">Compatibility</span>
+                  <span class="meta-value">Android 8.0+</span>
+                </div>
+              </div>
+
+              <div class="sidebar-buttons">
+                <a href="#" id="btn-download" class="btn btn-primary">
+                  <svg style="width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2" viewBox="0 0 24 24">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                  </svg>
+                  Download APK
+                </a>
+                
+                <a href="#" id="btn-github" target="_blank" class="btn btn-secondary">
+                  <svg style="width:20px;height:20px;fill:currentColor" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                  Source Code
+                </a>
+                
+                <a href="#" id="btn-privacy" class="btn btn-secondary" style="border:none;background:transparent;text-align:center;padding:0.5rem;font-size:0.85rem">
+                  Privacy Policy
+                </a>
+              </div>
+            </div>
+          </aside>
+
+        </div>
+        
+        <!-- Related Apps Section -->
+        <div class="related-apps-section reveal">
+          <h3>More from Blue Pixel Studio</h3>
+          <div class="related-apps-grid" id="related-apps-grid">
+            <!-- Related apps dynamically inserted here -->
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-layout">
+        <a href="index.html" class="footer-brand">
+          <span>Blue</span>Pixel
+        </a>
+        <div class="footer-links">
+          <a href="index.html" class="footer-link">Home</a>
+          <a href="about.html" class="footer-link">About</a>
+          <a href="privacy.html" class="footer-link">Privacy Policy</a>
+          <a href="mailto:alex@example.com" class="footer-link">Email Support</a>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 Blue Pixel Studio. All rights reserved. Crafting premium mobile software.</p>
+        <div class="footer-socials">
+          <a href="https://github.com" target="_blank" aria-label="GitHub" class="social-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/apps-data.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/app-details.js"></script>
+</body>
+</html>
