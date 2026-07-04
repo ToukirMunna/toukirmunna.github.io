@@ -1,7 +1,28 @@
-/**
- * Main Application Script
- */
+// Immediate theme initialization to prevent theme flashes
+const savedTheme = localStorage.getItem("theme") || 
+                   (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+if (savedTheme === "dark") {
+  document.documentElement.setAttribute("data-theme", "dark");
+} else {
+  document.documentElement.removeAttribute("data-theme");
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+  // Theme Toggle click handler
+  const themeToggle = document.getElementById("theme-toggle");
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+      if (isDark) {
+        document.documentElement.removeAttribute("data-theme");
+        localStorage.setItem("theme", "light");
+      } else {
+        document.documentElement.setAttribute("data-theme", "dark");
+        localStorage.setItem("theme", "dark");
+      }
+    });
+  }
+
   // 1. Navigation Sticky Behavior
   const navbar = document.querySelector(".navbar");
   if (navbar) {
