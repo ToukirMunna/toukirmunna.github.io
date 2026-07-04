@@ -19,6 +19,8 @@
   --text-muted: #94a3b8;        /* Slate-gray for quiet metadata text */
   
   --accent-primary: #2563eb;    /* Premium sapphire blue accent */
+  --accent-secondary: #0ea5e9;  /* Sky blue / teal secondary */
+  --accent-cyan: #06b6d4;       /* Cyan accent */
   --accent-hover: #1d4ed8;
   --accent-light: rgba(37, 99, 235, 0.08);
   
@@ -47,6 +49,8 @@
   --text-muted: #64748b;        /* Darker slate-gray for quiet metadata text */
   
   --accent-primary: #3b82f6;    /* Bright high-contrast blue for dark slate */
+  --accent-secondary: #38bdf8;  /* Sky blue secondary */
+  --accent-cyan: #22d3ee;       /* Cyan accent */
   --accent-hover: #60a5fa;
   --accent-light: rgba(59, 130, 246, 0.12);
   
@@ -230,32 +234,41 @@ img {
 
 /* Theme Toggle Button */
 .theme-toggle-btn {
-  background: transparent;
-  border: none;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
   cursor: pointer;
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--text-secondary);
-  transition: all var(--transition-fast);
+  color: var(--text-primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: all var(--transition-normal);
 }
 
 .theme-toggle-btn:hover {
   background: var(--card-bg-hover);
-  color: var(--text-primary);
+  border-color: var(--border-color-hover);
+  color: var(--accent-primary);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .theme-toggle-btn svg {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   fill: none;
   stroke: currentColor;
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
+  transition: transform var(--transition-normal);
+}
+
+.theme-toggle-btn:hover svg {
+  transform: rotate(15deg);
 }
 
 .theme-toggle-btn .sun-icon {
