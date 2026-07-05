@@ -33,6 +33,7 @@
   
   /* Spacers */
   --container-width: 1100px;
+  --container-padding: 1.5rem;
 }
 
 /* Eye-Friendly Dark Theme Override */
@@ -62,6 +63,11 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 html {
@@ -126,10 +132,10 @@ img {
 
 /* --- REUSABLE COMPONENTS --- */
 .container {
-  width: 90%;
+  width: 100%;
   max-width: var(--container-width);
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 var(--container-padding);
 }
 
 /* Category Pill Badges */
@@ -721,6 +727,8 @@ textarea.form-input {
 /* --- APP DETAILS PAGE SPECIFICS --- */
 .app-detail-hero {
   padding: 130px 0 40px;
+  width: 100%;
+  overflow: hidden;
 }
 
 .app-detail-header-card {
@@ -752,6 +760,8 @@ textarea.form-input {
 
 .app-detail-body {
   padding: 30px 0 80px;
+  width: 100%;
+  overflow: hidden;
 }
 
 .app-detail-grid {
@@ -781,6 +791,9 @@ textarea.form-input {
 /* Screenshots Gallery */
 .gallery-section {
   margin-bottom: 3.5rem;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .gallery-section h3 {
@@ -795,6 +808,8 @@ textarea.form-input {
   padding-bottom: 1.2rem;
   scrollbar-width: thin;
   scrollbar-color: var(--border-color-hover) var(--bg-color);
+  width: 100%;
+  max-width: 100%;
 }
 
 .gallery-container::-webkit-scrollbar {
@@ -1151,6 +1166,12 @@ textarea.form-input {
     flex-direction: column;
     gap: 2.5rem;
     width: 100%;
+    overflow: hidden;
+  }
+
+  .app-main-content, .app-sidebar {
+    width: 100%;
+    min-width: 0;
   }
   
   .app-sidebar {
@@ -1163,9 +1184,14 @@ textarea.form-input {
   }
 
   .metadata-grid {
-    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-    gap: 1.2rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
     margin-bottom: 1.5rem;
+  }
+
+  .meta-value {
+    font-size: 0.85rem;
+    word-break: break-all;
   }
 
   .meta-row {
@@ -1191,9 +1217,12 @@ textarea.form-input {
 }
 
 @media (max-width: 768px) {
+  :root {
+    --container-padding: 1.25rem;
+  }
+
   .container {
-    width: 100%;
-    padding: 0 1.25rem;
+    padding: 0 var(--container-padding);
   }
 
   .glass-card, .app-card {
