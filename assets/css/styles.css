@@ -757,6 +757,7 @@ textarea.form-input {
   grid-template-columns: 1.8fr 1fr;
   gap: 4.5rem;
   align-items: start;
+  width: 100%;
 }
 
 /* Hero Screen View Banner */
@@ -1147,6 +1148,7 @@ textarea.form-input {
     display: flex;
     flex-direction: column;
     gap: 2.5rem;
+    width: 100%;
   }
   
   .app-sidebar {
@@ -1189,7 +1191,8 @@ textarea.form-input {
 
 @media (max-width: 768px) {
   .container {
-    padding: 0 1rem;
+    width: 100%;
+    padding: 0 1.25rem;
   }
 
   /* Mobile Nav Menu */
