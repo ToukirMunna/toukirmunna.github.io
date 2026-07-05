@@ -72,6 +72,7 @@ html {
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 body {
@@ -80,6 +81,7 @@ body {
   flex-direction: column;
   overflow-x: hidden;
   position: relative;
+  width: 100%;
 }
 
 /* Scrollbar Styles */
@@ -1175,10 +1177,9 @@ textarea.form-input {
   }
 
   .sidebar-buttons {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    display: flex;
+    flex-direction: column;
     gap: 0.75rem;
-    align-items: center;
   }
 
   #btn-privacy {
@@ -1193,6 +1194,14 @@ textarea.form-input {
   .container {
     width: 100%;
     padding: 0 1.25rem;
+  }
+
+  .glass-card, .app-card {
+    padding: 1.25rem;
+  }
+
+  .app-detail-grid > * {
+    min-width: 0;
   }
 
   /* Mobile Nav Menu */
@@ -1287,7 +1296,7 @@ textarea.form-input {
   }
 
   .app-detail-identity h1 {
-    font-size: 1.8rem;
+    font-size: 1.75rem;
   }
 
   .hero-screen-banner {
