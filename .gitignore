@@ -1,0 +1,24 @@
+# IDE Files
+.idea/
+*.iml
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Project Specific
+.artifacts/
+*.log
+
+# Web specific
+node_modules/
+dist/
+build/
+.cache/
+.parcel-cache/
+.next/
+out/
