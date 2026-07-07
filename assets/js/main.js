@@ -83,29 +83,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 4. Populate App Grid on Home Page with Filtering
+  // 4. Populate App Grid on Home Page
   const appsGrid = document.querySelector(".apps-grid");
-  const filterBtns = document.querySelectorAll(".filter-btn");
-
-  function renderApps(filter = "all") {
-    if (!appsGrid || !window.appsData) return;
+  if (appsGrid && window.appsData) {
     appsGrid.innerHTML = ""; // Clear loader/placeholders
 
-    const filteredApps = filter === "all" 
-      ? window.appsData 
-      : window.appsData.filter(app => app.category.toLowerCase() === filter.toLowerCase());
-
-    if (filteredApps.length === 0) {
-      appsGrid.innerHTML = `<div class="loading-placeholder"><p>No applications found in this category.</p></div>`;
-      return;
-    }
-
-    filteredApps.forEach((app, index) => {
+    window.appsData.forEach((app, index) => {
       const card = document.createElement("div");
-      card.className = "glass-card app-card reveal tilt-card";
+      card.className = "glass-card app-card reveal";
       
       // Delay animation sequence slightly for staggered effect
-      card.style.transitionDelay = `${index * 0.05}s`;
+      card.style.transitionDelay = `${index * 0.1}s`;
       
       card.innerHTML = `
         <div class="app-card-header">
@@ -146,92 +134,5 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     
     newReveals.forEach(el => revealObserver.observe(el));
-    setupCardTilt();
-  }
-
-  // Setup click listeners for filter buttons
-  if (filterBtns.length > 0) {
-    filterBtns.forEach(btn => {
-      btn.addEventListener("click", () => {
-        filterBtns.forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-        renderApps(btn.getAttribute("data-filter"));
-      });
-    });
-  }
-
-  // Initial render
-  if (appsGrid) {
-    renderApps("all");
-  }
-
-  // 3D Parallax Tilt Handler
-  function setupCardTilt() {
-    const tiltCards = document.querySelectorAll(".tilt-card");
-    tiltCards.forEach(card => {
-      card.addEventListener("mousemove", (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        
-        const rotateX = ((centerY - y) / centerY) * 8;
-        const rotateY = ((x - centerX) / centerX) * 8;
-        
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px)`;
-      });
-      
-      card.addEventListener("mouseleave", () => {
-        card.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)";
-      });
-    });
-  }
-
-  // 5. Hero Mockup Parallax Effect
-  const heroMockup = document.querySelector(".hero-mockup-wrapper");
-  if (heroMockup) {
-    document.addEventListener("mousemove", (e) => {
-      const amountX = (window.innerWidth / 2 - e.clientX) * 0.015;
-      const amountY = (window.innerHeight / 2 - e.clientY) * 0.015;
-      
-      heroMockup.style.transform = `translate(${amountX}px, ${amountY}px)`;
-    });
-  }
-
-  // 6. Animate Stat Numbers on About Page
-  const statNumbers = document.querySelectorAll(".stat-number");
-  if (statNumbers.length > 0) {
-    const statsObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const target = entry.target;
-          const targetNum = parseFloat(target.getAttribute("data-target"));
-          const suffix = target.textContent.replace(/[0-9.]/g, "");
-          let current = 0;
-          const duration = 1500;
-          const stepTime = 30;
-          const steps = duration / stepTime;
-          const increment = targetNum / steps;
-          
-          const timer = setInterval(() => {
-            current += increment;
-            if (current >= targetNum) {
-              target.textContent = targetNum + suffix;
-              clearInterval(timer);
-            } else {
-              target.textContent = (Number.isInteger(targetNum) ? Math.floor(current) : current.toFixed(1)) + suffix;
-            }
-          }, stepTime);
-          
-          observer.unobserve(target);
-        }
-      });
-    }, {
-      threshold: 0.5
-    });
-
-    statNumbers.forEach(stat => statsObserver.observe(stat));
   }
 });
