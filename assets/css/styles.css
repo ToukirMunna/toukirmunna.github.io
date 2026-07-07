@@ -1210,7 +1210,17 @@ textarea.form-input {
   }
   
   .mockup-screen-left, .mockup-screen-right {
-    display: none;
+    display: block;
+    width: 120px;
+    height: 240px;
+  }
+
+  .mockup-screen-left {
+    left: 0;
+  }
+
+  .mockup-screen-right {
+    right: 0;
   }
   
   .mockup-phone {
