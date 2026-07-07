@@ -5,7 +5,7 @@
 const defaultAppsData = [
   {
     "id": "tasbeeh",
-    "name": "Tasbeeh Pro",
+    "name": "Tasbeeh",
     "tagline": "Elegant Islamic Tasbeeh & Adhkar for Muslim",
     "shortDescription": "A minimal, elegant Tasbeeh counter and Adhkar companion designed for daily spiritual mindfulness.",
     "fullDescription": "Tasbeeh is a beautifully simple digital counter and Dhikr tracking application. Designed to encourage spiritual reflection, the app offers custom counter presets, audio and haptic feedback, a collection of authentic daily supplications, and historical tracking to help you visualize your consistency. Designed with a peaceful AMOLED-friendly layout that minimizes battery drain.",
@@ -113,9 +113,9 @@ const defaultAppsData = [
       "Zero network requirements - data is saved securely in a local database"
     ],
     "version": "1.8.3",
-    "apkSize": "12.4 MB",
+    "apkSize": "4.3 MB",
     "lastUpdated": "May 29, 2026",
-    "downloadUrl": "assets/apks/expense-tracker.apk",
+    "downloadUrl": "assets/apks/EasyPOS v20260707.apk",
     "githubUrl": "https://github.com/example/expense-tracker-android",
     "category": "Finance",
     "changelog": [

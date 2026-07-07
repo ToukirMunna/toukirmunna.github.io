@@ -268,7 +268,13 @@
 
           <div class="admin-input-group">
             <label for="app-download-url" class="admin-label">Download APK URL *</label>
-            <input type="text" id="app-download-url" class="admin-input" placeholder="e.g. #download-apk" required>
+            <div style="display:flex;gap:0.5rem">
+              <input type="text" id="app-download-url" class="admin-input" placeholder="e.g. assets/apks/app-release.apk" required style="flex:1">
+              <label class="btn btn-secondary" style="margin:0;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;padding:0.6rem 1.25rem;font-size:0.85rem;white-space:nowrap;border-radius:6px">
+                Select APK File
+                <input type="file" id="apk-file-picker" accept=".apk" style="display:none">
+              </label>
+            </div>
           </div>
 
           <div class="admin-input-group">
@@ -278,7 +284,13 @@
 
           <div class="admin-input-group">
             <label for="app-icon" class="admin-label">App Icon Filepath *</label>
-            <input type="text" id="app-icon" class="admin-input" placeholder="e.g. assets/images/tasbeeh-icon.png" required>
+            <div style="display:flex;gap:0.5rem">
+              <input type="text" id="app-icon" class="admin-input" placeholder="e.g. assets/images/app-icon.png" required style="flex:1">
+              <label class="btn btn-secondary" style="margin:0;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;padding:0.6rem 1.25rem;font-size:0.85rem;white-space:nowrap;border-radius:6px">
+                Select Icon File
+                <input type="file" id="icon-file-picker" accept="image/*" style="display:none">
+              </label>
+            </div>
           </div>
 
           <div class="admin-input-group">
@@ -368,6 +380,12 @@
 
   <!-- Scripts -->
   <script src="assets/js/apps-data.js"></script>
+  <script src="assets/js/modules/helpers.js"></script>
+  <script src="assets/js/modules/db.js"></script>
+  <script src="assets/js/modules/exporter.js"></script>
+  <script src="assets/js/modules/auth.js"></script>
+  <script src="assets/js/modules/form.js"></script>
+  <script src="assets/js/modules/dashboard.js"></script>
   <script src="assets/js/admin.js"></script>
 </body>
 </html>
