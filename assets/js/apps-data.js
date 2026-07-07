@@ -2,7 +2,7 @@
  * App Portfolio Data - Blue Pixel Studio
  * Easily extend your portfolio by adding new app objects to this array.
  */
-const appsData = [
+const defaultAppsData = [
   {
     id: "tasbeeh",
     name: "Tasbeeh",
@@ -271,6 +271,17 @@ const appsData = [
     ]
   }
 ];
+
+// Expose resolved apps data (checking local storage overrides first)
+let appsData = defaultAppsData;
+try {
+  const storedApps = localStorage.getItem("appsData");
+  if (storedApps) {
+    appsData = JSON.parse(storedApps);
+  }
+} catch (e) {
+  console.error("Error loading appsData from localStorage:", e);
+}
 
 // Export if module environment, otherwise expose to window
 if (typeof module !== 'undefined' && module.exports) {

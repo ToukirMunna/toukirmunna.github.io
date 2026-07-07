@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - Blue Pixel Studio</title>
+  <meta name="description" content="Manage application listings, update release version metrics, write changelogs, and publish updates to GitHub Pages.">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body class="admin-body">
+
+  <!-- LOCK / LOGIN SCREEN COVER -->
+  <div id="lock-screen" class="admin-lock-screen">
+    <div class="lock-card">
+      <div class="lock-logo">
+        <svg style="width:48px;height:48px;fill:var(--accent-primary)" viewBox="0 0 24 24">
+          <rect x="2" y="2" width="6" height="6" fill="var(--accent-primary)"/>
+          <rect x="10" y="2" width="6" height="6" fill="var(--accent-secondary)"/>
+          <rect x="18" y="2" width="4" height="4" fill="var(--text-muted)"/>
+          <rect x="2" y="10" width="6" height="6" fill="var(--accent-secondary)"/>
+          <rect x="10" y="10" width="6" height="6" fill="var(--accent-primary)"/>
+          <rect x="2" y="18" width="4" height="4" fill="var(--text-muted)"/>
+          <rect x="16" y="16" width="6" height="6" fill="var(--accent-cyan)"/>
+        </svg>
+      </div>
+      <h2 class="lock-title">Blue Pixel Dashboard</h2>
+      <p class="lock-subtitle">Enter passcode to unlock portfolio content manager</p>
+      
+      <div class="admin-input-group">
+        <label for="passcode-input" class="admin-label">Dashboard Passcode</label>
+        <input type="password" id="passcode-input" class="admin-input" placeholder="••••••••" autocomplete="current-password">
+        <div id="login-error" class="error-hint">Incorrect passcode. Please try again.</div>
+      </div>
+      
+      <button type="button" id="unlock-btn" class="lock-btn">Unlock Dashboard</button>
+    </div>
+  </div>
+
+  <!-- NAVIGATION NAVBAR -->
+  <header class="navbar scrolled">
+    <div class="container">
+      <a href="index.html" class="nav-brand">
+        <svg style="width:24px;height:24px;fill:var(--accent-secondary)" viewBox="0 0 24 24">
+          <rect x="2" y="2" width="6" height="6" fill="var(--accent-primary)"/>
+          <rect x="10" y="2" width="6" height="6" fill="var(--accent-secondary)"/>
+          <rect x="18" y="2" width="4" height="4" fill="var(--text-muted)"/>
+          <rect x="2" y="10" width="6" height="6" fill="var(--accent-secondary)"/>
+          <rect x="10" y="10" width="6" height="6" fill="var(--accent-primary)"/>
+          <rect x="16" y="16" width="6" height="6" fill="var(--accent-cyan)"/>
+        </svg>
+        <span>Blue</span>Pixel <small style="font-size:0.65rem;font-weight:700;color:var(--text-muted);text-transform:uppercase;margin-left:0.25rem;border:1px solid var(--border-color);padding:0.1rem 0.3rem;border-radius:4px">Admin</small>
+      </a>
+      <div class="nav-right">
+        <nav class="nav-menu active" style="display:flex">
+          <a href="index.html" class="nav-link">View Site</a>
+          <button id="btn-logout" class="nav-link" style="background:transparent;border:none;cursor:pointer;font-family:inherit;font-size:inherit">Logout</button>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN ADMIN CONTENT -->
+  <main class="container" style="flex:1;padding-top:7rem;padding-bottom:5rem">
+    
+    <!-- Header Controls -->
+    <section class="admin-header-flex">
+      <div class="admin-title-area">
+        <h1>Portfolio Studio Manager</h1>
+        <p>Manage application card listings, configure metrics, and push changes to GitHub Pages.</p>
+      </div>
+      <div class="admin-header-actions">
+        <button id="btn-save-local" class="btn btn-success" title="Apply changes for browser testing">
+          <svg style="width:16px;height:16px;margin-right:0.4rem;stroke:currentColor;fill:none;stroke-width:2.5" viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+          Save for Preview
+        </button>
+        <button id="btn-reset-local" class="btn btn-secondary" style="border-color:#ef4444;color:#ef4444;background:transparent" title="Wipe local changes and load production file">
+          <svg style="width:16px;height:16px;margin-right:0.4rem;stroke:currentColor;fill:none;stroke-width:2.5" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><polyline points="3 3 3 8 8 8"/></svg>
+          Reset Local
+        </button>
+      </div>
+    </section>
+
+    <!-- METRICS OVERVIEW CARDS -->
+    <section class="stats-grid">
+      <div class="glass-panel stat-card">
+        <div class="stat-icon">
+          <svg style="width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+        </div>
+        <div class="stat-info">
+          <span id="stat-total-apps" class="stat-number">0</span>
+          <span class="stat-label">Total Applications</span>
+        </div>
+      </div>
+      
+      <div class="glass-panel stat-card">
+        <div class="stat-icon">
+          <svg style="width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2" viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+        </div>
+        <div class="stat-info">
+          <span id="stat-categories" class="stat-number">0</span>
+          <span class="stat-label">Unique Categories</span>
+        </div>
+      </div>
+      
+      <div class="glass-panel stat-card">
+        <div class="stat-icon">
+          <svg style="width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div class="stat-info">
+          <span id="stat-last-saved" class="stat-number" style="font-size:1.15rem">Checking...</span>
+          <span class="stat-label">Local Save Status</span>
+        </div>
+      </div>
+      
+      <div class="glass-panel stat-card">
+        <div class="stat-icon">
+          <span id="gh-sync-dot" class="sync-dot"></span>
+        </div>
+        <div class="stat-info">
+          <span id="stat-sync" class="stat-number" style="font-size:1.15rem">Idle / Pending</span>
+          <span class="stat-label">GitHub Pages Sync</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO DATAGRID -->
+    <section class="glass-panel" style="padding:1.75rem;margin-bottom:2.5rem">
+      <div class="dashboard-section-header">
+        <h2>App Listing Catalog</h2>
+        <div style="display:flex;gap:0.5rem">
+          <button id="btn-trigger-export" class="btn btn-secondary" title="Export config code for manual commit">
+            <svg style="width:16px;height:16px;margin-right:0.4rem;stroke:currentColor;fill:none;stroke-width:2" viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+            Export JS File
+          </button>
+          <button id="btn-add-app" class="btn btn-primary" title="Create new application entry">
+            <svg style="width:16px;height:16px;margin-right:0.4rem;stroke:currentColor;fill:none;stroke-width:2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            Add Application
+          </button>
+        </div>
+      </div>
+
+      <div class="table-wrapper">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th style="width:40%">Application Details</th>
+              <th style="width:15%">Category</th>
+              <th style="width:10%">Version</th>
+              <th style="width:15%">Last Updated</th>
+              <th style="width:20%">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="apps-table-body">
+            <!-- App rows inserted here dynamically -->
+          </tbody>
+        </table>
+        
+        <!-- Empty catalog placeholder -->
+        <div id="empty-state" class="admin-empty-state" style="display:none">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <p style="font-weight:600;font-size:1.1rem;color:var(--text-primary)">No Apps Registered</p>
+          <p style="font-size:0.9rem;color:var(--text-muted);margin-top:0.25rem">Your portfolio listing data is currently empty. Click 'Add Application' to get started.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- GITHUB CMS SYNC CENTER -->
+    <section class="glass-panel github-sync-panel">
+      <h2 style="font-size:1.35rem;letter-spacing:-0.25px;margin-bottom:0.5rem">Direct GitHub Pages Deployment</h2>
+      <p style="font-size:0.9rem;color:var(--text-secondary);margin-bottom:1.5rem">Sync your portfolio modifications straight to GitHub to deploy updates to your live site immediately, without using git commands.</p>
+      
+      <div class="form-row">
+        <div class="admin-input-group">
+          <label for="gh-username" class="admin-label">GitHub Account Username</label>
+          <input type="text" id="gh-username" class="admin-input" placeholder="e.g. toukirmunna" value="toukirmunna">
+        </div>
+        <div class="admin-input-group">
+          <label for="gh-repo" class="admin-label">Repository Name</label>
+          <input type="text" id="gh-repo" class="admin-input" placeholder="e.g. toukirmunna.github.io" value="toukirmunna.github.io">
+        </div>
+      </div>
+      
+      <div class="form-row">
+        <div class="admin-input-group">
+          <label for="gh-branch" class="admin-label">Repository Target Branch</label>
+          <input type="text" id="gh-branch" class="admin-input" placeholder="e.g. main" value="main">
+        </div>
+        <div class="admin-input-group">
+          <label for="gh-token" class="admin-label">GitHub Personal Access Token (PAT)</label>
+          <input type="password" id="gh-token" class="admin-input" placeholder="ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" autocomplete="new-password">
+          <small style="font-size:0.75rem;color:var(--text-muted);display:block;margin-top:0.35rem">Token requires 'repo' permissions. It remains secure inside your browser memory.</small>
+        </div>
+      </div>
+
+      <div class="admin-input-group">
+        <label for="gh-message" class="admin-label">Commit Message</label>
+        <input type="text" id="gh-message" class="admin-input" placeholder="e.g. Update app portfolio details via Admin Panel">
+      </div>
+
+      <button type="button" id="btn-gh-publish" class="lock-btn btn-purple" style="width:auto;padding:0.85rem 2rem;margin-top:0.5rem">
+        Commit & Publish Changes
+      </button>
+
+      <!-- Sync log window -->
+      <div class="sync-logs-wrapper" id="gh-sync-logs">
+        <div class="sync-log-line" style="color:var(--text-muted)">Waiting to trigger sync pipeline...</div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" style="margin-top:auto">
+    <div class="container">
+      <div class="footer-layout">
+        <a href="index.html" class="footer-brand">
+          <span>Blue</span>Pixel
+        </a>
+        <div class="footer-links">
+          <a href="index.html" class="footer-link">Home</a>
+          <a href="about.html" class="footer-link">About</a>
+          <a href="privacy.html" class="footer-link">Privacy Policy</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Blue Pixel Studio. All rights reserved. Admin panel console.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= FORM EDITOR SLIDE-OUT MODAL ================= -->
+  <div id="app-modal" class="admin-modal">
+    <div class="modal-content">
+      <header class="modal-header">
+        <h3 id="modal-title">Edit Application</h3>
+        <button type="button" id="close-modal-btn" class="modal-close-btn" title="Close">
+          <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </header>
+      
+      <div class="modal-body">
+        <form id="app-form">
+          
+          <div class="form-row">
+            <div class="admin-input-group">
+              <label for="app-name" class="admin-label">Application Name *</label>
+              <input type="text" id="app-name" class="admin-input" placeholder="e.g. Tasbeeh" required>
+            </div>
+            <div class="admin-input-group">
+              <label for="app-id" class="admin-label">ID Slug * (routing reference)</label>
+              <input type="text" id="app-id" class="admin-input" placeholder="e.g. tasbeeh" required>
+            </div>
+          </div>
+
+          <div class="admin-input-group">
+            <label for="app-tagline" class="admin-label">App Tagline *</label>
+            <input type="text" id="app-tagline" class="admin-input" placeholder="e.g. Elegant Islamic Tasbeeh & Adhkar" required>
+          </div>
+
+          <div class="form-row">
+            <div class="admin-input-group">
+              <label for="app-category" class="admin-label">Category *</label>
+              <input type="text" id="app-category" class="admin-input" placeholder="e.g. Lifestyle, Education, Finance" required>
+            </div>
+            <div class="admin-input-group">
+              <label for="app-version" class="admin-label">Current Version *</label>
+              <input type="text" id="app-version" class="admin-input" placeholder="e.g. 1.2.0" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="admin-input-group">
+              <label for="app-apk-size" class="admin-label">APK Size *</label>
+              <input type="text" id="app-apk-size" class="admin-input" placeholder="e.g. 6.8 MB" required>
+            </div>
+            <div class="admin-input-group">
+              <label for="app-last-updated" class="admin-label">Last Updated Date *</label>
+              <input type="text" id="app-last-updated" class="admin-input" placeholder="e.g. June 15, 2026" required>
+            </div>
+          </div>
+
+          <div class="admin-input-group">
+            <label for="app-download-url" class="admin-label">Download APK URL *</label>
+            <input type="text" id="app-download-url" class="admin-input" placeholder="e.g. #download-apk" required>
+          </div>
+
+          <div class="admin-input-group">
+            <label for="app-github-url" class="admin-label">Source Code Link (Optional)</label>
+            <input type="text" id="app-github-url" class="admin-input" placeholder="e.g. https://github.com/...">
+          </div>
+
+          <div class="admin-input-group">
+            <label for="app-icon" class="admin-label">App Icon Filepath *</label>
+            <input type="text" id="app-icon" class="admin-input" placeholder="e.g. assets/images/tasbeeh-icon.png" required>
+          </div>
+
+          <div class="admin-input-group">
+            <label for="app-short-desc" class="admin-label">Short Description * (landing page cards)</label>
+            <textarea id="app-short-desc" class="admin-input" rows="2" placeholder="Brief summary of app utilities..." required></textarea>
+          </div>
+
+          <div class="admin-input-group">
+            <label for="app-full-desc" class="admin-label">Full Biography Description * (details section)</label>
+            <textarea id="app-full-desc" class="admin-input" rows="4" placeholder="Detailed app breakdown and usage context..." required></textarea>
+          </div>
+
+          <!-- Dynamic Feature List builder -->
+          <div class="admin-input-group">
+            <label class="admin-label">App Features Highlight *</label>
+            <div class="dynamic-list-container" id="features-container">
+              <!-- Feature input nodes injected here -->
+            </div>
+            <button type="button" id="btn-add-feature" class="btn-add-item" style="margin-top:0.5rem">
+              <svg style="width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:2" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              Add App Feature
+            </button>
+          </div>
+
+          <!-- Dynamic Screenshot List builder -->
+          <div class="admin-input-group">
+            <label class="admin-label">Screenshots Filepaths *</label>
+            <div class="dynamic-list-container" id="screenshots-container">
+              <!-- Screenshot input nodes injected here -->
+            </div>
+            <button type="button" id="btn-add-screenshot" class="btn-add-item" style="margin-top:0.5rem">
+              <svg style="width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:2" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              Add Screenshot Path
+            </button>
+          </div>
+
+          <!-- Dynamic Changelog Timeline builder -->
+          <div class="admin-input-group" style="margin-bottom:0">
+            <label class="admin-label">Changelog Release Timeline</label>
+            <div class="dynamic-list-container" id="changelog-container" style="gap:1rem">
+              <!-- Changelog version cards injected here -->
+            </div>
+            <button type="button" id="btn-add-changelog" class="btn-add-item" style="margin-top:0.5rem">
+              <svg style="width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:2" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              Add Release Version
+            </button>
+          </div>
+
+          <!-- Hidden Submit button for form validation support -->
+          <input type="submit" id="form-hidden-submit" style="display:none">
+        </form>
+      </div>
+      
+      <footer class="modal-footer">
+        <button type="button" id="btn-cancel-app" class="btn btn-secondary" style="background:transparent;border-color:var(--border-color)">Cancel</button>
+        <button type="button" class="btn btn-primary" onclick="document.getElementById('form-hidden-submit').click();">Save App changes</button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- ================= CONFIG EXPORTER MODAL ================= -->
+  <div id="export-modal" class="admin-modal" style="justify-content:center;align-items:center">
+    <div class="modal-content" style="height:auto;max-height:85vh;max-width:550px;border-radius:16px;border:1px solid var(--border-color)">
+      <header class="modal-header">
+        <h3>Export Apps JavaScript configuration</h3>
+        <button type="button" id="close-export-modal-btn" class="modal-close-btn" title="Close">
+          <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </header>
+      
+      <div class="modal-body">
+        <p style="font-size:0.9rem;color:var(--text-secondary);margin-bottom:0.75rem">You can copy this Javascript code block and paste it inside <code>assets/js/apps-data.js</code>, or click download file to replace it.</p>
+        <textarea id="export-code-textarea" class="code-panel-textarea" readonly></textarea>
+        
+        <div class="code-panel-actions">
+          <button id="btn-copy-export" class="btn btn-primary">Copy Code</button>
+          <button id="btn-download-export" class="btn btn-secondary">Download apps-data.js</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION WIDGET -->
+  <div id="toast-notification" class="admin-toast">
+    <span id="toast-message">Success! changes applied.</span>
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/apps-data.js"></script>
+  <script src="assets/js/admin.js"></script>
+</body>
+</html>
