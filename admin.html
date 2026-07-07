@@ -128,16 +128,6 @@
           <span class="stat-label">Local Save Status</span>
         </div>
       </div>
-      
-      <div class="glass-panel stat-card">
-        <div class="stat-icon">
-          <span id="gh-sync-dot" class="sync-dot"></span>
-        </div>
-        <div class="stat-info">
-          <span id="stat-sync" class="stat-number" style="font-size:1.15rem">Idle / Pending</span>
-          <span class="stat-label">GitHub Pages Sync</span>
-        </div>
-      </div>
     </section>
 
     <!-- PORTFOLIO DATAGRID -->
@@ -202,49 +192,6 @@
       <button type="button" id="btn-write-file" class="lock-btn" style="width:auto;padding:0.85rem 2rem;margin-top:0.5rem;background:linear-gradient(135deg, var(--success), #059669);box-shadow:0 4px 12px rgba(16,185,129,0.2)" disabled>
         Save directly to local file
       </button>
-    </section>
-
-    <!-- GITHUB CMS SYNC CENTER -->
-    <section class="glass-panel github-sync-panel">
-      <h2 style="font-size:1.35rem;letter-spacing:-0.25px;margin-bottom:0.5rem">Direct GitHub Pages Deployment</h2>
-      <p style="font-size:0.9rem;color:var(--text-secondary);margin-bottom:1.5rem">Sync your portfolio modifications straight to GitHub to deploy updates to your live site immediately, without using git commands.</p>
-      
-      <div class="form-row">
-        <div class="admin-input-group">
-          <label for="gh-username" class="admin-label">GitHub Account Username</label>
-          <input type="text" id="gh-username" class="admin-input" placeholder="e.g. toukirmunna" value="toukirmunna">
-        </div>
-        <div class="admin-input-group">
-          <label for="gh-repo" class="admin-label">Repository Name</label>
-          <input type="text" id="gh-repo" class="admin-input" placeholder="e.g. toukirmunna.github.io" value="toukirmunna.github.io">
-        </div>
-      </div>
-      
-      <div class="form-row">
-        <div class="admin-input-group">
-          <label for="gh-branch" class="admin-label">Repository Target Branch</label>
-          <input type="text" id="gh-branch" class="admin-input" placeholder="e.g. main" value="main">
-        </div>
-        <div class="admin-input-group">
-          <label for="gh-token" class="admin-label">GitHub Personal Access Token (PAT)</label>
-          <input type="password" id="gh-token" class="admin-input" placeholder="ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" autocomplete="new-password">
-          <small style="font-size:0.75rem;color:var(--text-muted);display:block;margin-top:0.35rem">Token requires 'repo' permissions. It remains secure inside your browser memory.</small>
-        </div>
-      </div>
-
-      <div class="admin-input-group">
-        <label for="gh-message" class="admin-label">Commit Message</label>
-        <input type="text" id="gh-message" class="admin-input" placeholder="e.g. Update app portfolio details via Admin Panel">
-      </div>
-
-      <button type="button" id="btn-gh-publish" class="lock-btn btn-purple" style="width:auto;padding:0.85rem 2rem;margin-top:0.5rem">
-        Commit & Publish Changes
-      </button>
-
-      <!-- Sync log window -->
-      <div class="sync-logs-wrapper" id="gh-sync-logs">
-        <div class="sync-log-line" style="color:var(--text-muted)">Waiting to trigger sync pipeline...</div>
-      </div>
     </section>
 
   </main>

@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
   let editingAppId = null;
 
   // GitHub credentials cache
-  const GITHUB_CACHE_KEY = "admin_github_config";
   const AUTH_CACHE_KEY = "admin_authenticated";
   const DEFAULT_PASSCODE = "admin123";
 
@@ -23,7 +22,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const statsTotalApps = document.getElementById("stat-total-apps");
   const statsCategories = document.getElementById("stat-categories");
   const statsLastSaved = document.getElementById("stat-last-saved");
-  const statsSync = document.getElementById("stat-sync");
 
   const appModal = document.getElementById("app-modal");
   const modalTitle = document.getElementById("modal-title");
@@ -53,15 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const btnResetLocal = document.getElementById("btn-reset-local");
   const btnLogout = document.getElementById("btn-logout");
 
-  // GitHub Sync panel
-  const ghUsernameInput = document.getElementById("gh-username");
-  const ghRepoInput = document.getElementById("gh-repo");
-  const ghBranchInput = document.getElementById("gh-branch");
-  const ghTokenInput = document.getElementById("gh-token");
-  const ghMessageInput = document.getElementById("gh-message");
-  const btnGhPublish = document.getElementById("btn-gh-publish");
-  const ghSyncLogs = document.getElementById("gh-sync-logs");
-  const ghSyncDot = document.getElementById("gh-sync-dot");
+
 
   // Toast
   const toastNotification = document.getElementById("toast-notification");
@@ -92,12 +82,8 @@ document.addEventListener("DOMContentLoaded", () => {
   function performUnlock() {
     const entered = passcodeField.value.trim();
     // Accept standard passcode OR a 40-char GitHub PAT as bypass
-    if (entered === DEFAULT_PASSCODE || (entered.startsWith("ghp_") && entered.length >= 30)) {
+    if (entered === DEFAULT_PASSCODE) {
       sessionStorage.setItem(AUTH_CACHE_KEY, "true");
-      if (entered.startsWith("ghp_")) {
-        ghTokenInput.value = entered;
-        saveGithubConfigToCache();
-      }
       lockScreen.classList.add("hidden");
       showToast("Access Granted. Welcome to Blue Pixel Dashboard!", "success");
       initializeDashboard();
@@ -122,11 +108,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 800);
   });
 
-  // --- INITIALIZATION ---
   function initializeDashboard() {
     // Clone window.appsData so we don't edit original until saved
     currentApps = JSON.parse(JSON.stringify(window.appsData || []));
-    loadGithubConfigFromCache();
     renderDashboard();
     checkLinkedFile();
   }
@@ -587,155 +571,7 @@ if (typeof module !== 'undefined' && module.exports) {
   // --- GITHUB COMMIT & PUBLISH INTEGRATION ---
   
   // Cache form configurations
-  function saveGithubConfigToCache() {
-    const config = {
-      username: ghUsernameInput.value.trim(),
-      repo: ghRepoInput.value.trim(),
-      branch: ghBranchInput.value.trim(),
-      token: ghTokenInput.value.trim() // Save token temporarily in user's browser storage for quick reuse
-    };
-    localStorage.setItem(GITHUB_CACHE_KEY, JSON.stringify(config));
-  }
 
-  function loadGithubConfigFromCache() {
-    try {
-      const cached = localStorage.getItem(GITHUB_CACHE_KEY);
-      if (cached) {
-        const config = JSON.parse(cached);
-        ghUsernameInput.value = config.username || "";
-        ghRepoInput.value = config.repo || "";
-        ghBranchInput.value = config.branch || "";
-        ghTokenInput.value = config.token || "";
-      }
-    } catch (e) {
-      console.warn("Failed to load GitHub credentials cache:", e);
-    }
-  }
-
-  // Logger helper in terminal simulation window
-  function logSync(message, type = "info") {
-    const timestamp = new Date().toLocaleTimeString();
-    const line = document.createElement("div");
-    line.className = `sync-log-line ${type}`;
-    line.textContent = `[${timestamp}] ${message}`;
-    ghSyncLogs.appendChild(line);
-    ghSyncLogs.scrollTop = ghSyncLogs.scrollHeight;
-  }
-
-  btnGhPublish.addEventListener("click", async () => {
-    const username = ghUsernameInput.value.trim();
-    const repo = ghRepoInput.value.trim();
-    const branch = ghBranchInput.value.trim() || "main";
-    const token = ghTokenInput.value.trim();
-    const commitMessage = ghMessageInput.value.trim() || "Update app portfolio configuration";
-
-    if (!username || !repo || !token) {
-      showToast("Please fill in Username, Repository, and Access Token fields.", "error");
-      return;
-    }
-
-    // Save configurations
-    saveGithubConfigToCache();
-
-    // Prepare indicator & logs
-    ghSyncLogs.innerHTML = "";
-    ghSyncDot.className = "sync-dot online";
-    statsSync.textContent = "Synchronizing...";
-    statsSync.style.color = "var(--accent-primary)";
-    btnGhPublish.disabled = true;
-    btnGhPublish.textContent = "Publishing...";
-
-    logSync("Starting GitHub publishing pipeline...", "info");
-    logSync(`Repository target: ${username}/${repo} on branch: ${branch}`, "info");
-
-    const filePath = "assets/js/apps-data.js";
-    const apiGetUrl = `https://api.github.com/repos/${username}/${repo}/contents/${filePath}?ref=${branch}`;
-
-    try {
-      // 1. Get file SHA from GitHub repository
-      logSync(`Fetching current file metadata for '${filePath}'...`, "info");
-      
-      const getResponse = await fetch(apiGetUrl, {
-        method: "GET",
-        headers: {
-          "Authorization": `token ${token}`,
-          "Accept": "application/vnd.github.v3+json"
-        }
-      });
-
-      if (!getResponse.ok && getResponse.status !== 404) {
-        throw new Error(`GitHub metadata fetch failed with status: ${getResponse.status}`);
-      }
-
-      let fileSha = null;
-      if (getResponse.ok) {
-        const fileData = await getResponse.json();
-        fileSha = fileData.sha;
-        logSync(`Found existing file. SHA: ${fileSha}`, "info");
-      } else {
-        logSync(`No existing config file found at '${filePath}'. Initiating fresh create...`, "info");
-      }
-
-      // 2. Compile current apps list to JavaScript file structure
-      logSync("Compiling data modifications into JavaScript format...", "info");
-      const compiledContent = compileJavascriptFile(currentApps);
-
-      // 3. Base64-encode the content
-      // Use standard btoa with encodeURIComponent to support UTF-8 characters safely
-      logSync("Converting file layout to Base64 payload...", "info");
-      const base64Content = btoa(unescape(encodeURIComponent(compiledContent)));
-
-      // 4. Send PUT request to write file in Github repo
-      logSync("Committing changes to GitHub Pages repository...", "info");
-      const payload = {
-        message: commitMessage,
-        content: base64Content,
-        branch
-      };
-      if (fileSha) {
-        payload.sha = fileSha;
-      }
-
-      const putUrl = `https://api.github.com/repos/${username}/${repo}/contents/${filePath}`;
-      const putResponse = await fetch(putUrl, {
-        method: "PUT",
-        headers: {
-          "Authorization": `token ${token}`,
-          "Content-Type": "application/json",
-          "Accept": "application/vnd.github.v3+json"
-        },
-        body: JSON.stringify(payload)
-      });
-
-      if (!putResponse.ok) {
-        const errBody = await putResponse.json().catch(() => ({}));
-        throw new Error(errBody.message || `API Commit failed. Status: ${putResponse.status}`);
-      }
-
-      const putResult = await putResponse.json();
-      const commitHash = putResult.commit.sha.substring(0, 7);
-
-      logSync(`Success! Config file written. Commit: ${commitHash}`, "success");
-      logSync("Changes pushed to GitHub. GitHub Pages build will trigger automatically (takes 1-3 mins).", "success");
-      
-      ghSyncDot.className = "sync-dot online";
-      statsSync.textContent = `Pushed (${commitHash})`;
-      statsSync.style.color = "var(--success)";
-      
-      showToast("Config successfully published to GitHub repository!", "success");
-      ghMessageInput.value = ""; // clear message input
-    } catch (err) {
-      console.error(err);
-      logSync(`Error: ${err.message}`, "error");
-      ghSyncDot.className = "sync-dot error";
-      statsSync.textContent = "Sync Failed";
-      statsSync.style.color = "#ef4444";
-      showToast(`GitHub Publish Failed: ${err.message}`, "error");
-    } finally {
-      btnGhPublish.disabled = false;
-      btnGhPublish.textContent = "Commit & Publish Changes";
-    }
-  });
 
   // --- LOCAL FILE SYNC (GITHUB DESKTOP WORKFLOW) ---
   const DB_NAME = "BluePixelAdminDB";
