@@ -197,4 +197,42 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
     `;
   }
+
+  // 8. Lightbox modal popup
+  const lightboxModal = document.getElementById("lightbox-modal");
+  const lightboxImg = document.getElementById("lightbox-img");
+  const lightboxClose = document.getElementById("lightbox-close");
+  
+  if (lightboxModal && lightboxImg && lightboxClose) {
+    const galleryEl = document.getElementById("gallery-container");
+    if (galleryEl) {
+      galleryEl.addEventListener("click", (e) => {
+        const img = e.target.closest("img");
+        if (img) {
+          lightboxImg.src = img.src;
+          lightboxModal.classList.add("active");
+          document.body.style.overflow = "hidden"; // lock page scroll
+        }
+      });
+    }
+
+    lightboxClose.addEventListener("click", () => {
+      lightboxModal.classList.remove("active");
+      document.body.style.overflow = "";
+    });
+
+    lightboxModal.addEventListener("click", (e) => {
+      if (e.target === lightboxModal) {
+        lightboxModal.classList.remove("active");
+        document.body.style.overflow = "";
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && lightboxModal.classList.contains("active")) {
+        lightboxModal.classList.remove("active");
+        document.body.style.overflow = "";
+      }
+    });
+  }
 });

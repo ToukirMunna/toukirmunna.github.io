@@ -1,0 +1,31 @@
+/* --- SCROLL ANIMATIONS --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity var(--transition-normal), transform var(--transition-normal);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Moving Mesh Gradient Animation */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.mesh-gradient-bg {
+  background: linear-gradient(-45deg, rgba(37, 99, 235, 0.05), rgba(14, 165, 233, 0.05), rgba(6, 182, 212, 0.05), rgba(59, 130, 246, 0.05));
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
+}
+
+/* 3D Parallax Tilt Effect classes */
+.tilt-card {
+  transition: transform 0.1s ease, box-shadow var(--transition-normal);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
