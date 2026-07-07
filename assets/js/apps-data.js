@@ -9,11 +9,17 @@ const defaultAppsData = [
     "tagline": "Elegant Islamic Tasbeeh & Adhkar for Muslim",
     "shortDescription": "A minimal, elegant Tasbeeh counter and Adhkar companion designed for daily spiritual mindfulness.",
     "fullDescription": "Tasbeeh is a beautifully simple digital counter and Dhikr tracking application. Designed to encourage spiritual reflection, the app offers custom counter presets, audio and haptic feedback, a collection of authentic daily supplications, and historical tracking to help you visualize your consistency. Designed with a peaceful AMOLED-friendly layout that minimizes battery drain.",
-    "icon": "assets/images/tasbeeh-icon.png",
+    "icon": "assets/images/tasbeeh/tasbeeh-icon.png",
     "screenshots": [
-      "assets/images/tasbeeh-screen1.png",
-      "assets/images/tasbeeh-screen2.png",
-      "assets/images/tasbeeh-screen3.png"
+      "assets/images/tasbeeh/tasbeeh-screen1.png",
+      "assets/images/tasbeeh/tasbeeh-screen2.png",
+      "assets/images/tasbeeh/tasbeeh-screen3.png",
+      "assets/images/tasbeeh/tasbeeh_screenshot_01.png",
+      "assets/images/tasbeeh/tasbeeh_screenshot_02.png",
+      "assets/images/tasbeeh/tasbeeh_screenshot_03.png",
+      "assets/images/tasbeeh/tasbeeh_screenshot_04.png",
+      "assets/images/tasbeeh/tasbeeh_screenshot_05.png",
+      "assets/images/tasbeeh/tasbeeh_screenshot_06.png"
     ],
     "features": [
       "Custom counter limits with haptic patterns and pleasant audio cues",
@@ -54,11 +60,11 @@ const defaultAppsData = [
     "tagline": "Playful Kids Learning & Games",
     "shortDescription": "An interactive, child-friendly educational dashboard featuring spelling games, basic math, and logic puzzles.",
     "fullDescription": "LittleMind is a safe, colorful, and engaging learning ecosystem built specifically for early childhood development. Combining gamified spelling challenges, drawing boards, and basic logic quizzes, it nurtures curiosity without distracting advertisements. Engineered with large touch targets and child-friendly visuals.",
-    "icon": "assets/images/littlemind-icon.png",
+    "icon": "assets/images/littlemind/littlemind-icon.png",
     "screenshots": [
-      "assets/images/littlemind-screen1.png",
-      "assets/images/littlemind-screen2.png",
-      "assets/images/littlemind-screen3.png"
+      "assets/images/littlemind/littlemind-screen1.png",
+      "assets/images/littlemind/littlemind-screen2.png",
+      "assets/images/littlemind/littlemind-screen3.png"
     ],
     "features": [
       "Over 50 interactive learning levels across spelling, counting, and shapes",
@@ -99,11 +105,11 @@ const defaultAppsData = [
     "tagline": "Daily Finance & Smart Budgeting",
     "shortDescription": "A clean financial manager providing automated category budgets, analytics, and visual reports.",
     "fullDescription": "Expense Tracker takes the stress out of personal wealth management. Easily log transactions under smart categories, establish recurring monthly budgets, and analyze spending habits with interactive vector charts. Designed for high efficiency and speed, ensuring you can track transactions in seconds.",
-    "icon": "assets/images/expense-icon.png",
+    "icon": "assets/images/expense/expense-icon.png",
     "screenshots": [
-      "assets/images/expense-screen1.png",
-      "assets/images/expense-screen2.png",
-      "assets/images/expense-screen3.png"
+      "assets/images/expense/expense-screen1.png",
+      "assets/images/expense/expense-screen2.png",
+      "assets/images/expense/expense-screen3.png"
     ],
     "features": [
       "Quick transaction logging via persistent status notifications",
@@ -143,11 +149,11 @@ const defaultAppsData = [
     "tagline": "Small Business Point of Sale",
     "shortDescription": "An advanced, offline Point of Sale solution detailing inventory systems, PDF invoices, and revenue reporting.",
     "fullDescription": "EesyPOS is a complete retail management system that turns any Android tablet or phone into a business register. Perform fast checkouts, scan barcodes with device cameras, manage item stocks, generate invoice PDFs, and analyze daily revenue logs locally. Perfect for small boutiques, kiosks, and retail cafes.",
-    "icon": "assets/images/eesypos-icon.png",
+    "icon": "assets/images/eesypos/eesypos-icon.png",
     "screenshots": [
-      "assets/images/eesypos-screen1.png",
-      "assets/images/eesypos-screen2.png",
-      "assets/images/eesypos-screen3.png"
+      "assets/images/eesypos/eesypos-screen1.png",
+      "assets/images/eesypos/eesypos-screen2.png",
+      "assets/images/eesypos/eesypos-screen3.png"
     ],
     "features": [
       "Fast retail register checkout supporting custom discounts and tax rates",
@@ -188,11 +194,11 @@ const defaultAppsData = [
     "tagline": "Safe Kids Video & Parental Control",
     "shortDescription": "A kid-safe media player featuring passcode parental suites, custom folder sandboxes, and input locks.",
     "fullDescription": "Kido Player gives parents peace of mind while their children stream video content. Inspired by child-focused streaming platforms, it offers a colorful kids interface alongside a passcode-protected parental suite. Whitelist specific video folders, lock screen inputs, and set timers to limit screen usage.",
-    "icon": "assets/images/kido-icon.png",
+    "icon": "assets/images/kido/kido-icon.png",
     "screenshots": [
-      "assets/images/kido-screen1.png",
-      "assets/images/kido-screen2.png",
-      "assets/images/kido-screen3.png"
+      "assets/images/kido/kido-screen1.png",
+      "assets/images/kido/kido-screen2.png",
+      "assets/images/kido/kido-screen3.png"
     ],
     "features": [
       "Passcode-protected settings panel for managing folders and limits",
@@ -232,11 +238,11 @@ const defaultAppsData = [
     "tagline": "Smart Grocery & Shopping Planner",
     "shortDescription": "A feature-rich grocery planner with live sharing, item pricing, and organized category lists.",
     "fullDescription": "My Shopping List is the easiest way to organize lists, plan grocery runs, and shop together. Create shareable lists that sync instantly, automatically group items by supermarket aisle, add budget calculations, and store customer loyalty cards. Optimized for speed and clarity in busy aisles.",
-    "icon": "assets/images/shopping-icon.png",
+    "icon": "assets/images/shopping/shopping-icon.png",
     "screenshots": [
-      "assets/images/shopping-screen1.png",
-      "assets/images/shopping-screen2.png",
-      "assets/images/shopping-screen3.png"
+      "assets/images/shopping/shopping-screen1.png",
+      "assets/images/shopping/shopping-screen2.png",
+      "assets/images/shopping/shopping-screen3.png"
     ],
     "features": [
       "Real-time list synchronization with friends and family",

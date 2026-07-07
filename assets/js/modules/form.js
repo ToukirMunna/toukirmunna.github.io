@@ -12,7 +12,8 @@ const screenshotsContainer = document.getElementById("screenshots-container");
 const changelogContainer = document.getElementById("changelog-container");
 
 const btnAddFeature = document.getElementById("btn-add-feature");
-const btnAddScreenshot = document.getElementById("btn-add-screenshot");
+const btnAddScreenshotBlank = document.getElementById("btn-add-screenshot-blank");
+const batchScreenshotPicker = document.getElementById("batch-screenshot-picker");
 const btnAddChangelog = document.getElementById("btn-add-changelog");
 
 let editingAppId = null;
@@ -62,7 +63,8 @@ function addScreenshotInputRow(container, value = "") {
   fileInput.onchange = (e) => {
     const file = e.target.files[0];
     if (file) {
-      textInput.value = `assets/images/${file.name}`;
+      const appId = document.getElementById("app-id").value.trim().toLowerCase() || "default";
+      textInput.value = `assets/images/${appId}/${file.name}`;
       showToast(`Selected screenshot: ${file.name}`, "success");
     }
   };
@@ -238,15 +240,35 @@ function initFormHandlers(onSubmitCallback) {
     iconFilePicker.onchange = (e) => {
       const file = e.target.files[0];
       if (file) {
-        appIcon.value = `assets/images/${file.name}`;
+        const appId = document.getElementById("app-id").value.trim().toLowerCase() || "default";
+        appIcon.value = `assets/images/${appId}/${file.name}`;
         showToast(`Selected icon file: ${file.name}`, "success");
+      }
+    };
+  }
+
+  // Bind Batch screenshot picker to auto-populate multiple rows
+  if (batchScreenshotPicker) {
+    batchScreenshotPicker.onchange = (e) => {
+      const files = Array.from(e.target.files);
+      if (files.length > 0) {
+        const appId = document.getElementById("app-id").value.trim().toLowerCase() || "default";
+        // Clear first row if it is empty and is the only element
+        const firstInput = screenshotsContainer.querySelector(".screenshot-path-input");
+        if (firstInput && firstInput.value === "" && screenshotsContainer.children.length === 1) {
+          screenshotsContainer.innerHTML = "";
+        }
+        files.forEach(file => {
+          addScreenshotInputRow(screenshotsContainer, `assets/images/${appId}/${file.name}`);
+        });
+        showToast(`Batch added ${files.length} screenshots.`, "success");
       }
     };
   }
 
   // Bind dynamic add buttons
   if (btnAddFeature) btnAddFeature.onclick = () => addStringInputRow(featuresContainer, "");
-  if (btnAddScreenshot) btnAddScreenshot.onclick = () => addScreenshotInputRow(screenshotsContainer, "");
+  if (btnAddScreenshotBlank) btnAddScreenshotBlank.onclick = () => addScreenshotInputRow(screenshotsContainer, "");
   if (btnAddChangelog) btnAddChangelog.onclick = () => addChangelogSection(changelogContainer);
 
   if (appForm) {
