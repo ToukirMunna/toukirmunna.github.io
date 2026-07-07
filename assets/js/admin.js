@@ -67,6 +67,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const toastNotification = document.getElementById("toast-notification");
   const toastMessage = document.getElementById("toast-message");
 
+  // Local File Sync selectors
+  const localFileStatus = document.getElementById("local-file-status");
+  const btnLinkFile = document.getElementById("btn-link-file");
+  const btnUnlinkFile = document.getElementById("btn-unlink-file");
+  const btnWriteFile = document.getElementById("btn-write-file");
+
   // --- AUTHENTICATION ---
   function checkAuth() {
     if (sessionStorage.getItem(AUTH_CACHE_KEY) === "true") {
@@ -122,6 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
     currentApps = JSON.parse(JSON.stringify(window.appsData || []));
     loadGithubConfigFromCache();
     renderDashboard();
+    checkLinkedFile();
   }
 
   // --- DASHBOARD RENDERER ---
@@ -696,6 +703,176 @@ if (typeof module !== 'undefined' && module.exports) {
     } finally {
       btnGhPublish.disabled = false;
       btnGhPublish.textContent = "Commit & Publish Changes";
+    }
+  });
+
+  // --- LOCAL FILE SYNC (GITHUB DESKTOP WORKFLOW) ---
+  const DB_NAME = "BluePixelAdminDB";
+  const STORE_NAME = "FileHandles";
+  const KEY_NAME = "appsDataFileHandle";
+
+  function openDB() {
+    return new Promise((resolve, reject) => {
+      const request = indexedDB.open(DB_NAME, 1);
+      request.onupgradeneeded = (e) => {
+        const db = e.target.result;
+        if (!db.objectStoreNames.contains(STORE_NAME)) {
+          db.createObjectStore(STORE_NAME);
+        }
+      };
+      request.onsuccess = (e) => resolve(e.target.result);
+      request.onerror = (e) => reject(e.target.error);
+    });
+  }
+
+  async function saveFileHandle(handle) {
+    const db = await openDB();
+    return new Promise((resolve, reject) => {
+      const tx = db.transaction(STORE_NAME, "readwrite");
+      const store = tx.objectStore(STORE_NAME);
+      const request = store.put(handle, KEY_NAME);
+      request.onsuccess = () => resolve();
+      request.onerror = (e) => reject(e.target.error);
+    });
+  }
+
+  async function getFileHandle() {
+    const db = await openDB();
+    return new Promise((resolve, reject) => {
+      const tx = db.transaction(STORE_NAME, "readonly");
+      const store = tx.objectStore(STORE_NAME);
+      const request = store.get(KEY_NAME);
+      request.onsuccess = (e) => resolve(e.target.result);
+      request.onerror = (e) => reject(e.target.error);
+    });
+  }
+
+  async function removeFileHandle() {
+    const db = await openDB();
+    return new Promise((resolve, reject) => {
+      const tx = db.transaction(STORE_NAME, "readwrite");
+      const store = tx.objectStore(STORE_NAME);
+      const request = store.delete(KEY_NAME);
+      request.onsuccess = () => resolve();
+      request.onerror = (e) => reject(e.target.error);
+    });
+  }
+
+  async function checkLinkedFile() {
+    if (!('showOpenFilePicker' in window)) {
+      localFileStatus.innerHTML = `<span class="sync-dot error"></span> Not Supported in this Browser`;
+      btnLinkFile.disabled = true;
+      return;
+    }
+    try {
+      const handle = await getFileHandle();
+      if (handle) {
+        updateFileSyncUI(handle);
+      } else {
+        updateFileSyncUI(null);
+      }
+    } catch (e) {
+      console.error("Failed to load file handle from DB", e);
+      updateFileSyncUI(null);
+    }
+  }
+
+  function updateFileSyncUI(handle) {
+    if (handle) {
+      localFileStatus.innerHTML = `<span class="sync-dot online"></span> Linked: <strong style="color:var(--text-primary)">${escapeHtml(handle.name)}</strong>`;
+      btnUnlinkFile.style.display = "inline-flex";
+      btnLinkFile.textContent = "Change File";
+      btnWriteFile.disabled = false;
+    } else {
+      localFileStatus.innerHTML = `<span class="sync-dot"></span> Not Linked`;
+      btnUnlinkFile.style.display = "none";
+      btnLinkFile.textContent = "Link apps-data.js File";
+      btnWriteFile.disabled = true;
+    }
+  }
+
+  async function verifyPermission(fileHandle, readWrite) {
+    const options = {};
+    if (readWrite) {
+      options.mode = 'readwrite';
+    }
+    if ((await fileHandle.queryPermission(options)) === 'granted') {
+      return true;
+    }
+    if ((await fileHandle.requestPermission(options)) === 'granted') {
+      return true;
+    }
+    return false;
+  }
+
+  async function writeLocalFile(fileHandle, contents) {
+    const writable = await fileHandle.createWritable();
+    await writable.write(contents);
+    await writable.close();
+  }
+
+  btnLinkFile.addEventListener("click", async () => {
+    try {
+      const [handle] = await window.showOpenFilePicker({
+        types: [
+          {
+            description: 'JavaScript Config files (apps-data.js)',
+            accept: {
+              'text/javascript': ['.js'],
+            },
+          },
+        ],
+        excludeAcceptAllOption: true,
+        multiple: false
+      });
+      
+      if (handle) {
+        await saveFileHandle(handle);
+        updateFileSyncUI(handle);
+        showToast("Successfully linked to local repository file!", "success");
+      }
+    } catch (err) {
+      console.error(err);
+      if (err.name !== "AbortError") {
+        showToast(`Failed to link file: ${err.message}`, "error");
+      }
+    }
+  });
+
+  btnUnlinkFile.addEventListener("click", async () => {
+    if (confirm("Unlink local config file?")) {
+      await removeFileHandle();
+      updateFileSyncUI(null);
+      showToast("Local file unlinked.", "info");
+    }
+  });
+
+  btnWriteFile.addEventListener("click", async () => {
+    try {
+      const handle = await getFileHandle();
+      if (!handle) {
+        showToast("Please link your local apps-data.js file first.", "error");
+        return;
+      }
+      
+      btnWriteFile.disabled = true;
+      btnWriteFile.textContent = "Saving to file...";
+
+      const hasPermission = await verifyPermission(handle, true);
+      if (!hasPermission) {
+        throw new Error("Write permission denied. Please grant file write permission in the browser pop-up.");
+      }
+
+      const compiledContent = compileJavascriptFile(currentApps);
+      await writeLocalFile(handle, compiledContent);
+
+      showToast("Local file updated directly! Check GitHub Desktop to commit & push.", "success");
+    } catch (err) {
+      console.error(err);
+      showToast(`Failed to write local file: ${err.message}`, "error");
+    } finally {
+      btnWriteFile.disabled = false;
+      btnWriteFile.textContent = "Save directly to local file";
     }
   });
 

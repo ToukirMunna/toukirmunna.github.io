@@ -167,6 +167,29 @@
       </div>
     </section>
 
+    <!-- LOCAL REPOSITORY SYNC PANEL (GITHUB DESKTOP WORKFLOW) -->
+    <section class="glass-panel" style="padding:1.75rem;margin-bottom:2.5rem">
+      <h2 style="font-size:1.35rem;letter-spacing:-0.25px;margin-bottom:0.5rem">Local Repository Sync (GitHub Desktop)</h2>
+      <p style="font-size:0.9rem;color:var(--text-secondary);margin-bottom:1.5rem">Link your local clone's <code>assets/js/apps-data.js</code> file to modify it directly. Once saved, updates will show up instantly in <strong>GitHub Desktop</strong> for staging, committing, and pushing.</p>
+      
+      <div style="background:var(--bg-color);border:1px solid var(--border-color);border-radius:8px;padding:1.25rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;margin-bottom:1.25rem">
+        <div>
+          <span style="font-size:0.8rem;font-weight:600;color:var(--text-secondary);text-transform:uppercase;letter-spacing:0.5px">File Sync Status</span>
+          <div id="local-file-status" style="display:flex;align-items:center;gap:0.5rem;font-weight:600;font-size:0.95rem;margin-top:0.25rem;color:var(--text-muted)">
+            <span class="sync-dot"></span> Not Linked
+          </div>
+        </div>
+        <div style="display:flex;gap:0.5rem">
+          <button type="button" id="btn-unlink-file" class="btn btn-secondary" style="display:none;border-color:#ef4444;color:#ef4444;background:transparent;padding:0.5rem 1rem;font-size:0.85rem">Unlink File</button>
+          <button type="button" id="btn-link-file" class="btn btn-secondary" style="padding:0.5rem 1.25rem;font-size:0.85rem">Link apps-data.js File</button>
+        </div>
+      </div>
+
+      <button type="button" id="btn-write-file" class="lock-btn" style="width:auto;padding:0.85rem 2rem;margin-top:0.5rem;background:linear-gradient(135deg, var(--success), #059669);box-shadow:0 4px 12px rgba(16,185,129,0.2)" disabled>
+        Save directly to local file
+      </button>
+    </section>
+
     <!-- GITHUB CMS SYNC CENTER -->
     <section class="glass-panel github-sync-panel">
       <h2 style="font-size:1.35rem;letter-spacing:-0.25px;margin-bottom:0.5rem">Direct GitHub Pages Deployment</h2>
