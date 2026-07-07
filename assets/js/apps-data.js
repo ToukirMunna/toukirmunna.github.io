@@ -23,9 +23,9 @@ const defaultAppsData = [
       "Responsive widget layout for easy home screen access"
     ],
     "version": "1.2.0",
-    "apkSize": "6.8 MB",
+    "apkSize": "9.9 MB",
     "lastUpdated": "June 15, 2026",
-    "downloadUrl": "#download-tasbeeh-apk",
+    "downloadUrl": "assets/apks/Tasbeeh v20260707.apk",
     "githubUrl": "",
     "category": "Lifestyle",
     "changelog": [
@@ -68,9 +68,9 @@ const defaultAppsData = [
       "Support for up to three child profiles with custom avatars"
     ],
     "version": "2.0.1",
-    "apkSize": "34.5 MB",
+    "apkSize": "42.0 MB",
     "lastUpdated": "July 02, 2026",
-    "downloadUrl": "#download-littlemind-apk",
+    "downloadUrl": "assets/apks/LittleMind v20260105.apk",
     "githubUrl": "",
     "category": "Education",
     "changelog": [
@@ -113,9 +113,9 @@ const defaultAppsData = [
       "Zero network requirements - data is saved securely in a local database"
     ],
     "version": "1.8.3",
-    "apkSize": "4.3 MB",
+    "apkSize": "3.4 MB",
     "lastUpdated": "May 29, 2026",
-    "downloadUrl": "assets/apks/EasyPOS v20260707.apk",
+    "downloadUrl": "assets/apks/Expense Tracker v20260307.apk",
     "githubUrl": "https://github.com/example/expense-tracker-android",
     "category": "Finance",
     "changelog": [
@@ -157,9 +157,9 @@ const defaultAppsData = [
       "100% offline-first local SQLite database for maximum reliability"
     ],
     "version": "3.4.0",
-    "apkSize": "19.2 MB",
+    "apkSize": "4.3 MB",
     "lastUpdated": "June 29, 2026",
-    "downloadUrl": "#download-eesypos-apk",
+    "downloadUrl": "assets/apks/EasyPOS v20260707.apk",
     "githubUrl": "",
     "category": "Business",
     "changelog": [
@@ -202,9 +202,9 @@ const defaultAppsData = [
       "Animated playful buttons and dynamic color profiles kids love"
     ],
     "version": "1.1.2",
-    "apkSize": "16.7 MB",
+    "apkSize": "14.9 MB",
     "lastUpdated": "June 10, 2026",
-    "downloadUrl": "#download-kido-apk",
+    "downloadUrl": "assets/apks/KidoPlayer v20260703.apk",
     "githubUrl": "",
     "category": "Entertainment",
     "changelog": [
@@ -266,6 +266,76 @@ const defaultAppsData = [
         "date": "May 02, 2026",
         "notes": [
           "Introduced automated aisle sorting categories algorithm"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "my-diary",
+    "name": "My Diary",
+    "tagline": "Personal Journal & Secure Private Notes",
+    "shortDescription": "A beautiful, secure diary app to write down your thoughts, memories, and daily reflections with fingerprint lock.",
+    "fullDescription": "My Diary is your personal space to express yourself freely and securely. Write down thoughts, log daily moods, track habits, and preserve memories with attached photos. Features AES-256 encryption and biometric lock to keep your secrets private, customized writing fonts, and scheduled reminders so you never miss a day's entry.",
+    "icon": "assets/images/diary-icon.png",
+    "screenshots": [
+      "assets/images/diary-screen1.png",
+      "assets/images/diary-screen2.png",
+      "assets/images/diary-screen3.png"
+    ],
+    "features": [
+      "Biometric fingerprint security and custom PIN lock pattern",
+      "Daily mood tracking calendar with emotional trend analytics",
+      "Rich text editor with customizable fonts, backgrounds, and mood emojis",
+      "Auto-backup integrations supporting secure local file exports",
+      "Custom daily writing notification alarms"
+    ],
+    "version": "1.0.2",
+    "apkSize": "14.7 MB",
+    "lastUpdated": "May 03, 2026",
+    "downloadUrl": "assets/apks/My Diary v20260503.apk",
+    "githubUrl": "",
+    "category": "Lifestyle",
+    "changelog": [
+      {
+        "version": "1.0.2",
+        "date": "May 03, 2026",
+        "notes": [
+          "Initial release featuring mood journal logs and biometric lock security"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "screentime-launcher",
+    "name": "ScreenTime Launcher",
+    "tagline": "Minimalist App Launcher & Focus Companion",
+    "shortDescription": "A minimalist home screen launcher designed to curb digital addiction, track screen limits, and promote focus.",
+    "fullDescription": "ScreenTime Launcher replaces your default home screen with a clean, text-based minimalist layout that helps you stay focused. Define daily app usage limits, block distracting social media feeds, track usage trends, and embrace digital detox. Designed to reduce screen time and improve productivity through intentional phone usage.",
+    "icon": "assets/images/screentime-icon.png",
+    "screenshots": [
+      "assets/images/screentime-screen1.png",
+      "assets/images/screentime-screen2.png",
+      "assets/images/screentime-screen3.png"
+    ],
+    "features": [
+      "Text-based minimalist layout to eliminate visual clutter",
+      "App usage blocking guards with custom passcode locks",
+      "Real-time screen usage trends and focus metrics dashboard",
+      "Quick shortcut gestures for productive workflows",
+      "AMOLED-friendly layout designed for low eye strain and battery usage"
+    ],
+    "version": "1.1.0",
+    "apkSize": "14.7 MB",
+    "lastUpdated": "July 01, 2026",
+    "downloadUrl": "assets/apks/ScreenTIme Launcher v20260701.apk",
+    "githubUrl": "",
+    "category": "Productivity",
+    "changelog": [
+      {
+        "version": "1.1.0",
+        "date": "July 01, 2026",
+        "notes": [
+          "Initial release featuring minimalist layout and app usage limiting tools"
         ]
       }
     ]
