@@ -25,6 +25,10 @@
   --nav-bg: rgba(248, 250, 252, 0.8);
   --success: #10b981;
   
+  --btn-secondary-bg: #e2e8f0;       /* Light grey background for secondary buttons */
+  --btn-secondary-hover: #cbd5e1;
+  --btn-secondary-text: #0f172a;     /* High contrast dark text */
+  
   /* Transitions */
   --transition-fast: 0.15s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-normal: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -51,6 +55,10 @@
   --accent-light: rgba(59, 130, 246, 0.12);
   
   --nav-bg: rgba(15, 23, 42, 0.8);
+  
+  --btn-secondary-bg: #1e293b;       /* Dark slate background for secondary buttons */
+  --btn-secondary-hover: #273549;
+  --btn-secondary-text: #f8fafc;     /* High contrast white text */
 }
 
 /* --- RESET & BASE STYLES --- */
@@ -158,7 +166,7 @@ img {
 
 .btn-primary {
   background: var(--accent-primary);
-  color: var(--text-primary);
+  color: #ffffff;                    /* Hardcoded high contrast white text */
 }
 
 .btn-primary:hover {
@@ -167,13 +175,13 @@ img {
 }
 
 .btn-secondary {
-  background: #1c1c1f;
-  color: var(--text-primary);
+  background: var(--btn-secondary-bg);
+  color: var(--btn-secondary-text);
   border: 1px solid var(--border-color);
 }
 
 .btn-secondary:hover {
-  background: #242429;
+  background: var(--btn-secondary-hover);
   border-color: var(--border-color-hover);
   transform: translateY(-1px);
 }

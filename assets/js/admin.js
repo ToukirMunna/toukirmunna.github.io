@@ -153,7 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Populate apps table
     appsTableBody.innerHTML = "";
-    currentApps.forEach((app) => {
+    currentApps.forEach((app, index) => {
       const tr = document.createElement("tr");
       tr.innerHTML = `
         <td>
@@ -170,6 +170,12 @@ document.addEventListener("DOMContentLoaded", () => {
         <td>${app.lastUpdated}</td>
         <td>
           <div class="action-btn-group">
+            <button class="btn-icon btn-move-up" title="Move Up" ${index === 0 ? 'disabled style="opacity: 0.35; cursor: not-allowed;"' : ''}>
+              <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg>
+            </button>
+            <button class="btn-icon btn-move-down" title="Move Down" ${index === currentApps.length - 1 ? 'disabled style="opacity: 0.35; cursor: not-allowed;"' : ''}>
+              <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
             <button class="btn-icon btn-edit" title="Edit App" data-id="${app.id}">
               <svg viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
             </button>
@@ -187,6 +193,13 @@ document.addEventListener("DOMContentLoaded", () => {
       tr.querySelector(".btn-edit").addEventListener("click", () => openEditModal(app.id));
       tr.querySelector(".btn-clone").addEventListener("click", () => cloneApp(app.id));
       tr.querySelector(".btn-delete").addEventListener("click", () => deleteApp(app.id));
+
+      if (index > 0) {
+        tr.querySelector(".btn-move-up").addEventListener("click", () => moveAppUp(index));
+      }
+      if (index < currentApps.length - 1) {
+        tr.querySelector(".btn-move-down").addEventListener("click", () => moveAppDown(index));
+      }
 
       appsTableBody.appendChild(tr);
     });
@@ -465,6 +478,24 @@ document.addEventListener("DOMContentLoaded", () => {
       showToast(`Removed '${app.name}' from working memory.`, "info");
       renderDashboard();
     }
+  }
+
+  function moveAppUp(index) {
+    if (index <= 0) return;
+    const temp = currentApps[index];
+    currentApps[index] = currentApps[index - 1];
+    currentApps[index - 1] = temp;
+    showToast(`Moved '${temp.name}' up in layout order.`, "info");
+    renderDashboard();
+  }
+
+  function moveAppDown(index) {
+    if (index >= currentApps.length - 1) return;
+    const temp = currentApps[index];
+    currentApps[index] = currentApps[index + 1];
+    currentApps[index + 1] = temp;
+    showToast(`Moved '${temp.name}' down in layout order.`, "info");
+    renderDashboard();
   }
 
   // --- LOCAL PERSISTENCE AND RESETS ---
@@ -902,6 +933,21 @@ if (typeof module !== 'undefined' && module.exports) {
     window.toastTimeout = setTimeout(() => {
       toastNotification.classList.remove("active");
     }, 4000);
+  }
+
+  // --- THEME TOGGLING ---
+  const themeToggle = document.getElementById("theme-toggle");
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+      if (isDark) {
+        document.documentElement.removeAttribute("data-theme");
+        localStorage.setItem("theme", "light");
+      } else {
+        document.documentElement.setAttribute("data-theme", "dark");
+        localStorage.setItem("theme", "dark");
+      }
+    });
   }
 
   // Launch login flow
