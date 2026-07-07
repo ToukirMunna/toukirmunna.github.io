@@ -115,7 +115,7 @@ const defaultAppsData = [
     "version": "1.8.3",
     "apkSize": "12.4 MB",
     "lastUpdated": "May 29, 2026",
-    "downloadUrl": "#download-expense-apk",
+    "downloadUrl": "assets/apks/expense-tracker.apk",
     "githubUrl": "https://github.com/example/expense-tracker-android",
     "category": "Finance",
     "changelog": [
