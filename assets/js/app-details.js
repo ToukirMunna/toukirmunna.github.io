@@ -356,7 +356,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="app-error-state">
           <h1>Oops!</h1>
           <p>${message}</p>
-          <a href="index.html" class="btn btn-primary">
+          <a href="./" class="btn btn-primary">
             <svg style="width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2" viewBox="0 0 24 24">
               <line x1="19" y1="12" x2="5" y2="12"></line>
               <polyline points="12 19 5 12 12 5"></polyline>
