@@ -317,14 +317,21 @@
     overflow: hidden;
   }
 
-  .app-main-content, .app-sidebar {
-    width: 100%;
-    min-width: 0;
+  .app-main-content {
+    display: contents;
   }
 
   .app-sidebar {
-    order: -1;
+    width: 100%;
+    min-width: 0;
+    order: 3;
   }
+
+  .hero-screen-banner { order: 1; }
+  .gallery-section { order: 2; }
+  .desc-section { order: 4; }
+  .features-section { order: 5; }
+  .changelog-section { order: 6; }
 
   .sidebar-meta-card {
     position: relative;
