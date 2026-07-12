@@ -758,6 +758,10 @@ textarea.form-input {
   align-items: start;
 }
 
+.app-main-content {
+  min-width: 0;
+}
+
 /* Hero Screen View Banner */
 .hero-screen-banner {
   width: 100%;
@@ -808,6 +812,13 @@ textarea.form-input {
   border-radius: 12px;
   overflow: hidden;
   border: 1px solid var(--border-color);
+}
+
+.screenshot-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 /* Features List */
