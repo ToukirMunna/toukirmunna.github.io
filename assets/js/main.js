@@ -7,8 +7,8 @@ if (savedTheme === "dark") {
   document.documentElement.removeAttribute("data-theme");
 }
 
-// Featured app IDs shown on the homepage
-const FEATURED_APP_IDS = ["my-diary", "littlemind", "expense"];
+// Featured and hidden flags are now stored on each app object (featured: true, hidden: true).
+// The admin panel controls these — no hardcoded IDs needed here.
 
 document.addEventListener("DOMContentLoaded", () => {
   // Theme Toggle click handler
@@ -93,9 +93,11 @@ document.addEventListener("DOMContentLoaded", () => {
     
     let appsToRender = window.appsData;
     if (mode === "featured") {
-      appsToRender = FEATURED_APP_IDS.map(id => 
-        window.appsData.find(app => app.id === id)
-      ).filter(Boolean);
+      // Homepage: show only featured, non-hidden apps (in array order)
+      appsToRender = window.appsData.filter(app => app.featured && !app.hidden);
+    } else {
+      // Projects page: show all non-hidden apps
+      appsToRender = window.appsData.filter(app => !app.hidden);
     }
 
     appsGrid.innerHTML = ""; // Clear loader/placeholders

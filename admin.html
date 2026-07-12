@@ -19,6 +19,44 @@
   <!-- CSS Stylesheets -->
   <link rel="stylesheet" href="assets/css/styles.css">
   <link rel="stylesheet" href="assets/css/admin.css">
+  <style>
+    /* Drag-and-drop row styles */
+    #apps-table-body tr { cursor: default; }
+    #apps-table-body tr.dragging { opacity: 0.45; }
+    #apps-table-body tr.drag-over td { background: var(--accent-light); }
+    #apps-table-body tr.row-hidden td { opacity: 0.5; }
+    .drag-handle {
+      display: inline-flex; align-items: center; cursor: grab;
+      color: var(--text-muted); margin-right: 0.5rem; flex-shrink: 0;
+    }
+    .drag-handle:active { cursor: grabbing; }
+    .drag-handle svg { width: 16px; height: 16px; }
+    /* Admin status badges */
+    .admin-badge {
+      display: inline-flex; align-items: center; gap: 0.25rem;
+      font-size: 0.7rem; font-weight: 700; padding: 0.15rem 0.5rem;
+      border-radius: 100px; margin-left: 0.35rem;
+      vertical-align: middle;
+    }
+    .badge-featured { background: rgba(251,191,36,0.15); color: #d97706; border: 1px solid rgba(251,191,36,0.4); }
+    .badge-hidden   { background: rgba(100,116,139,0.12); color: var(--text-muted); border: 1px solid var(--border-color); }
+    /* Image preview thumbnail */
+    .admin-img-preview {
+      display: none; width: 44px; height: 44px; object-fit: cover;
+      border-radius: 8px; border: 1px solid var(--border-color);
+      margin-top: 0.4rem;
+    }
+    /* Toggle row for featured / hidden */
+    .toggle-row {
+      display: flex; gap: 2rem; margin-top: 0.25rem;
+    }
+    .toggle-label {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.88rem; font-weight: 500; color: var(--text-secondary);
+      cursor: pointer;
+    }
+    .toggle-label input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--accent-primary); cursor: pointer; }
+  </style>
 </head>
 <body class="admin-body">
 
@@ -114,6 +152,16 @@
         <div class="stat-info">
           <span id="stat-last-saved" class="stat-number" style="font-size:1.15rem">Checking...</span>
           <span class="stat-label">Local Save Status</span>
+        </div>
+      </div>
+
+      <div class="glass-panel stat-card">
+        <div class="stat-icon">
+          <svg style="width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2" viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+        </div>
+        <div class="stat-info">
+          <span id="stat-last-exported" class="stat-number" style="font-size:1.15rem">Never</span>
+          <span class="stat-label">Last Exported</span>
         </div>
       </div>
     </section>
@@ -269,6 +317,21 @@
           <div class="admin-input-group">
             <label for="app-github-url" class="admin-label">Source Code Link (Optional)</label>
             <input type="text" id="app-github-url" class="admin-input" placeholder="e.g. https://github.com/...">
+          </div>
+
+          <!-- Featured / Hidden toggles -->
+          <div class="admin-input-group">
+            <label class="admin-label">Visibility Settings</label>
+            <div class="toggle-row">
+              <label class="toggle-label">
+                <input type="checkbox" id="app-featured">
+                ★ Feature on Homepage
+              </label>
+              <label class="toggle-label">
+                <input type="checkbox" id="app-hidden">
+                ● Hide from Public
+              </label>
+            </div>
           </div>
 
           <div class="admin-input-group">

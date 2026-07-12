@@ -1,13 +1,18 @@
 /**
- * Configuration Exporter Module - Blue Pixel Admin
+ * Configuration Exporter Module - Toukir Ahmed Portfolio Admin
+ * Compiles the in-memory apps array into a deployable apps-data.js file string.
  */
 
 function compileJavascriptFile(data) {
   const formattedJson = JSON.stringify(data, null, 2);
   
   return `/**
- * App Portfolio Data - Blue Pixel Studio
+ * App Portfolio Data - Toukir Ahmed
  * Easily extend your portfolio by adding new app objects to this array.
+ * Fields: id, name, tagline, shortDescription, fullDescription, icon,
+ *         screenshots, features, version, apkSize, lastUpdated,
+ *         downloadUrl, githubUrl, category, changelog,
+ *         featured (bool), hidden (bool)
  */
 const defaultAppsData = ${formattedJson};
 

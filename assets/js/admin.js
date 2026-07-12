@@ -1,5 +1,5 @@
 /**
- * Admin Panel Main Coordinator - Blue Pixel Studio
+ * Admin Panel Main Coordinator - Toukir Ahmed Portfolio
  * Coordinates state, events, and sub-module operations.
  */
 
@@ -57,6 +57,19 @@ const actionRouter = {
     currentApps[index] = currentApps[index + 1];
     currentApps[index + 1] = temp;
     showToast(`Moved '${temp.name}' down in layout order.`, "info");
+    refreshUI();
+  },
+  onToggleHidden: (appId) => {
+    const app = currentApps.find(a => a.id === appId);
+    if (!app) return;
+    app.hidden = !app.hidden;
+    showToast(`'${app.name}' is now ${app.hidden ? 'hidden from public' : 'visible'}.`, "info");
+    refreshUI();
+  },
+  onReorder: (fromIndex, toIndex) => {
+    const item = currentApps.splice(fromIndex, 1)[0];
+    currentApps.splice(toIndex, 0, item);
+    showToast(`Reordered '${item.name}'.`, "info");
     refreshUI();
   }
 };
@@ -134,6 +147,8 @@ document.addEventListener("DOMContentLoaded", () => {
     btnTriggerExport.onclick = () => {
       exportCodeTextarea.value = compileJavascriptFile(currentApps);
       exportModal.classList.add("active");
+      setLastExportTime();
+      refreshUI();
     };
   }
 
@@ -168,6 +183,8 @@ document.addEventListener("DOMContentLoaded", () => {
         document.body.removeChild(a);
         window.URL.revokeObjectURL(url);
       }, 0);
+      setLastExportTime();
+      refreshUI();
       showToast("Downloaded 'apps-data.js' config file.", "success");
     };
   }
@@ -231,6 +248,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const compiledContent = compileJavascriptFile(currentApps);
         await writeLocalFile(handle, compiledContent);
+        setLastExportTime();
+        refreshUI();
         showToast("Local file updated directly! Check GitHub Desktop to commit & push.", "success");
       } catch (err) {
         console.error(err);

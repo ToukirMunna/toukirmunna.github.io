@@ -1,5 +1,5 @@
 /**
- * Authentication Gate Module - Blue Pixel Admin
+ * Authentication Gate Module - Toukir Ahmed Portfolio Admin
  */
 
 const AUTH_CACHE_KEY = "admin_authenticated";
@@ -34,7 +34,7 @@ function performUnlock(lockScreen, passcodeField, onUnlockCallback) {
   if (entered === DEFAULT_PASSCODE) {
     sessionStorage.setItem(AUTH_CACHE_KEY, "true");
     lockScreen.classList.add("hidden");
-    showToast("Access Granted. Welcome to Blue Pixel Dashboard!", "success");
+    showToast("Access granted. Welcome to your Portfolio Dashboard!", "success");
     onUnlockCallback();
   } else {
     if (loginError) loginError.style.display = "block";

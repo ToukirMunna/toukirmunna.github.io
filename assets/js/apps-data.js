@@ -1,6 +1,7 @@
 /**
- * App Portfolio Data - Blue Pixel Studio
+ * App Portfolio Data - Toukir Ahmed
  * Easily extend your portfolio by adding new app objects to this array.
+ * Fields include: featured (shown on homepage) and hidden (removed from public view).
  */
 const defaultAppsData = [
   {
@@ -31,6 +32,8 @@ const defaultAppsData = [
     "downloadUrl": "assets/apks/Tasbeeh v20260707.apk",
     "githubUrl": "",
     "category": "Lifestyle",
+    "featured": false,
+    "hidden": false,
     "changelog": [
       {
         "version": "1.2.0",
@@ -76,6 +79,8 @@ const defaultAppsData = [
     "downloadUrl": "assets/apks/LittleMind v20260105.apk",
     "githubUrl": "",
     "category": "Education",
+    "featured": true,
+    "hidden": false,
     "changelog": [
       {
         "version": "2.0.1",
@@ -121,6 +126,8 @@ const defaultAppsData = [
     "downloadUrl": "assets/apks/Expense Tracker v20260307.apk",
     "githubUrl": "https://github.com/example/expense-tracker-android",
     "category": "Finance",
+    "featured": true,
+    "hidden": false,
     "changelog": [
       {
         "version": "1.8.3",
@@ -165,6 +172,8 @@ const defaultAppsData = [
     "downloadUrl": "assets/apks/EasyPOS v20260707.apk",
     "githubUrl": "",
     "category": "Business",
+    "featured": false,
+    "hidden": false,
     "changelog": [
       {
         "version": "3.4.0",
@@ -210,6 +219,8 @@ const defaultAppsData = [
     "downloadUrl": "assets/apks/KidoPlayer v20260703.apk",
     "githubUrl": "",
     "category": "Entertainment",
+    "featured": false,
+    "hidden": false,
     "changelog": [
       {
         "version": "1.1.2",
@@ -254,6 +265,8 @@ const defaultAppsData = [
     "downloadUrl": "#download-shopping-apk",
     "githubUrl": "https://github.com/example/shopping-list-android",
     "category": "Productivity",
+    "featured": false,
+    "hidden": false,
     "changelog": [
       {
         "version": "2.2.0",
@@ -298,6 +311,8 @@ const defaultAppsData = [
     "downloadUrl": "assets/apks/My Diary v20260503.apk",
     "githubUrl": "",
     "category": "Lifestyle",
+    "featured": true,
+    "hidden": false,
     "changelog": [
       {
         "version": "1.0.2",
@@ -333,6 +348,8 @@ const defaultAppsData = [
     "downloadUrl": "assets/apks/ScreenTIme Launcher v20260701.apk",
     "githubUrl": "",
     "category": "Productivity",
+    "featured": false,
+    "hidden": false,
     "changelog": [
       {
         "version": "1.1.0",
