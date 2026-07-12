@@ -458,6 +458,257 @@ img {
   z-index: 3;
 }
 
+/* --- HOMEPAGE SPECIFIC SECTIONS --- */
+
+/* Stats Strip */
+.stats-strip {
+  padding: 1rem 0;
+  margin-top: -1rem;
+  margin-bottom: 2rem;
+}
+
+.stats-strip-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  border-radius: 16px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  border-right: 1px solid var(--border-color);
+}
+
+.stat-item:last-child {
+  border-right: none;
+}
+
+.stat-value {
+  font-family: var(--font-heading);
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--accent-primary);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* Philosophy Section */
+.philosophy-section {
+  padding: 80px 0;
+  border-top: 1px solid var(--border-color);
+}
+
+.philosophy-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.philosophy-card {
+  padding: 2.5rem 2rem;
+  height: 100%;
+}
+
+.philosophy-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: var(--accent-light);
+  color: var(--accent-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.philosophy-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.philosophy-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.9rem;
+  color: var(--text-primary);
+}
+
+.philosophy-card p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+/* Tech Stack Section */
+.tech-section {
+  padding: 80px 0;
+  border-top: 1px solid var(--border-color);
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.tech-card {
+  padding: 1.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.tech-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-primary);
+}
+
+.tech-icon-wrapper {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.tech-icon-wrapper svg {
+  width: 22px;
+  height: 22px;
+  color: var(--text-secondary);
+}
+
+.tech-card:hover .tech-icon-wrapper svg {
+  color: var(--accent-primary);
+}
+
+.tech-info h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+  color: var(--text-primary);
+}
+
+.tech-info p {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+/* Feedback CTA Banner */
+.feedback-section {
+  padding: 80px 0 100px;
+  border-top: 1px solid var(--border-color);
+}
+
+.feedback-banner {
+  padding: 4rem 3rem;
+  border-radius: 20px;
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto;
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.05);
+}
+
+.feedback-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--accent-primary);
+  background: var(--accent-light);
+  padding: 0.35rem 0.85rem;
+  border-radius: 100px;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.5px;
+}
+
+.feedback-banner h2 {
+  font-size: 2.25rem;
+  letter-spacing: -0.5px;
+  margin-bottom: 1rem;
+}
+
+.feedback-banner p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto 2.25rem;
+  line-height: 1.6;
+}
+
+.feedback-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* Responsive Rules */
+@media (max-width: 992px) {
+  .stats-strip-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 2rem 1.5rem;
+  }
+  .stat-item:nth-child(2) {
+    border-right: none;
+  }
+  .philosophy-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .tech-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .stats-strip-container {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .stat-item {
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.75rem;
+  }
+  .stat-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  .tech-grid {
+    grid-template-columns: 1fr;
+  }
+  .feedback-banner {
+    padding: 2.5rem 1.5rem;
+  }
+  .feedback-banner h2 {
+    font-size: 1.75rem;
+  }
+  .feedback-buttons {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}
+
 /* --- APPS SECTION --- */
 .apps-section {
   padding: 80px 0;
