@@ -10,7 +10,24 @@ if (savedTheme === "dark") {
 // Featured and hidden flags are now stored on each app object (featured: true, hidden: true).
 // The admin panel controls these — no hardcoded IDs needed here.
 
+function updateBrandAssets(theme) {
+  const favicon = document.getElementById("favicon");
+  const navLogo = document.getElementById("nav-logo");
+  
+  if (theme === "dark") {
+    if (favicon) favicon.href = "assets/images/dark_favicon.png";
+    if (navLogo) navLogo.src = "assets/images/light_logod.png";
+  } else {
+    if (favicon) favicon.href = "assets/images/light_favicon.png";
+    if (navLogo) navLogo.src = "assets/images/light_logo.png";
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+  // Update brand logo and favicon based on initialized theme
+  const initialTheme = document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
+  updateBrandAssets(initialTheme);
+
   // Theme Toggle click handler
   const themeToggle = document.getElementById("theme-toggle");
   if (themeToggle) {
@@ -19,9 +36,11 @@ document.addEventListener("DOMContentLoaded", () => {
       if (isDark) {
         document.documentElement.removeAttribute("data-theme");
         localStorage.setItem("theme", "light");
+        updateBrandAssets("light");
       } else {
         document.documentElement.setAttribute("data-theme", "dark");
         localStorage.setItem("theme", "dark");
+        updateBrandAssets("dark");
       }
     });
   }
