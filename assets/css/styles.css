@@ -301,18 +301,20 @@ img {
   letter-spacing: -0.5px;
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.5rem;
 }
 
 .nav-brand span {
   color: var(--accent-primary);
+  margin-left: 0.35rem; /* Distinct gap separating logo from brand text */
 }
 
 .nav-logo {
-  height: 28px;
+  height: 24px; /* Sleeker, proportional height */
   width: auto;
   object-fit: contain;
   border-radius: 4px;
+  display: block;
 }
 
 .nav-menu {
