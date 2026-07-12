@@ -177,6 +177,7 @@ function triggerDraftSave() {
       downloadUrl: document.getElementById("app-download-url")?.value || "",
       githubUrl: document.getElementById("app-github-url")?.value || "",
       icon: document.getElementById("app-icon")?.value || "",
+      banner: document.getElementById("app-banner")?.value || "",
       shortDescription: document.getElementById("app-short-desc")?.value || "",
       fullDescription: document.getElementById("app-full-desc")?.value || "",
       featured: document.getElementById("app-featured")?.checked || false,
@@ -241,6 +242,7 @@ function applyDraftToForm(draft) {
   setVal("app-download-url", draft.downloadUrl);
   setVal("app-github-url", draft.githubUrl);
   setVal("app-icon", draft.icon);
+  setVal("app-banner", draft.banner);
   setVal("app-short-desc", draft.shortDescription);
   setVal("app-full-desc", draft.fullDescription);
 
@@ -249,8 +251,9 @@ function applyDraftToForm(draft) {
   if (featuredEl) featuredEl.checked = !!draft.featured;
   if (hiddenEl) hiddenEl.checked = !!draft.hidden;
 
-  // Update icon preview
+  // Update icon & banner preview
   attachImagePreview(document.getElementById("app-icon"));
+  attachImagePreview(document.getElementById("app-banner"));
   showToast("Draft restored. Dynamic fields (features, screenshots, changelog) need to be re-entered.", "info");
 }
 
@@ -295,8 +298,9 @@ function openAddForm() {
     };
   }
 
-  // Attach icon preview
+  // Attach icon and banner previews
   attachImagePreview(document.getElementById("app-icon"));
+  attachImagePreview(document.getElementById("app-banner"));
 
   if (appModal) appModal.classList.add("active");
   restoreDraftBanner();
@@ -326,6 +330,7 @@ function openEditForm(app) {
   document.getElementById("app-download-url").value = app.downloadUrl || "";
   document.getElementById("app-github-url").value = app.githubUrl || "";
   document.getElementById("app-icon").value = app.icon || "";
+  document.getElementById("app-banner").value = app.banner || "";
   document.getElementById("app-short-desc").value = app.shortDescription || "";
   document.getElementById("app-full-desc").value = app.fullDescription || "";
 
@@ -343,8 +348,9 @@ function openEditForm(app) {
   (app.screenshots?.length ? app.screenshots : [""]).forEach(val => addScreenshotInputRow(screenshotsContainer, val));
   (app.changelog?.length ? app.changelog : [{}]).forEach(entry => addChangelogSection(changelogContainer, entry));
 
-  // Attach icon preview
+  // Attach icon & banner preview
   attachImagePreview(document.getElementById("app-icon"));
+  attachImagePreview(document.getElementById("app-banner"));
 
   if (appModal) appModal.classList.add("active");
 }
@@ -388,9 +394,27 @@ function initFormHandlers(onSubmitCallback) {
     };
   }
 
-  // Icon path live preview
+  // Banner file picker → auto-populate path + trigger preview
+  const bannerFilePicker = document.getElementById("banner-file-picker");
+  const appBannerInput = document.getElementById("app-banner");
+  if (bannerFilePicker && appBannerInput) {
+    bannerFilePicker.onchange = (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        const appId = document.getElementById("app-id").value.trim().toLowerCase() || "default";
+        appBannerInput.value = `assets/images/${appId}/${file.name}`;
+        attachImagePreview(appBannerInput);
+        showToast(`Selected banner file: ${file.name}`, "success");
+      }
+    };
+  }
+
+  // Path live previews
   if (appIconInput) {
     appIconInput.addEventListener("input", () => attachImagePreview(appIconInput));
+  }
+  if (appBannerInput) {
+    appBannerInput.addEventListener("input", () => attachImagePreview(appBannerInput));
   }
 
   // Batch screenshot picker
@@ -450,6 +474,7 @@ function initFormHandlers(onSubmitCallback) {
         shortDescription: document.getElementById("app-short-desc").value.trim(),
         fullDescription: document.getElementById("app-full-desc").value.trim(),
         icon: document.getElementById("app-icon").value.trim() || "assets/images/logo.png",
+        banner: document.getElementById("app-banner").value.trim(),
         screenshots,
         features,
         version: document.getElementById("app-version").value.trim() || "1.0.0",

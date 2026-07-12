@@ -1,7 +1,10 @@
 /**
  * App Portfolio Data - Toukir Ahmed
  * Easily extend your portfolio by adding new app objects to this array.
- * Fields include: featured (shown on homepage) and hidden (removed from public view).
+ * Fields: id, name, tagline, shortDescription, fullDescription, icon,
+ *         screenshots, features, version, apkSize, lastUpdated,
+ *         downloadUrl, githubUrl, category, changelog,
+ *         featured (bool), hidden (bool)
  */
 const defaultAppsData = [
   {
@@ -11,6 +14,7 @@ const defaultAppsData = [
     "shortDescription": "A minimal, elegant Tasbeeh counter and Adhkar companion designed for daily spiritual mindfulness.",
     "fullDescription": "Tasbeeh is a beautifully simple digital counter and Dhikr tracking application. Designed to encourage spiritual reflection, the app offers custom counter presets, audio and haptic feedback, a collection of authentic daily supplications, and historical tracking to help you visualize your consistency. Designed with a peaceful AMOLED-friendly layout that minimizes battery drain.",
     "icon": "assets/images/tasbeeh/tasbeeh-icon.png",
+    "banner": "assets/images/tasbeeh/tasbeeh_banner.png",
     "screenshots": [
       "assets/images/tasbeeh/tasbeeh_screenshot_01.png",
       "assets/images/tasbeeh/tasbeeh_screenshot_02.png",
@@ -32,8 +36,6 @@ const defaultAppsData = [
     "downloadUrl": "assets/apks/Tasbeeh v20260707.apk",
     "githubUrl": "",
     "category": "Lifestyle",
-    "featured": false,
-    "hidden": false,
     "changelog": [
       {
         "version": "1.2.0",
@@ -52,7 +54,9 @@ const defaultAppsData = [
           "Integrated standard library of authentic daily supplications"
         ]
       }
-    ]
+    ],
+    "featured": false,
+    "hidden": false
   },
   {
     "id": "littlemind",
@@ -61,6 +65,7 @@ const defaultAppsData = [
     "shortDescription": "An interactive, child-friendly educational dashboard featuring spelling games, basic math, and logic puzzles.",
     "fullDescription": "LittleMind is a safe, colorful, and engaging learning ecosystem built specifically for early childhood development. Combining gamified spelling challenges, drawing boards, and basic logic quizzes, it nurtures curiosity without distracting advertisements. Engineered with large touch targets and child-friendly visuals.",
     "icon": "assets/images/littlemind/littlemind-icon.png",
+    "banner": "",
     "screenshots": [
       "assets/images/littlemind/littlemind-screen1.png",
       "assets/images/littlemind/littlemind-screen2.png",
@@ -108,6 +113,7 @@ const defaultAppsData = [
     "shortDescription": "A clean financial manager providing automated category budgets, analytics, and visual reports.",
     "fullDescription": "Expense Tracker takes the stress out of personal wealth management. Easily log transactions under smart categories, establish recurring monthly budgets, and analyze spending habits with interactive vector charts. Designed for high efficiency and speed, ensuring you can track transactions in seconds.",
     "icon": "assets/images/expense/expense-icon.png",
+    "banner": "",
     "screenshots": [
       "assets/images/expense/expense-screen1.png",
       "assets/images/expense/expense-screen2.png",
@@ -154,6 +160,7 @@ const defaultAppsData = [
     "shortDescription": "An advanced, offline Point of Sale solution detailing inventory systems, PDF invoices, and revenue reporting.",
     "fullDescription": "EesyPOS is a complete retail management system that turns any Android tablet or phone into a business register. Perform fast checkouts, scan barcodes with device cameras, manage item stocks, generate invoice PDFs, and analyze daily revenue logs locally. Perfect for small boutiques, kiosks, and retail cafes.",
     "icon": "assets/images/eesypos/eesypos-icon.png",
+    "banner": "",
     "screenshots": [
       "assets/images/eesypos/eesypos-screen1.png",
       "assets/images/eesypos/eesypos-screen2.png",
@@ -201,6 +208,7 @@ const defaultAppsData = [
     "shortDescription": "A kid-safe media player featuring passcode parental suites, custom folder sandboxes, and input locks.",
     "fullDescription": "Kido Player gives parents peace of mind while their children stream video content. Inspired by child-focused streaming platforms, it offers a colorful kids interface alongside a passcode-protected parental suite. Whitelist specific video folders, lock screen inputs, and set timers to limit screen usage.",
     "icon": "assets/images/kido/kido-icon.png",
+    "banner": "",
     "screenshots": [
       "assets/images/kido/kido-screen1.png",
       "assets/images/kido/kido-screen2.png",
@@ -247,6 +255,7 @@ const defaultAppsData = [
     "shortDescription": "A feature-rich grocery planner with live sharing, item pricing, and organized category lists.",
     "fullDescription": "My Shopping List is the easiest way to organize lists, plan grocery runs, and shop together. Create shareable lists that sync instantly, automatically group items by supermarket aisle, add budget calculations, and store customer loyalty cards. Optimized for speed and clarity in busy aisles.",
     "icon": "assets/images/shopping/shopping-icon.png",
+    "banner": "",
     "screenshots": [
       "assets/images/shopping/shopping-screen1.png",
       "assets/images/shopping/shopping-screen2.png",
@@ -293,6 +302,7 @@ const defaultAppsData = [
     "shortDescription": "A beautiful, secure diary app to write down your thoughts, memories, and daily reflections with fingerprint lock.",
     "fullDescription": "My Diary is your personal space to express yourself freely and securely. Write down thoughts, log daily moods, track habits, and preserve memories with attached photos. Features AES-256 encryption and biometric lock to keep your secrets private, customized writing fonts, and scheduled reminders so you never miss a day's entry.",
     "icon": "assets/images/diary-icon.png",
+    "banner": "",
     "screenshots": [
       "assets/images/diary-screen1.png",
       "assets/images/diary-screen2.png",
@@ -330,6 +340,7 @@ const defaultAppsData = [
     "shortDescription": "A minimalist home screen launcher designed to curb digital addiction, track screen limits, and promote focus.",
     "fullDescription": "ScreenTime Launcher replaces your default home screen with a clean, text-based minimalist layout that helps you stay focused. Define daily app usage limits, block distracting social media feeds, track usage trends, and embrace digital detox. Designed to reduce screen time and improve productivity through intentional phone usage.",
     "icon": "assets/images/screentime-icon.png",
+    "banner": "",
     "screenshots": [
       "assets/images/screentime-screen1.png",
       "assets/images/screentime-screen2.png",

@@ -346,6 +346,17 @@
           </div>
 
           <div class="admin-input-group">
+            <label for="app-banner" class="admin-label">Hero Banner Filepath (Optional)</label>
+            <div style="display:flex;gap:0.5rem">
+              <input type="text" id="app-banner" class="admin-input" placeholder="e.g. assets/images/app-banner.png" style="flex:1">
+              <label class="btn btn-secondary" style="margin:0;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;padding:0.6rem 1.25rem;font-size:0.85rem;white-space:nowrap;border-radius:6px">
+                Select Banner File
+                <input type="file" id="banner-file-picker" accept="image/*" style="display:none">
+              </label>
+            </div>
+          </div>
+
+          <div class="admin-input-group">
             <label for="app-short-desc" class="admin-label">Short Description * (landing page cards)</label>
             <textarea id="app-short-desc" class="admin-input" rows="2" placeholder="Brief summary of app utilities..." required></textarea>
           </div>

@@ -238,11 +238,54 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 6. Render Hero Screen Banner
   const heroScreen = document.getElementById("hero-screen-img");
-  if (heroScreen && app.screenshots && app.screenshots.length > 0) {
-    heroScreen.src = app.screenshots[0];
-    heroScreen.alt = `${app.name} Hero Screenshot`;
-    heroScreen.style.cursor = "pointer";
-    heroScreen.onclick = () => openLightbox(0);
+  if (heroScreen) {
+    const bannerSrc = app.banner || (app.screenshots && app.screenshots.length > 0 ? app.screenshots[0] : 'assets/images/logo.png');
+    
+    if (bannerSrc) {
+      heroScreen.src = bannerSrc;
+      heroScreen.style.display = "block";
+      heroScreen.alt = `${app.name} Hero Banner`;
+      heroScreen.style.cursor = "pointer";
+      
+      heroScreen.onclick = () => {
+        if (app.screenshots && app.screenshots.includes(bannerSrc)) {
+          openLightbox(app.screenshots.indexOf(bannerSrc));
+        } else {
+          if (lightboxModal && lightboxImg && lightboxCounter) {
+            lightboxImg.src = bannerSrc;
+            lightboxCounter.textContent = "Banner";
+            lightboxModal.classList.add("active");
+            lightboxModal.setAttribute("aria-hidden", "false");
+            document.body.style.overflow = "hidden";
+          }
+        }
+      };
+      
+      // Progressive fallback chain: Custom Banner -> First Screenshot -> Logo -> Hide
+      let fallbackStage = 0;
+      heroScreen.onerror = () => {
+        fallbackStage++;
+        if (fallbackStage === 1) {
+          const firstScreenshot = app.screenshots && app.screenshots.length > 0 ? app.screenshots[0] : null;
+          if (firstScreenshot && firstScreenshot !== app.banner) {
+            heroScreen.src = firstScreenshot;
+            return;
+          }
+          fallbackStage++; // skip to logo if no screenshots
+        }
+        
+        if (fallbackStage === 2) {
+          heroScreen.src = 'assets/images/logo.png';
+          return;
+        }
+        
+        const wrapper = heroScreen.closest(".hero-screen-banner");
+        if (wrapper) wrapper.style.display = "none";
+      };
+    } else {
+      const wrapper = heroScreen.closest(".hero-screen-banner");
+      if (wrapper) wrapper.style.display = "none";
+    }
   }
 
   // 7. Render Changelog Timeline
