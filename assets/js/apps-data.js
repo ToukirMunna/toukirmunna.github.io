@@ -301,12 +301,23 @@ const defaultAppsData = [
     "tagline": "Personal Journal & Secure Private Notes",
     "shortDescription": "A beautiful, secure diary app to write down your thoughts, memories, and daily reflections with fingerprint lock.",
     "fullDescription": "My Diary is your personal space to express yourself freely and securely. Write down thoughts, log daily moods, track habits, and preserve memories with attached photos. Features AES-256 encryption and biometric lock to keep your secrets private, customized writing fonts, and scheduled reminders so you never miss a day's entry.",
-    "icon": "assets/images/diary-icon.png",
-    "banner": "",
+    "icon": "assets/images/my-diary/mydiay_icon.png",
+    "banner": "assets/images/my-diary/mydiary_banner.png",
     "screenshots": [
-      "assets/images/diary-screen1.png",
-      "assets/images/diary-screen2.png",
-      "assets/images/diary-screen3.png"
+      "assets/images/my-diary/MyDiary_01.webp",
+      "assets/images/my-diary/MyDiary_02.webp",
+      "assets/images/my-diary/MyDiary_03.webp",
+      "assets/images/my-diary/MyDiary_04.webp",
+      "assets/images/my-diary/MyDiary_05.webp",
+      "assets/images/my-diary/MyDiary_06.webp",
+      "assets/images/my-diary/MyDiary_07.webp",
+      "assets/images/my-diary/MyDiary_08.webp",
+      "assets/images/my-diary/MyDiary_09.webp",
+      "assets/images/my-diary/MyDiary_10.webp",
+      "assets/images/my-diary/MyDiary_11.webp",
+      "assets/images/my-diary/MyDiary_12.webp",
+      "assets/images/my-diary/MyDiary_13.webp",
+      "assets/images/my-diary/MyDiary_14.webp"
     ],
     "features": [
       "Biometric fingerprint security and custom PIN lock pattern",
@@ -321,8 +332,6 @@ const defaultAppsData = [
     "downloadUrl": "assets/apks/My Diary v20260503.apk",
     "githubUrl": "",
     "category": "Lifestyle",
-    "featured": true,
-    "hidden": false,
     "changelog": [
       {
         "version": "1.0.2",
@@ -331,7 +340,9 @@ const defaultAppsData = [
           "Initial release featuring mood journal logs and biometric lock security"
         ]
       }
-    ]
+    ],
+    "featured": true,
+    "hidden": false
   },
   {
     "id": "screentime-launcher",
