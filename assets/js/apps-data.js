@@ -64,12 +64,21 @@ const defaultAppsData = [
     "tagline": "Playful Kids Learning & Games",
     "shortDescription": "An interactive, child-friendly educational dashboard featuring spelling games, basic math, and logic puzzles.",
     "fullDescription": "LittleMind is a safe, colorful, and engaging learning ecosystem built specifically for early childhood development. Combining gamified spelling challenges, drawing boards, and basic logic quizzes, it nurtures curiosity without distracting advertisements. Engineered with large touch targets and child-friendly visuals.",
-    "icon": "assets/images/littlemind/littlemind-icon.png",
-    "banner": "",
+    "icon": "assets/images/littlemind/littlemind_icon.png",
+    "banner": "assets/images/littlemind/littlemind_banner.png",
     "screenshots": [
-      "assets/images/littlemind/littlemind-screen1.png",
-      "assets/images/littlemind/littlemind-screen2.png",
-      "assets/images/littlemind/littlemind-screen3.png"
+      "assets/images/littlemind/littlemind_01.webp",
+      "assets/images/littlemind/littlemind_02.webp",
+      "assets/images/littlemind/littlemind_03.webp",
+      "assets/images/littlemind/littlemind_04.webp",
+      "assets/images/littlemind/littlemind_05.webp",
+      "assets/images/littlemind/littlemind_06.webp",
+      "assets/images/littlemind/littlemind_07.webp",
+      "assets/images/littlemind/LittleMind_08.webp",
+      "assets/images/littlemind/LittleMind_09.webp",
+      "assets/images/littlemind/LittleMind_10.webp",
+      "assets/images/littlemind/LittleMind_11.webp",
+      "assets/images/littlemind/LittleMind_12.webp"
     ],
     "features": [
       "Over 50 interactive learning levels across spelling, counting, and shapes",
@@ -84,14 +93,11 @@ const defaultAppsData = [
     "downloadUrl": "assets/apks/LittleMind v20260105.apk",
     "githubUrl": "",
     "category": "Education",
-    "featured": true,
-    "hidden": false,
     "changelog": [
       {
         "version": "2.0.1",
         "date": "July 02, 2026",
         "notes": [
-          "Introduced 10 new gamified math quiz levels",
           "Improved parent zone security with advanced pin validation",
           "Enhanced touch sensitivity calibration on drawing boards"
         ]
@@ -104,7 +110,9 @@ const defaultAppsData = [
           "Enabled multi-child avatar profile saving options"
         ]
       }
-    ]
+    ],
+    "featured": true,
+    "hidden": false
   },
   {
     "id": "expense",
