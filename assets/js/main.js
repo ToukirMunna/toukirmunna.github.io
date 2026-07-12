@@ -7,6 +7,9 @@ if (savedTheme === "dark") {
   document.documentElement.removeAttribute("data-theme");
 }
 
+// Featured app IDs shown on the homepage
+const FEATURED_APP_IDS = ["my-diary", "littlemind", "expense"];
+
 document.addEventListener("DOMContentLoaded", () => {
   // Theme Toggle click handler
   const themeToggle = document.getElementById("theme-toggle");
@@ -83,17 +86,26 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 4. Populate App Grid on Home Page
+  // 4. Populate App Grid — supports 'featured' (homepage) and 'all' (projects page) modes
   const appsGrid = document.querySelector(".apps-grid");
   if (appsGrid && window.appsData) {
+    const mode = appsGrid.dataset.mode || "all"; // data-mode="featured" or "all"
+    
+    let appsToRender = window.appsData;
+    if (mode === "featured") {
+      appsToRender = FEATURED_APP_IDS.map(id => 
+        window.appsData.find(app => app.id === id)
+      ).filter(Boolean);
+    }
+
     appsGrid.innerHTML = ""; // Clear loader/placeholders
 
-    window.appsData.forEach((app, index) => {
+    appsToRender.forEach((app, index) => {
       const card = document.createElement("div");
       card.className = "glass-card app-card reveal";
       
       // Delay animation sequence slightly for staggered effect
-      card.style.transitionDelay = `${index * 0.1}s`;
+      card.style.transitionDelay = `${index * 0.08}s`;
       
       card.innerHTML = `
         <div class="app-card-header">
@@ -121,7 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     // Trigger observer again to include new cards
     const newReveals = appsGrid.querySelectorAll(".reveal");
-    const revealObserver = new IntersectionObserver((entries, observer) => {
+    const cardObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add("active");
@@ -133,6 +145,6 @@ document.addEventListener("DOMContentLoaded", () => {
       rootMargin: "0px 0px -30px 0px"
     });
     
-    newReveals.forEach(el => revealObserver.observe(el));
+    newReveals.forEach(el => cardObserver.observe(el));
   }
 });

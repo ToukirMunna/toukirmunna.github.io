@@ -72,6 +72,128 @@ document.addEventListener("DOMContentLoaded", () => {
     privacyBtn.href = `privacy.html?id=${app.id}`;
   }
 
+  // --- LIGHTBOX STATE & REFERENCES ---
+  let activeLightboxIndex = 0;
+  let screenshotsList = [];
+  
+  const lightboxModal = document.getElementById("lightbox-modal");
+  const lightboxImg = document.getElementById("lightbox-img");
+  const lightboxCounter = document.getElementById("lightbox-counter");
+  const btnClose = document.getElementById("lightbox-close");
+  const btnPrev = document.getElementById("lightbox-prev");
+  const btnNext = document.getElementById("lightbox-next");
+
+  function initLightbox(screenshots) {
+    screenshotsList = screenshots;
+    
+    if (!lightboxModal) return;
+
+    // Control binds
+    if (btnClose) btnClose.onclick = closeLightbox;
+    if (btnPrev) btnPrev.onclick = showPrevScreenshot;
+    if (btnNext) btnNext.onclick = showNextScreenshot;
+
+    // Click backdrop (outside image content) to dismiss
+    lightboxModal.onclick = (e) => {
+      if (e.target === lightboxModal || e.target.classList.contains("lightbox-content")) {
+        closeLightbox();
+      }
+    };
+
+    // Keyboard controls
+    document.addEventListener("keydown", handleLightboxKeys);
+
+    // Mobile swipe controls
+    let touchStartX = 0;
+    let touchEndX = 0;
+    let touchStartY = 0;
+    let touchEndY = 0;
+
+    lightboxModal.addEventListener("touchstart", (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+      touchStartY = e.changedTouches[0].screenY;
+    }, { passive: true });
+
+    lightboxModal.addEventListener("touchend", (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      touchEndY = e.changedTouches[0].screenY;
+      handleSwipeGesture();
+    }, { passive: true });
+
+    function handleSwipeGesture() {
+      const diffX = touchEndX - touchStartX;
+      const diffY = touchEndY - touchStartY;
+
+      // Check horizontal swipe
+      if (Math.abs(diffX) > Math.abs(diffY)) {
+        if (Math.abs(diffX) > 50) {
+          if (diffX > 0) {
+            showPrevScreenshot(); // swipe right
+          } else {
+            showNextScreenshot(); // swipe left
+          }
+        }
+      } else {
+        // Vertical swipe down to close
+        if (diffY > 100) {
+          closeLightbox();
+        }
+      }
+    }
+  }
+
+  function openLightbox(index) {
+    if (!lightboxModal || !lightboxImg || !lightboxCounter) return;
+    
+    activeLightboxIndex = index;
+    updateLightboxImage();
+    
+    lightboxModal.classList.add("active");
+    lightboxModal.setAttribute("aria-hidden", "false");
+    lightboxModal.focus();
+    
+    document.body.style.overflow = "hidden"; // block background scroll
+  }
+
+  function closeLightbox() {
+    if (!lightboxModal) return;
+    lightboxModal.classList.remove("active");
+    lightboxModal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
+
+  function updateLightboxImage() {
+    if (!lightboxImg || !lightboxCounter || screenshotsList.length === 0) return;
+    
+    const src = screenshotsList[activeLightboxIndex];
+    lightboxImg.src = src;
+    lightboxCounter.textContent = `${activeLightboxIndex + 1} / ${screenshotsList.length}`;
+  }
+
+  function showNextScreenshot() {
+    if (screenshotsList.length <= 1) return;
+    activeLightboxIndex = (activeLightboxIndex + 1) % screenshotsList.length;
+    updateLightboxImage();
+  }
+
+  function showPrevScreenshot() {
+    if (screenshotsList.length <= 1) return;
+    activeLightboxIndex = (activeLightboxIndex - 1 + screenshotsList.length) % screenshotsList.length;
+    updateLightboxImage();
+  }
+
+  function handleLightboxKeys(e) {
+    if (!lightboxModal || !lightboxModal.classList.contains("active")) return;
+    
+    if (e.key === "Escape") {
+      closeLightbox();
+    } else if (e.key === "ArrowRight") {
+      showNextScreenshot();
+    } else if (e.key === "ArrowLeft") {
+      showPrevScreenshot();
+    }
+  }
+
   // 4. Render Screenshot Carousel
   const gallery = document.getElementById("gallery-container");
   if (gallery) {
@@ -80,11 +202,14 @@ document.addEventListener("DOMContentLoaded", () => {
       app.screenshots.forEach((screenshotPath, index) => {
         const slide = document.createElement("div");
         slide.className = "screenshot-card";
+        slide.style.cursor = "pointer";
         slide.innerHTML = `
           <img src="${screenshotPath}" alt="${app.name} Screenshot ${index + 1}" onerror="this.src='assets/images/logo.png'">
         `;
+        slide.addEventListener("click", () => openLightbox(index));
         gallery.appendChild(slide);
       });
+      initLightbox(app.screenshots);
     } else {
       gallery.style.display = "none";
     }
@@ -116,6 +241,8 @@ document.addEventListener("DOMContentLoaded", () => {
   if (heroScreen && app.screenshots && app.screenshots.length > 0) {
     heroScreen.src = app.screenshots[0];
     heroScreen.alt = `${app.name} Hero Screenshot`;
+    heroScreen.style.cursor = "pointer";
+    heroScreen.onclick = () => openLightbox(0);
   }
 
   // 7. Render Changelog Timeline

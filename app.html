@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Application Details - Blue Pixel Studio</title>
-  <meta name="description" content="View details, key features, and download links for our applications at Blue Pixel Studio.">
+  <title>App Details — Toukir Ahmed</title>
+  <meta name="description" content="View details, key features, and download links for apps built by Toukir Ahmed.">
   
   <!-- CSS Stylesheets -->
   <link rel="stylesheet" href="assets/css/styles.css">
@@ -15,24 +15,13 @@
   <header class="navbar">
     <div class="container">
       <a href="index.html" class="nav-brand">
-        <svg style="width:24px;height:24px;fill:var(--accent-secondary)" viewBox="0 0 24 24">
-          <rect x="2" y="2" width="6" height="6" fill="var(--accent-primary)"/>
-          <rect x="10" y="2" width="6" height="6" fill="var(--accent-secondary)"/>
-          <rect x="18" y="2" width="4" height="4" fill="var(--text-muted)"/>
-          <rect x="2" y="10" width="6" height="6" fill="var(--accent-secondary)"/>
-          <rect x="10" y="10" width="6" height="6" fill="var(--accent-primary)"/>
-          <rect x="18" y="10" width="4" height="4" fill="var(--accent-secondary)"/>
-          <rect x="2" y="18" width="4" height="4" fill="var(--text-muted)"/>
-          <rect x="10" y="18" width="4" height="4" fill="var(--accent-secondary)"/>
-          <rect x="16" y="16" width="6" height="6" fill="var(--accent-cyan)"/>
-        </svg>
-        <span>Blue</span>Pixel
+        <span>Toukir</span> Ahmed
       </a>
       <div class="nav-right">
         <nav class="nav-menu" id="nav-menu">
           <a href="index.html" class="nav-link">Home</a>
+          <a href="projects.html" class="nav-link">Projects</a>
           <a href="about.html" class="nav-link">About</a>
-          <a href="index.html#apps" class="nav-link">Apps</a>
         </nav>
         <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Dark Mode">
           <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
@@ -191,6 +180,17 @@
       </div>
     </div>
   </footer>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox-modal" class="lightbox-modal" aria-hidden="true" tabindex="-1">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close image viewer">&times;</button>
+    <button class="lightbox-arrow lightbox-prev" id="lightbox-prev" aria-label="Previous image">&#10094;</button>
+    <div class="lightbox-content">
+      <img id="lightbox-img" src="" alt="Zoomed App Screenshot">
+    </div>
+    <button class="lightbox-arrow lightbox-next" id="lightbox-next" aria-label="Next image">&#10095;</button>
+    <div class="lightbox-counter" id="lightbox-counter">1 / 1</div>
+  </div>
 
   <!-- Scripts -->
   <script src="assets/js/apps-data.js"></script>

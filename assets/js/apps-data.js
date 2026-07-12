@@ -11,9 +11,6 @@ const defaultAppsData = [
     "fullDescription": "Tasbeeh is a beautifully simple digital counter and Dhikr tracking application. Designed to encourage spiritual reflection, the app offers custom counter presets, audio and haptic feedback, a collection of authentic daily supplications, and historical tracking to help you visualize your consistency. Designed with a peaceful AMOLED-friendly layout that minimizes battery drain.",
     "icon": "assets/images/tasbeeh/tasbeeh-icon.png",
     "screenshots": [
-      "assets/images/tasbeeh/tasbeeh-screen1.png",
-      "assets/images/tasbeeh/tasbeeh-screen2.png",
-      "assets/images/tasbeeh/tasbeeh-screen3.png",
       "assets/images/tasbeeh/tasbeeh_screenshot_01.png",
       "assets/images/tasbeeh/tasbeeh_screenshot_02.png",
       "assets/images/tasbeeh/tasbeeh_screenshot_03.png",
