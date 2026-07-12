@@ -13,15 +13,16 @@ const defaultAppsData = [
     "tagline": "Elegant Islamic Tasbeeh & Adhkar for Muslim",
     "shortDescription": "A minimal, elegant Tasbeeh counter and Adhkar companion designed for daily spiritual mindfulness.",
     "fullDescription": "Tasbeeh is a beautifully simple digital counter and Dhikr tracking application. Designed to encourage spiritual reflection, the app offers custom counter presets, audio and haptic feedback, a collection of authentic daily supplications, and historical tracking to help you visualize your consistency. Designed with a peaceful AMOLED-friendly layout that minimizes battery drain.",
-    "icon": "assets/images/tasbeeh/tasbeeh-icon.png",
-    "banner": "assets/images/tasbeeh/tasbeeh_banner.png",
+    "icon": "assets/images/tasbeeh/tasbeeh_icon.webp",
+    "banner": "assets/images/tasbeeh/tasbeeh_banner.webp",
     "screenshots": [
-      "assets/images/tasbeeh/tasbeeh_screenshot_01.png",
-      "assets/images/tasbeeh/tasbeeh_screenshot_02.png",
-      "assets/images/tasbeeh/tasbeeh_screenshot_03.png",
-      "assets/images/tasbeeh/tasbeeh_screenshot_04.png",
-      "assets/images/tasbeeh/tasbeeh_screenshot_05.png",
-      "assets/images/tasbeeh/tasbeeh_screenshot_06.png"
+      "assets/images/tasbeeh/Tasbeeh_01.webp",
+      "assets/images/tasbeeh/Tasbeeh_02.webp",
+      "assets/images/tasbeeh/Tasbeeh_03.webp",
+      "assets/images/tasbeeh/Tasbeeh_04.webp",
+      "assets/images/tasbeeh/Tasbeeh_05.webp",
+      "assets/images/tasbeeh/Tasbeeh_06.webp",
+      "assets/images/tasbeeh/Tasbeeh_07.webp"
     ],
     "features": [
       "Custom counter limits with haptic patterns and pleasant audio cues",
@@ -55,7 +56,7 @@ const defaultAppsData = [
         ]
       }
     ],
-    "featured": false,
+    "featured": true,
     "hidden": false
   },
   {
@@ -64,8 +65,8 @@ const defaultAppsData = [
     "tagline": "Playful Kids Learning & Games",
     "shortDescription": "An interactive, child-friendly educational dashboard featuring spelling games, basic math, and logic puzzles.",
     "fullDescription": "LittleMind is a safe, colorful, and engaging learning ecosystem built specifically for early childhood development. Combining gamified spelling challenges, drawing boards, and basic logic quizzes, it nurtures curiosity without distracting advertisements. Engineered with large touch targets and child-friendly visuals.",
-    "icon": "assets/images/littlemind/littlemind_icon.png",
-    "banner": "assets/images/littlemind/littlemind_banner.png",
+    "icon": "assets/images/littlemind/littlemind_icon.webp",
+    "banner": "assets/images/littlemind/littlemind_banner.webp",
     "screenshots": [
       "assets/images/littlemind/littlemind_01.webp",
       "assets/images/littlemind/littlemind_02.webp",
@@ -120,12 +121,16 @@ const defaultAppsData = [
     "tagline": "Daily Finance & Smart Budgeting",
     "shortDescription": "A clean financial manager providing automated category budgets, analytics, and visual reports.",
     "fullDescription": "Expense Tracker takes the stress out of personal wealth management. Easily log transactions under smart categories, establish recurring monthly budgets, and analyze spending habits with interactive vector charts. Designed for high efficiency and speed, ensuring you can track transactions in seconds.",
-    "icon": "assets/images/expense/expense-icon.png",
-    "banner": "",
+    "icon": "assets/images/expense/ExpenseTracker_icon.png",
+    "banner": "assets/images/expense/ExpenseTracker_banner.webp",
     "screenshots": [
-      "assets/images/expense/expense-screen1.png",
-      "assets/images/expense/expense-screen2.png",
-      "assets/images/expense/expense-screen3.png"
+      "assets/images/expense/ExpenseTracker_01.webp",
+      "assets/images/expense/ExpenseTracker_02.webp",
+      "assets/images/expense/ExpenseTracker_03.webp",
+      "assets/images/expense/ExpenseTracker_04.webp",
+      "assets/images/expense/ExpenseTracker_05.webp",
+      "assets/images/expense/ExpenseTracker_06.webp",
+      "assets/images/expense/ExpenseTracker_07.webp"
     ],
     "features": [
       "Quick transaction logging via persistent status notifications",
@@ -140,8 +145,6 @@ const defaultAppsData = [
     "downloadUrl": "assets/apks/Expense Tracker v20260307.apk",
     "githubUrl": "https://github.com/example/expense-tracker-android",
     "category": "Finance",
-    "featured": true,
-    "hidden": false,
     "changelog": [
       {
         "version": "1.8.3",
@@ -159,7 +162,9 @@ const defaultAppsData = [
           "Initial release featuring category expenses and local SQLite logs"
         ]
       }
-    ]
+    ],
+    "featured": false,
+    "hidden": false
   },
   {
     "id": "eesypos",
@@ -167,12 +172,21 @@ const defaultAppsData = [
     "tagline": "Small Business Point of Sale",
     "shortDescription": "An advanced, offline Point of Sale solution detailing inventory systems, PDF invoices, and revenue reporting.",
     "fullDescription": "EesyPOS is a complete retail management system that turns any Android tablet or phone into a business register. Perform fast checkouts, scan barcodes with device cameras, manage item stocks, generate invoice PDFs, and analyze daily revenue logs locally. Perfect for small boutiques, kiosks, and retail cafes.",
-    "icon": "assets/images/eesypos/eesypos-icon.png",
-    "banner": "",
+    "icon": "assets/images/eesypos/easypos_icon.png",
+    "banner": "assets/images/eesypos/EasyPOS_banner.png",
     "screenshots": [
-      "assets/images/eesypos/eesypos-screen1.png",
-      "assets/images/eesypos/eesypos-screen2.png",
-      "assets/images/eesypos/eesypos-screen3.png"
+      "assets/images/eesypos/EasyPOS_01.webp",
+      "assets/images/eesypos/EasyPOS_02.webp",
+      "assets/images/eesypos/EasyPOS_03.webp",
+      "assets/images/eesypos/EasyPOS_04.webp",
+      "assets/images/eesypos/EasyPOS_05.webp",
+      "assets/images/eesypos/EasyPOS_06.webp",
+      "assets/images/eesypos/EasyPOS_07.webp",
+      "assets/images/eesypos/EasyPOS_08.webp",
+      "assets/images/eesypos/EasyPOS_09.webp",
+      "assets/images/eesypos/EasyPOS_10.webp",
+      "assets/images/eesypos/EasyPOS_11.webp",
+      "assets/images/eesypos/EasyPOS_12.webp"
     ],
     "features": [
       "Fast retail register checkout supporting custom discounts and tax rates",
@@ -187,8 +201,6 @@ const defaultAppsData = [
     "downloadUrl": "assets/apks/EasyPOS v20260707.apk",
     "githubUrl": "",
     "category": "Business",
-    "featured": false,
-    "hidden": false,
     "changelog": [
       {
         "version": "3.4.0",
@@ -207,7 +219,9 @@ const defaultAppsData = [
           "Added real-time out of stock notifications engine"
         ]
       }
-    ]
+    ],
+    "featured": false,
+    "hidden": false
   },
   {
     "id": "kido",
@@ -215,12 +229,15 @@ const defaultAppsData = [
     "tagline": "Safe Kids Video & Parental Control",
     "shortDescription": "A kid-safe media player featuring passcode parental suites, custom folder sandboxes, and input locks.",
     "fullDescription": "Kido Player gives parents peace of mind while their children stream video content. Inspired by child-focused streaming platforms, it offers a colorful kids interface alongside a passcode-protected parental suite. Whitelist specific video folders, lock screen inputs, and set timers to limit screen usage.",
-    "icon": "assets/images/kido/kido-icon.png",
-    "banner": "",
+    "icon": "assets/images/kido/kidoplayer_icon.png",
+    "banner": "assets/images/kido/kido_banner.webp",
     "screenshots": [
-      "assets/images/kido/kido-screen1.png",
-      "assets/images/kido/kido-screen2.png",
-      "assets/images/kido/kido-screen3.png"
+      "assets/images/kido/KidoPlayer_01.webp",
+      "assets/images/kido/KidoPlayer_02.webp",
+      "assets/images/kido/KidoPlayer_03.webp",
+      "assets/images/kido/KidoPlayer_04.webp",
+      "assets/images/kido/KidoPlayer_05.webp",
+      "assets/images/kido/KidoPlayer_06.webp"
     ],
     "features": [
       "Passcode-protected settings panel for managing folders and limits",
@@ -235,8 +252,6 @@ const defaultAppsData = [
     "downloadUrl": "assets/apks/KidoPlayer v20260703.apk",
     "githubUrl": "",
     "category": "Entertainment",
-    "featured": false,
-    "hidden": false,
     "changelog": [
       {
         "version": "1.1.2",
@@ -254,7 +269,9 @@ const defaultAppsData = [
           "Initial sandbox release featuring whitelist video folder scanning"
         ]
       }
-    ]
+    ],
+    "featured": false,
+    "hidden": false
   },
   {
     "id": "shopping",
@@ -310,7 +327,7 @@ const defaultAppsData = [
     "shortDescription": "A beautiful, secure diary app to write down your thoughts, memories, and daily reflections with fingerprint lock.",
     "fullDescription": "My Diary is your personal space to express yourself freely and securely. Write down thoughts, log daily moods, track habits, and preserve memories with attached photos. Features AES-256 encryption and biometric lock to keep your secrets private, customized writing fonts, and scheduled reminders so you never miss a day's entry.",
     "icon": "assets/images/my-diary/mydiay_icon.png",
-    "banner": "assets/images/my-diary/mydiary_banner.png",
+    "banner": "assets/images/my-diary/mydiary_banner.webp",
     "screenshots": [
       "assets/images/my-diary/MyDiary_01.webp",
       "assets/images/my-diary/MyDiary_02.webp",
@@ -358,7 +375,7 @@ const defaultAppsData = [
     "tagline": "Minimalist App Launcher & Focus Companion",
     "shortDescription": "A minimalist home screen launcher designed to curb digital addiction, track screen limits, and promote focus.",
     "fullDescription": "ScreenTime Launcher replaces your default home screen with a clean, text-based minimalist layout that helps you stay focused. Define daily app usage limits, block distracting social media feeds, track usage trends, and embrace digital detox. Designed to reduce screen time and improve productivity through intentional phone usage.",
-    "icon": "assets/images/screentime-icon.png",
+    "icon": "assets/images/screentime-launcher/screentime.png",
     "banner": "",
     "screenshots": [
       "assets/images/screentime-screen1.png",
@@ -378,8 +395,6 @@ const defaultAppsData = [
     "downloadUrl": "assets/apks/ScreenTIme Launcher v20260701.apk",
     "githubUrl": "",
     "category": "Productivity",
-    "featured": false,
-    "hidden": false,
     "changelog": [
       {
         "version": "1.1.0",
@@ -388,7 +403,9 @@ const defaultAppsData = [
           "Initial release featuring minimalist layout and app usage limiting tools"
         ]
       }
-    ]
+    ],
+    "featured": false,
+    "hidden": true
   }
 ];
 
