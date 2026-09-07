@@ -23,6 +23,16 @@ function updateBrandAssets(theme) {
   }
 }
 
+function escapeHtml(str) {
+  if (!str) return "";
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   // Update brand logo and favicon based on initialized theme
   const initialTheme = document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
@@ -120,10 +130,23 @@ document.addEventListener("DOMContentLoaded", () => {
       const searchInput = document.getElementById("projects-search-input");
       const searchClearBtn = document.getElementById("projects-search-clear");
       const filterChipsContainer = document.getElementById("category-filter-chips");
+      const sidebarResetBtn = document.getElementById("sidebar-reset-filters");
       const countBadge = document.querySelector(".projects-count-badge");
 
       let currentCategory = "all";
       let currentQuery = "";
+
+      // Category SVG icons for sidebar navigation
+      const categoryIcons = {
+        "all": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chip-svg"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>',
+        "productivity": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chip-svg"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>',
+        "lifestyle": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chip-svg"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>',
+        "media": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chip-svg"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>',
+        "security": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chip-svg"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>',
+        "games": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chip-svg"><rect x="2" y="6" width="20" height="12" rx="6"></rect><path d="M6 12h4m-2-2v4m10-2h.01m2-2h.01"></path></svg>',
+        "education": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chip-svg"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>'
+      };
+      const defaultIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chip-svg"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>';
 
       // Canonical and dynamic category discovery
       const categoryCounts = {};
@@ -149,18 +172,32 @@ document.addEventListener("DOMContentLoaded", () => {
         allChip.type = "button";
         allChip.className = "filter-chip active";
         allChip.dataset.category = "all";
-        allChip.innerHTML = `All <span class="chip-count">${allApps.length}</span>`;
+        allChip.innerHTML = `
+          <span class="chip-label-group">
+            ${categoryIcons["all"]}
+            <span>All Projects</span>
+          </span>
+          <span class="chip-count">${allApps.length}</span>
+        `;
         allChip.addEventListener("click", () => selectCategory("all"));
         filterChipsContainer.appendChild(allChip);
 
         // Specific category chips
         sortedCategories.forEach(cat => {
+          const catKey = cat.toLowerCase();
+          const icon = categoryIcons[catKey] || defaultIcon;
           const chip = document.createElement("button");
           chip.type = "button";
           chip.className = "filter-chip";
-          chip.dataset.category = cat.toLowerCase();
-          chip.innerHTML = `${cat} <span class="chip-count">${categoryCounts[cat]}</span>`;
-          chip.addEventListener("click", () => selectCategory(cat.toLowerCase()));
+          chip.dataset.category = catKey;
+          chip.innerHTML = `
+            <span class="chip-label-group">
+              ${icon}
+              <span>${escapeHtml(cat)}</span>
+            </span>
+            <span class="chip-count">${categoryCounts[cat]}</span>
+          `;
+          chip.addEventListener("click", () => selectCategory(catKey));
           filterChipsContainer.appendChild(chip);
         });
       }
@@ -212,6 +249,12 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         }
 
+        // Update sidebar reset button visibility
+        if (sidebarResetBtn) {
+          const isFiltered = currentCategory !== "all" || query.length > 0;
+          sidebarResetBtn.style.display = isFiltered ? "inline-block" : "none";
+        }
+
         renderCards(filtered, appsGrid, true);
       }
 
@@ -236,6 +279,20 @@ document.addEventListener("DOMContentLoaded", () => {
           currentQuery = "";
           searchClearBtn.classList.remove("visible");
           filterAndDisplay();
+        });
+      }
+
+      // Sidebar reset button listener
+      if (sidebarResetBtn) {
+        sidebarResetBtn.addEventListener("click", () => {
+          if (searchInput) {
+            searchInput.value = "";
+          }
+          currentQuery = "";
+          if (searchClearBtn) {
+            searchClearBtn.classList.remove("visible");
+          }
+          selectCategory("all");
         });
       }
 

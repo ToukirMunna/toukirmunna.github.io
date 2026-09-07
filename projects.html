@@ -66,43 +66,74 @@
     </div>
   </section>
 
-  <!-- Projects Search & Filter Toolbar -->
-  <section class="projects-toolbar">
+  <!-- Projects Catalog (Sidebar Filters + Main Grid) -->
+  <section class="projects-catalog-section">
     <div class="container">
-      <div class="projects-toolbar-inner">
-        <!-- Live Search Input -->
-        <div class="search-bar-wrapper">
-          <span class="search-input-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;">
-              <circle cx="11" cy="11" r="8"></circle>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-            </svg>
-          </span>
-          <input type="text" id="projects-search-input" class="search-input" placeholder="Search 31 apps by name, category, or keywords..." autocomplete="off" aria-label="Search apps">
-          <button type="button" id="projects-search-clear" class="search-clear-btn" aria-label="Clear search">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;">
-              <line x1="18" y1="6" x2="6" y2="18"></line>
-              <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-          </button>
-        </div>
+      <div class="projects-catalog-layout">
 
-        <!-- Interactive Category Filter Chips -->
-        <div class="filter-chips" id="category-filter-chips" role="tablist" aria-label="Filter apps by category">
-          <!-- Populated dynamically by main.js with accurate counts -->
-        </div>
-      </div>
-    </div>
-  </section>
+        <!-- Sticky Sidebar Filter & Search -->
+        <aside class="projects-sidebar" aria-label="Project search and filters">
+          <!-- Live Search Input Widget -->
+          <div class="sidebar-widget">
+            <label for="projects-search-input" class="sidebar-heading">Search Apps</label>
+            <div class="search-bar-wrapper">
+              <span class="search-input-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+              </span>
+              <input type="text" id="projects-search-input" class="search-input" placeholder="Search 31 apps..." autocomplete="off" aria-label="Search apps">
+              <button type="button" id="projects-search-clear" class="search-clear-btn" aria-label="Clear search">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </button>
+            </div>
+          </div>
 
-  <!-- All Projects Grid -->
-  <section class="apps-section">
-    <div class="container">
-      <!-- data-mode="all" renders every app in appsData -->
-      <div class="apps-grid" data-mode="all">
-        <div class="loading-placeholder">
-          <p>Loading projects...</p>
-        </div>
+          <!-- Category Filter Widget -->
+          <div class="sidebar-widget">
+            <div class="sidebar-widget-header">
+              <h3 class="sidebar-heading">Categories</h3>
+              <button type="button" class="sidebar-reset-btn" id="sidebar-reset-filters" style="display: none;">Reset</button>
+            </div>
+            <div class="filter-chips" id="category-filter-chips" role="tablist" aria-label="Filter apps by category">
+              <!-- Populated dynamically by main.js with accurate counts -->
+            </div>
+          </div>
+
+          <!-- Architecture & Stack Info Card -->
+          <div class="sidebar-info-card">
+            <div class="sidebar-info-title">Ecosystem Standards</div>
+            <ul class="sidebar-info-list">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <span>100% Offline-First</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+                <span>Android 10+ (API 29+)</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                <span>Kotlin & Compose Clean Arch</span>
+              </li>
+            </ul>
+          </div>
+        </aside>
+
+        <!-- Main Apps Grid -->
+        <main class="projects-main-content">
+          <!-- data-mode="all" renders every app in appsData -->
+          <div class="apps-grid" data-mode="all">
+            <div class="loading-placeholder">
+              <p>Loading projects...</p>
+            </div>
+          </div>
+        </main>
+
       </div>
     </div>
   </section>
