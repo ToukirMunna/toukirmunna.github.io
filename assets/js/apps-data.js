@@ -1,6 +1,6 @@
 /**
  * App Portfolio Data - Toukir Ahmed (Toukir Studio)
- * Authoritative 32-App Catalog for toukir.pro.bd
+ * Authoritative 31-App Catalog for toukir.pro.bd
  * Standardized to 100% Native Android Offline-First Applications
  */
 const defaultAppsData = [
@@ -841,44 +841,6 @@ const defaultAppsData = [
     "hidden": false
   },
   {
-    "id": "mastertemplate",
-    "name": "Master Template",
-    "tagline": "Production-Ready Golden Stack Android Starter Architecture",
-    "shortDescription": "A battle-tested Clean Architecture foundation for scaffolding resilient, high-speed Android applications.",
-    "fullDescription": "Master Template is the architectural blueprint underpinning every application in Toukir Studio's ecosystem. Engineered to eliminate boilerplate and enforce structural rigor, it features an unyielding Clean Architecture hierarchy (Data, Domain, Presentation), pre-configured Room SQLite migrations, Kotlin 2.0 Compose compiler, and R8 shrinking rules.",
-    "icon": "assets/images/mastertemplate/mastertemplate_icon.webp",
-    "banner": "",
-    "screenshots": [],
-    "features": [
-      "Standardized Clean Architecture scaffolding with strict layer separation and Unidirectional Data Flow (UDF)",
-      "Pre-integrated Room SQLite persistence with automated migrations and TypeConverter pipelines",
-      "Turnkey Material 3 dynamic color theming supporting AMOLED dark mode and responsive layouts",
-      "Pre-configured ProGuard/R8 minification rules ensuring sub-10MB production release binaries",
-      "Modular Gradle 8.10 + Kotlin 2.0 setup optimized for persistent in-memory daemon compilation"
-    ],
-    "version": "1.0.0",
-    "apkSize": "~12 MB (In Dev)",
-    "lastUpdated": "Active Development",
-    "downloadUrl": "",
-    "githubUrl": "",
-    "category": "Productivity",
-    "architecture": "Kotlin 2.0 \u2022 Jetpack Compose \u2022 Golden Stack \u2022 Clean Architecture",
-    "compatibility": "Android 10+ (API 29+)",
-    "storage": "100% Offline \u2022 Clean Architecture Foundation",
-    "changelog": [
-      {
-        "version": "1.0.0",
-        "date": "Active Development",
-        "notes": [
-          "Active architectural development under Golden Stack (Kotlin 2.0 + Jetpack Compose)",
-          "Release APK pipeline scheduled for upcoming release cycle"
-        ]
-      }
-    ],
-    "featured": false,
-    "hidden": false
-  },
-  {
     "id": "materialfiles",
     "name": "Material Files",
     "tagline": "Material You Local File Manager with Storage Access Framework",
@@ -1222,15 +1184,15 @@ const defaultAppsData = [
   }
 ];
 
-// Initialize localStorage or update to authoritative 32-app catalog
+// Initialize localStorage or update to authoritative 31-app catalog
 (function () {
-  const CATALOG_VERSION = "2026.09.07.v32";
+  const CATALOG_VERSION = "2026.09.07.v31";
   try {
     const currentVersion = localStorage.getItem("appsData_catalog_version");
     const stored = localStorage.getItem("appsData");
     
-    // Force refresh if catalog version is older or stored count is less than 32
-    if (!stored || currentVersion !== CATALOG_VERSION || JSON.parse(stored).length < 32) {
+    // Force refresh if catalog version is older or stored count is different
+    if (!stored || currentVersion !== CATALOG_VERSION || JSON.parse(stored).length !== defaultAppsData.length) {
       localStorage.setItem("appsData", JSON.stringify(defaultAppsData));
       localStorage.setItem("appsData_catalog_version", CATALOG_VERSION);
       window.appsData = defaultAppsData;

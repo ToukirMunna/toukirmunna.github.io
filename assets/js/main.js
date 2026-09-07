@@ -217,6 +217,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Live search input listeners
       if (searchInput) {
+        searchInput.placeholder = `Search ${allApps.length} apps by name, category, or keywords...`;
         searchInput.addEventListener("input", (e) => {
           currentQuery = e.target.value;
           if (searchClearBtn) {

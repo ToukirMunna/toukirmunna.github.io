@@ -1605,15 +1605,10 @@ textarea.form-input {
 
 /* --- PROJECTS SEARCH & FILTER TOOLBAR --- */
 .projects-toolbar {
-  position: sticky;
-  top: 70px;
-  z-index: 90;
-  background: var(--nav-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border-color);
-  padding: 1.25rem 0;
-  margin-bottom: 2rem;
+  position: relative;
+  background: transparent;
+  padding: 0.5rem 0 1.5rem 0;
+  margin-bottom: 1.5rem;
   transition: all var(--transition-normal);
 }
 
