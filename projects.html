@@ -7,6 +7,21 @@
   <meta name="description" content="All Android apps built by Toukir Ahmed — a hobbyist developer who builds apps to solve real-world problems from daily life.">
 
   <link rel="icon" type="image/png" id="favicon" href="assets/images/light_favicon.png">
+  <link rel="canonical" href="https://toukir.pro.bd/projects.html">
+
+  <!-- OpenGraph Social Preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Toukir Ahmed Portfolio">
+  <meta property="og:title" content="Android Projects — Toukir Ahmed">
+  <meta property="og:description" content="Explore native Android applications built by Toukir Ahmed to solve real-world problems. Clean architecture, 100% offline-first.">
+  <meta property="og:url" content="https://toukir.pro.bd/projects.html">
+  <meta property="og:image" content="https://toukir.pro.bd/assets/images/light_logo.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Android Projects — Toukir Ahmed">
+  <meta name="twitter:description" content="Explore native Android applications built by Toukir Ahmed to solve real-world problems. Clean architecture, 100% offline-first.">
+  <meta name="twitter:image" content="https://toukir.pro.bd/assets/images/light_logo.png">
 
   <!-- CSS Stylesheets -->
   <link rel="stylesheet" href="assets/css/styles.css">
@@ -48,6 +63,35 @@
       </div>
       <h1>Things I've Built</h1>
       <p>Every app here started with a real need I had. No briefs, no clients — just problems I wanted to solve for myself.</p>
+    </div>
+  </section>
+
+  <!-- Projects Search & Filter Toolbar -->
+  <section class="projects-toolbar">
+    <div class="container">
+      <div class="projects-toolbar-inner">
+        <!-- Live Search Input -->
+        <div class="search-bar-wrapper">
+          <span class="search-input-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </span>
+          <input type="text" id="projects-search-input" class="search-input" placeholder="Search 32 apps by name, category, or keywords..." autocomplete="off" aria-label="Search apps">
+          <button type="button" id="projects-search-clear" class="search-clear-btn" aria-label="Clear search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Interactive Category Filter Chips -->
+        <div class="filter-chips" id="category-filter-chips" role="tablist" aria-label="Filter apps by category">
+          <!-- Populated dynamically by main.js with accurate counts -->
+        </div>
+      </div>
     </div>
   </section>
 

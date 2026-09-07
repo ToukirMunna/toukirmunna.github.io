@@ -72,7 +72,7 @@ function renderDashboard(appsList, actions) {
               <circle cx="9" cy="19" r="1" fill="currentColor"/><circle cx="15" cy="19" r="1" fill="currentColor"/>
             </svg>
           </span>
-          <img src="${app.icon}" alt="${escapeHtml(app.name)} Icon" class="table-app-icon" onerror="this.src='assets/images/logo.png'">
+          <img src="${app.icon}" alt="${escapeHtml(app.name)} Icon" class="table-app-icon" onerror="this.src='assets/images/light_logo.png'">
           <div>
             <div class="table-app-name">${escapeHtml(app.name)} ${featuredBadge} ${hiddenBadge}</div>
             <div class="table-app-tagline">${escapeHtml(app.tagline)}</div>

@@ -7,6 +7,21 @@
   <meta name="description" content="View details, key features, and download links for apps built by Toukir Ahmed.">
   
   <link rel="icon" type="image/png" id="favicon" href="assets/images/light_favicon.png">
+  <link rel="canonical" href="https://toukir.pro.bd/app.html">
+
+  <!-- OpenGraph Social Preview -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Toukir Ahmed Portfolio">
+  <meta property="og:title" id="og-title" content="App Details — Toukir Ahmed">
+  <meta property="og:description" id="og-desc" content="View details, key features, and download links for apps built by Toukir Ahmed.">
+  <meta property="og:url" content="https://toukir.pro.bd/app.html">
+  <meta property="og:image" id="og-image" content="https://toukir.pro.bd/assets/images/light_logo.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" id="twitter-title" content="App Details — Toukir Ahmed">
+  <meta name="twitter:description" id="twitter-desc" content="View details, key features, and download links for apps built by Toukir Ahmed.">
+  <meta name="twitter:image" id="twitter-image" content="https://toukir.pro.bd/assets/images/light_logo.png">
 
   <!-- CSS Stylesheets -->
   <link rel="stylesheet" href="assets/css/styles.css">
@@ -65,14 +80,36 @@
           <div class="app-main-content">
             
             <!-- Hero Screen Banner -->
-            <div class="hero-screen-banner reveal">
+            <div class="hero-screen-banner reveal" id="hero-banner-wrapper">
               <img src="" id="hero-screen-img" alt="App Banner Mockup">
             </div>
             
             <!-- Screenshots Carousel -->
-            <div class="gallery-section reveal">
+            <div class="gallery-section reveal" id="gallery-section">
               <div class="gallery-container" id="gallery-container">
                 <!-- Screenshots dynamically inserted here -->
+              </div>
+            </div>
+
+            <!-- Technical Architecture & System Specs (Adaptive Specs-First Hero Card) -->
+            <div class="tech-specs-card reveal active" id="tech-specs-card">
+              <div class="tech-specs-header">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;">
+                  <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+                  <rect x="9" y="9" width="6" height="6"></rect>
+                  <line x1="9" y1="1" x2="9" y2="4"></line>
+                  <line x1="15" y1="1" x2="15" y2="4"></line>
+                  <line x1="9" y1="20" x2="9" y2="23"></line>
+                  <line x1="15" y1="20" x2="15" y2="23"></line>
+                  <line x1="20" y1="9" x2="23" y2="9"></line>
+                  <line x1="20" y1="14" x2="23" y2="14"></line>
+                  <line x1="1" y1="9" x2="4" y2="9"></line>
+                  <line x1="1" y1="14" x2="4" y2="14"></line>
+                </svg>
+                <h3>Technical Architecture & Overview</h3>
+              </div>
+              <div class="tech-specs-grid" id="tech-specs-grid">
+                <!-- Populated dynamically by app-details.js -->
               </div>
             </div>
 

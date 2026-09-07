@@ -23,8 +23,23 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // 3. Populate Page Content
-  document.title = `${app.name} - Android App Portfolio`;
+  document.title = `${app.name} — Toukir Ahmed`;
   
+  // Dynamic OpenGraph / Twitter tags for social previews
+  const ogTitle = document.getElementById("og-title");
+  const ogDesc = document.getElementById("og-desc");
+  const ogImage = document.getElementById("og-image");
+  const twitterTitle = document.getElementById("twitter-title");
+  const twitterDesc = document.getElementById("twitter-desc");
+  const twitterImage = document.getElementById("twitter-image");
+
+  if (ogTitle) ogTitle.content = `${app.name} — Native Android Application`;
+  if (ogDesc) ogDesc.content = app.tagline || app.shortDescription;
+  if (ogImage && app.icon) ogImage.content = new URL(app.icon, window.location.origin).href;
+  if (twitterTitle) twitterTitle.content = `${app.name} — Native Android Application`;
+  if (twitterDesc) twitterDesc.content = app.tagline || app.shortDescription;
+  if (twitterImage && app.icon) twitterImage.content = new URL(app.icon, window.location.origin).href;
+
   // Header details
   document.getElementById("app-title").textContent = app.name;
   document.getElementById("app-tagline").textContent = app.tagline;
@@ -38,6 +53,64 @@ document.addEventListener("DOMContentLoaded", () => {
   if (iconEl) {
     iconEl.src = app.icon;
     iconEl.alt = `${app.name} Icon`;
+    iconEl.onerror = () => { iconEl.src = 'assets/images/light_logo.png'; };
+  }
+
+  // Populate Technical Architecture Specs Card
+  const techSpecsGrid = document.getElementById("tech-specs-grid");
+  if (techSpecsGrid) {
+    techSpecsGrid.innerHTML = `
+      <div class="tech-spec-item">
+        <div class="tech-spec-icon-wrapper">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px;">
+            <polyline points="16 18 22 12 16 6"></polyline>
+            <polyline points="8 6 2 12 8 18"></polyline>
+          </svg>
+        </div>
+        <div class="tech-spec-details">
+          <span class="tech-spec-label">Architecture Stack</span>
+          <span class="tech-spec-value">${app.architecture || 'Kotlin 2.0 • Jetpack Compose • Room'}</span>
+        </div>
+      </div>
+
+      <div class="tech-spec-item">
+        <div class="tech-spec-icon-wrapper">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px;">
+            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+            <line x1="12" y1="18" x2="12.01" y2="18"></line>
+          </svg>
+        </div>
+        <div class="tech-spec-details">
+          <span class="tech-spec-label">Compatibility</span>
+          <span class="tech-spec-value">${app.compatibility || 'Android 10+ (API 29+)'}</span>
+        </div>
+      </div>
+
+      <div class="tech-spec-item">
+        <div class="tech-spec-icon-wrapper">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px;">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+        </div>
+        <div class="tech-spec-details">
+          <span class="tech-spec-label">Storage & Privacy</span>
+          <span class="tech-spec-value">${app.storage || '100% Offline • Sandboxed Storage'}</span>
+        </div>
+      </div>
+
+      <div class="tech-spec-item">
+        <div class="tech-spec-icon-wrapper">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px;">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+        </div>
+        <div class="tech-spec-details">
+          <span class="tech-spec-label">Release Status</span>
+          <span class="tech-spec-value">${app.downloadUrl ? 'Stable Release Active' : 'In Active Development'}</span>
+        </div>
+      </div>
+    `;
   }
 
   // Description
@@ -51,15 +124,38 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("meta-size").textContent = app.apkSize;
   document.getElementById("meta-updated").textContent = app.lastUpdated;
 
-  // Buttons
+  // Buttons & Status Management
   const downloadBtn = document.getElementById("btn-download");
   if (downloadBtn) {
-    downloadBtn.href = app.downloadUrl || "#";
+    if (app.downloadUrl && app.downloadUrl.trim().length > 0) {
+      downloadBtn.href = app.downloadUrl;
+      downloadBtn.className = "btn btn-primary";
+      downloadBtn.innerHTML = `
+        <svg style="width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2" viewBox="0 0 24 24">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+        </svg>
+        Download APK
+      `;
+      downloadBtn.removeAttribute("aria-disabled");
+    } else {
+      downloadBtn.removeAttribute("href");
+      downloadBtn.className = "btn btn-disabled";
+      downloadBtn.setAttribute("aria-disabled", "true");
+      downloadBtn.title = "Release APK is currently being prepared";
+      downloadBtn.innerHTML = `
+        <svg style="width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2" viewBox="0 0 24 24">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+        </svg>
+        Release Coming Soon
+      `;
+    }
   }
 
   const githubBtn = document.getElementById("btn-github");
   if (githubBtn) {
-    if (app.githubUrl) {
+    // Only shown for projects with an explicit, public repository
+    if (app.githubUrl && app.githubUrl.trim().length > 0) {
       githubBtn.href = app.githubUrl;
       githubBtn.style.display = "inline-flex";
     } else {
@@ -195,16 +291,19 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // 4. Render Screenshot Carousel
+  const gallerySection = document.getElementById("gallery-section");
   const gallery = document.getElementById("gallery-container");
   if (gallery) {
     gallery.innerHTML = "";
     if (app.screenshots && app.screenshots.length > 0) {
+      if (gallerySection) gallerySection.style.display = "block";
+      gallery.style.display = "flex";
       app.screenshots.forEach((screenshotPath, index) => {
         const slide = document.createElement("div");
         slide.className = "screenshot-card";
         slide.style.cursor = "pointer";
         slide.innerHTML = `
-          <img src="${screenshotPath}" alt="${app.name} Screenshot ${index + 1}" onerror="this.src='assets/images/logo.png'">
+          <img src="${screenshotPath}" alt="${app.name} Screenshot ${index + 1}" onerror="this.src='assets/images/light_logo.png'">
         `;
         slide.addEventListener("click", () => openLightbox(index));
         gallery.appendChild(slide);
@@ -212,6 +311,7 @@ document.addEventListener("DOMContentLoaded", () => {
       initLightbox(app.screenshots);
     } else {
       gallery.style.display = "none";
+      if (gallerySection) gallerySection.style.display = "none";
     }
   }
 
@@ -236,12 +336,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // 6. Render Hero Screen Banner
+  // 6. Render Hero Screen Banner (Collapses gracefully when zero screenshots/banner)
+  const heroBannerWrapper = document.getElementById("hero-banner-wrapper") || document.querySelector(".hero-screen-banner");
   const heroScreen = document.getElementById("hero-screen-img");
-  if (heroScreen) {
-    const bannerSrc = app.banner || (app.screenshots && app.screenshots.length > 0 ? app.screenshots[0] : 'assets/images/logo.png');
-    
+
+  if (heroScreen && heroBannerWrapper) {
+    const hasScreenshots = app.screenshots && app.screenshots.length > 0;
+    const bannerSrc = app.banner || (hasScreenshots ? app.screenshots[0] : null);
+
     if (bannerSrc) {
+      heroBannerWrapper.style.display = "block";
       heroScreen.src = bannerSrc;
       heroScreen.style.display = "block";
       heroScreen.alt = `${app.name} Hero Banner`;
@@ -250,41 +354,25 @@ document.addEventListener("DOMContentLoaded", () => {
       heroScreen.onclick = () => {
         if (app.screenshots && app.screenshots.includes(bannerSrc)) {
           openLightbox(app.screenshots.indexOf(bannerSrc));
-        } else {
-          if (lightboxModal && lightboxImg && lightboxCounter) {
-            lightboxImg.src = bannerSrc;
-            lightboxCounter.textContent = "Banner";
-            lightboxModal.classList.add("active");
-            lightboxModal.setAttribute("aria-hidden", "false");
-            document.body.style.overflow = "hidden";
-          }
+        } else if (lightboxModal && lightboxImg && lightboxCounter) {
+          lightboxImg.src = bannerSrc;
+          lightboxCounter.textContent = "Banner";
+          lightboxModal.classList.add("active");
+          lightboxModal.setAttribute("aria-hidden", "false");
+          document.body.style.overflow = "hidden";
         }
       };
       
-      // Progressive fallback chain: Custom Banner -> First Screenshot -> Logo -> Hide
-      let fallbackStage = 0;
       heroScreen.onerror = () => {
-        fallbackStage++;
-        if (fallbackStage === 1) {
-          const firstScreenshot = app.screenshots && app.screenshots.length > 0 ? app.screenshots[0] : null;
-          if (firstScreenshot && firstScreenshot !== app.banner) {
-            heroScreen.src = firstScreenshot;
-            return;
-          }
-          fallbackStage++; // skip to logo if no screenshots
+        if (hasScreenshots && heroScreen.src !== app.screenshots[0]) {
+          heroScreen.src = app.screenshots[0];
+        } else {
+          heroBannerWrapper.style.display = "none";
         }
-        
-        if (fallbackStage === 2) {
-          heroScreen.src = 'assets/images/logo.png';
-          return;
-        }
-        
-        const wrapper = heroScreen.closest(".hero-screen-banner");
-        if (wrapper) wrapper.style.display = "none";
       };
     } else {
-      const wrapper = heroScreen.closest(".hero-screen-banner");
-      if (wrapper) wrapper.style.display = "none";
+      // Gracefully collapse banner when no banner or screenshots exist
+      heroBannerWrapper.style.display = "none";
     }
   }
 
@@ -327,7 +415,7 @@ document.addEventListener("DOMContentLoaded", () => {
       card.className = "glass-card app-card reveal active";
       card.innerHTML = `
         <div class="app-card-header">
-          <img src="${otherApp.icon}" alt="${otherApp.name} Icon" class="app-card-icon" onerror="this.src='assets/images/logo.png'">
+          <img src="${otherApp.icon}" alt="${otherApp.name} Icon" class="app-card-icon" onerror="this.src='assets/images/light_logo.png'">
           <div>
             <h3 class="app-card-title">${otherApp.name}</h3>
             <div><span class="category-pill">${otherApp.category}</span></div>

@@ -37,45 +37,44 @@ document.addEventListener("DOMContentLoaded", () => {
   // Render privacy policy text
   contentEl.innerHTML = `
     <div class="privacy-markdown reveal active">
-      <p>This privacy policy governs your use of the software application <strong>${appName}</strong> ("Application") for mobile devices that was created by <strong>Blue Pixel Studio</strong>.</p>
+      <p>This privacy policy governs your use of the software application <strong>${appName}</strong> ("Application") for mobile devices that was developed by <strong>Toukir Ahmed (Toukir Studio)</strong>. The official home of our applications and services is <a href="https://toukir.pro.bd/" style="color:var(--accent-primary);font-weight:600;">toukir.pro.bd</a>.</p>
       
-      <h2>1. User Provided Information</h2>
-      <p>The Application obtains the information you provide when you download and register the Application. Registration with us is optional. However, please keep in mind that you may not be able to use some of the features offered by the Application unless you register.</p>
-      <p>When you register with us and use the Application, you generally provide:</p>
-      <ul>
-        <li>your name, email address, user name, password and other registration information;</li>
-        <li>transaction-related information, such as when you make purchases, respond to any offers, or download or use applications from us;</li>
-        <li>information you provide us when you contact us for help;</li>
-        <li>information you enter into our system when using the Application, such as contact information and project management information.</li>
-      </ul>
+      <h2>1. User Provided Information & Data Isolation</h2>
+      <p>Our applications are designed with an offline-first, privacy-by-design architecture. The Application obtains the information you provide when you download and use features. Most applications in our portfolio do not require user registration or accounts. All user-created data (notes, tallies, counters, budgets, and personal configurations) is stored directly on your device inside private sandboxed storage.</p>
+      <p>If you contact us directly for support or feedback, we collect your email address and any message information you voluntarily provide solely for the purpose of resolving your inquiry.</p>
       
       <h2>2. Automatically Collected Information</h2>
-      <p>In addition, the Application may collect certain information automatically, including, but not limited to, the type of mobile device you use, your mobile devices unique device ID, the IP address of your mobile device, your mobile operating system, the type of mobile Internet browsers you use, and information about the way you use the Application.</p>
+      <p>The Application does not track your personal identity across third-party apps or websites. Basic diagnostic information (such as operating system version, device model, or crash reports provided through Google Play Core services) may be processed strictly to identify bugs and ensure stability on your device version.</p>
       
       ${isSpecificApp ? `
-      <h2>3. Special Permissions Requested by ${appName}</h2>
-      <p>This Application utilizes specific system permissions to deliver core features. Here is why they are needed:</p>
+      <h2>3. System Permissions Requested by ${appName}</h2>
+      <p>This Application requests only minimal, necessary system permissions to execute its core offline or utility functions:</p>
       <ul>
-        <li><strong>Network State & Access:</strong> Used to check network availability and synchronize data when online.</li>
-        <li><strong>Local Storage Read/Write:</strong> Required to cache settings, store application configurations, and enable off-line functionality securely.</li>
-        <li><strong>Notifications:</strong> Used only when opt-in enabled to alert you of app events, timers, or alerts.</li>
+        <li><strong>Local Storage Read/Write:</strong> Required to save user preferences, local databases, and cached configurations locally on device without external transmission.</li>
+        <li><strong>Network State & Access:</strong> Used exclusively to check internet availability for opt-in sync or web-based companion features.</li>
+        <li><strong>Notifications:</strong> Opt-in only, used strictly for user-scheduled alarms, countdowns, or daily habit reminders.</li>
       </ul>
       ` : ''}
 
-      <h2>4. Does the Application collect precise real time location information of the device?</h2>
-      <p>This Application does not collect precise information about the location of your mobile device unless explicitly requested by a core feature (for example, hyperlocal weather readings or location-based shop reporting) and approved by your prompt consent.</p>
+      <h2>4. Real-Time Location Information</h2>
+      <p>This Application does not collect, monitor, or track precise real-time location data of your mobile device.</p>
 
-      <h2>5. Do third parties see and/or have access to information obtained by the Application?</h2>
-      <p>Only aggregated, anonymized data is periodically transmitted to external services to help us improve the Application and our service. We will share your information with third parties only in the ways that are described in this privacy statement.</p>
+      <h2>5. Third-Party Access & Google Cloud Compliance</h2>
+      <p>We do not sell, trade, or rent your personal information to third parties. We do not integrate intrusive ad tracking SDKs. Any integration with Google Cloud APIs or Google Play Services adheres strictly to the Google API Services User Data Policy, including Limited Use requirements.</p>
 
-      <h2>6. Security</h2>
-      <p>We are concerned about safeguarding the confidentiality of your information. We provide physical, electronic, and procedural safeguards to protect information we process and maintain.</p>
+      <h2>6. Security & Data Retention</h2>
+      <p>We implement industry-standard procedural, electronic, and physical safeguards to protect local device data. Since data is stored locally in sandboxed application containers, uninstalling the Application cleanly removes all locally stored data from your device.</p>
 
-      <h2>7. Changes</h2>
-      <p>This Privacy Policy may be updated from time to time for any reason. We will notify you of any changes to our Privacy Policy by posting the new Privacy Policy here and updating the date at the top of this document.</p>
+      <h2>7. Changes & Policy Updates</h2>
+      <p>This Privacy Policy may be updated periodically to reflect changes in legal requirements or application enhancements. Any revisions will be published here at <a href="https://toukir.pro.bd/privacy.html" style="color:var(--accent-primary);font-weight:600;">toukir.pro.bd/privacy.html</a> with an updated revision date.</p>
 
-      <h2>8. Contact Us</h2>
-      <p>If you have any questions regarding privacy while using the Application, or have questions about our practices, please contact us via email at <a href="mailto:support@bluepixel.com" style="font-weight:600;color:var(--accent-primary);">support@bluepixel.com</a>.</p>
+      <h2>8. Developer Contact Information</h2>
+      <p>If you have any questions regarding this Privacy Policy, your personal data, or developer compliance inquiries for <strong>Toukir Studio</strong>, please reach out directly:</p>
+      <p>
+        <strong>Developer:</strong> Toukir Ahmed<br>
+        <strong>Official Studio:</strong> Toukir Studio (<a href="https://toukir.pro.bd" style="color:var(--accent-primary);">https://toukir.pro.bd</a>)<br>
+        <strong>Support Email:</strong> <a href="mailto:toukirahmhedmunna@gmail.com" style="font-weight:600;color:var(--accent-primary);">toukirahmhedmunna@gmail.com</a>
+      </p>
     </div>
   `;
 });

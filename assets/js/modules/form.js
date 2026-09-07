@@ -473,7 +473,7 @@ function initFormHandlers(onSubmitCallback) {
         tagline: document.getElementById("app-tagline").value.trim(),
         shortDescription: document.getElementById("app-short-desc").value.trim(),
         fullDescription: document.getElementById("app-full-desc").value.trim(),
-        icon: document.getElementById("app-icon").value.trim() || "assets/images/logo.png",
+        icon: document.getElementById("app-icon").value.trim() || "assets/images/light_logo.png",
         banner: document.getElementById("app-banner").value.trim(),
         screenshots,
         features,
