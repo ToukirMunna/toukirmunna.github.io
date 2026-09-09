@@ -1,0 +1,662 @@
+/* ==========================================================================
+   TOUKIR STUDIO — HOMEPAGE STYLESHEET
+   Hero, Spotlight, Manifesto, Bento Cards, Founder, and Feedback
+   ========================================================================== */
+
+/* --- Module: assets/css/sections/hero.css --- */
+/* ==========================================================================
+   TOUKIR STUDIO — MINIMALIST CENTERED HERO SECTION
+   Quiet, restrained craftsman typography
+   ========================================================================== */
+
+.minimal-hero {
+  padding: 130px 0 70px;
+  text-align: center;
+}
+
+.hero-centered {
+  max-width: 820px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  display: inline-block;
+}
+
+.hero-heading {
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 5.2vw, 3.85rem);
+  font-weight: 700;
+  letter-spacing: -1.5px;
+  line-height: 1.12;
+  color: var(--text-primary);
+  margin-bottom: 1.75rem;
+  text-wrap: balance;
+}
+
+.hero-bio {
+  font-size: 1.12rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  max-width: 620px;
+  margin: 0 auto 2.5rem;
+  text-wrap: pretty;
+}
+
+/* Subtle Action Buttons */
+.hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-subtle-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--bg-color);
+  background: var(--text-primary);
+  border: 1px solid var(--text-primary);
+  border-radius: 8px;
+  padding: 0.75rem 1.4rem;
+  text-decoration: none;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.btn-subtle-primary:hover {
+  opacity: 0.88;
+}
+
+.btn-subtle-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 0.75rem 1.4rem;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.btn-subtle-secondary:hover {
+  border-color: var(--text-primary);
+  background: var(--card-bg-hover);
+}
+
+@media (max-width: 768px) {
+  .minimal-hero {
+    padding: 105px 0 45px;
+  }
+
+  .hero-heading {
+    font-size: 2.2rem;
+    letter-spacing: -1px;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-bio {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn-subtle-primary,
+  .btn-subtle-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* --- Module: assets/css/components/cards.css --- */
+.glass-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 2rem;
+  transition: all var(--transition-fast);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.glass-card:hover {
+  transform: translateY(-3px);
+  background: var(--card-bg-hover);
+  border-color: var(--border-color-hover);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* --- Module: assets/css/sections/spotlight.css --- */
+/* ==========================================================================
+   TOUKIR STUDIO — 4 STARRED APPS SHOWCASE
+   Quiet, restrained craftsman cards
+   ========================================================================== */
+
+.starred-apps-section {
+  padding: 50px 0 70px;
+  border-top: 1px solid var(--border-color);
+}
+
+.starred-apps-header {
+  margin-bottom: 2.5rem;
+}
+
+.section-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.75px;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.section-desc {
+  font-size: 0.98rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* 2x2 Grid of 4 Starred Apps */
+.starred-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.starred-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.starred-card:hover {
+  border-color: var(--text-primary);
+  background: var(--card-bg-hover);
+}
+
+.starred-card-top {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.starred-app-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  object-fit: cover;
+  background: var(--bg-color);
+  flex-shrink: 0;
+}
+
+.starred-app-name {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.2rem;
+}
+
+.starred-app-cat {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--text-muted);
+}
+
+.starred-card-desc {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.starred-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+  font-size: 0.85rem;
+}
+
+.starred-card-meta {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.starred-card-link {
+  font-weight: 600;
+  color: var(--text-primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: opacity var(--transition-fast);
+}
+
+.starred-card:hover .starred-card-link {
+  opacity: 0.75;
+}
+
+/* Show All Action */
+.show-all-wrapper {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.btn-show-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-decoration: none;
+  padding: 0.75rem 1.4rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: var(--card-bg);
+  transition: all var(--transition-fast);
+}
+
+.btn-show-all:hover {
+  border-color: var(--text-primary);
+  background: var(--card-bg-hover);
+}
+
+@media (max-width: 680px) {
+  .starred-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .starred-card {
+    padding: 1.4rem;
+  }
+}
+
+/* --- Module: assets/css/sections/manifesto.css --- */
+/* ==========================================================================
+   TOUKIR STUDIO — APP GUIDELINES SECTION
+   Quiet, restrained architectural principles
+   ========================================================================== */
+
+.guidelines-section {
+  padding: 60px 0 80px;
+  border-top: 1px solid var(--border-color);
+}
+
+.guidelines-header {
+  margin-bottom: 2.5rem;
+}
+
+.guidelines-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid var(--border-color);
+}
+
+.guideline-item {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 2rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--border-color);
+  align-items: baseline;
+}
+
+.guideline-num {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.guideline-content h3 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.4rem;
+}
+
+.guideline-content p {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin: 0;
+  max-width: 680px;
+}
+
+@media (max-width: 640px) {
+  .guideline-item {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    padding: 1.5rem 0;
+  }
+
+  .guideline-num {
+    font-size: 0.9rem;
+  }
+}
+
+/* --- Module: assets/css/sections/founder.css --- */
+/* ==========================================================================
+   TOUKIR STUDIO — CRAFTSMAN FOUNDER SECTION
+   Unified profile section positioned right above the footer
+   ========================================================================== */
+
+.creator-section {
+  padding: 60px 0 80px;
+  border-top: 1px solid var(--border-color);
+}
+
+.creator-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 2.25rem;
+  transition: border-color var(--transition-fast);
+}
+
+.creator-card:hover {
+  border-color: var(--border-color-hover);
+}
+
+.creator-photo {
+  width: 130px;
+  height: 130px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 1px solid var(--border-color);
+  background: var(--bg-color);
+  flex-shrink: 0;
+}
+
+.creator-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.creator-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.creator-name {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.4rem;
+}
+
+.creator-caption {
+  font-size: 0.96rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin-bottom: 1.25rem;
+  max-width: 620px;
+}
+
+.creator-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.creator-links a {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 1px solid var(--border-color);
+  transition: border-color var(--transition-fast), opacity var(--transition-fast);
+}
+
+.creator-links a:hover {
+  border-color: var(--text-primary);
+  opacity: 0.85;
+}
+
+@media (max-width: 768px) {
+  .creator-section {
+    padding: 50px 0 60px;
+  }
+
+  .creator-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.75rem;
+    gap: 1.25rem;
+  }
+
+  .creator-photo {
+    width: 90px;
+    height: 90px;
+  }
+
+  .creator-name {
+    font-size: 1.25rem;
+  }
+
+  .creator-caption {
+    font-size: 0.92rem;
+    margin-bottom: 1rem;
+  }
+
+  .creator-links {
+    gap: 1.25rem;
+  }
+}
+
+/* --- Module: Feedback Banner --- */
+/* --- FEEDBACK CTA SECTION --- */
+.feedback-section {
+  padding: 80px 0 100px;
+  border-top: 1px solid var(--border-color);
+}
+
+.feedback-banner {
+  padding: 4rem 3rem;
+  border-radius: 20px;
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto;
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.05);
+}
+
+.feedback-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--accent-primary);
+  background: var(--accent-light);
+  padding: 0.35rem 0.85rem;
+  border-radius: 100px;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.5px;
+}
+
+.feedback-banner h2 {
+  font-size: 2.25rem;
+  letter-spacing: -0.5px;
+  margin-bottom: 1rem;
+}
+
+.feedback-banner p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto 2.25rem;
+  line-height: 1.6;
+}
+
+.feedback-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* --- HOMEPAGE RESPONSIVE RULES --- */
+@media (max-width: 992px) {
+  .hero-layout {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .hero-mockup-wrapper {
+    height: 380px;
+  }
+
+  .stats-strip-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 2rem 1.5rem;
+  }
+  .stat-item:nth-child(2) {
+    border-right: none;
+  }
+  .philosophy-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .tech-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 100px 0 40px;
+  }
+  
+  .hero h1 {
+    font-size: 2.2rem;
+    letter-spacing: -1px;
+  }
+  
+  .hero-cta {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .hero-cta .btn {
+    width: 100%;
+  }
+
+  .hero-mockup-wrapper {
+    height: 330px;
+  }
+  
+  .mockup-screen-left, .mockup-screen-right {
+    display: block;
+    width: 120px;
+    height: 240px;
+  }
+
+  .mockup-screen-left {
+    left: 0;
+  }
+
+  .mockup-screen-right {
+    right: 0;
+  }
+  
+  .mockup-phone {
+    width: 160px;
+    height: 320px;
+    border-radius: 24px;
+    padding: 6px;
+    margin: 0 auto;
+  }
+  
+  .mockup-phone img {
+    border-radius: 18px;
+  }
+}
+
+@media (max-width: 576px) {
+  .stats-strip-container {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .stat-item {
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.75rem;
+  }
+  .stat-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  .tech-grid {
+    grid-template-columns: 1fr;
+  }
+  .feedback-banner {
+    padding: 2.5rem 1.5rem;
+  }
+  .feedback-banner h2 {
+    font-size: 1.75rem;
+  }
+  .feedback-buttons {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}

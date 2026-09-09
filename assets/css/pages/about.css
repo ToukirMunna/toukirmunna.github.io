@@ -158,3 +158,16 @@ textarea.form-input {
   width: 100%;
 }
 
+/* --- ABOUT RESPONSIVE RULES --- */
+@media (max-width: 992px) {
+  .about-layout {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+  
+  .about-profile {
+    position: relative;
+    top: 0;
+    margin-bottom: 2rem;
+  }
+}

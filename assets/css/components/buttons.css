@@ -36,9 +36,6 @@
   transform: translateY(-1px);
 }
 
-
-}
-
 .hero-social-btn {
   display: inline-flex;
   align-items: center;
@@ -71,6 +68,7 @@
 .hero-social-btn.whatsapp-btn:hover {
   background: rgba(37, 211, 102, 0.12);
   border-color: rgba(37, 211, 102, 0.4);
+}
 
 .view-all-cta {
   text-align: center;

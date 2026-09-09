@@ -116,8 +116,35 @@ def check_css_imports():
     if total_imports == 0:
         report_pass(f"Scanned {len(css_files)} CSS files (no @import dependencies).")
 
+def check_css_syntax_and_braces():
+    print(f"\n{BOLD}{CYAN}3. Checking CSS Brace Balance & Syntax Integrity...{RESET}")
+    css_files = list((ROOT_DIR / "assets" / "css").rglob("*.css"))
+    total_checked = 0
+    syntax_errors = 0
+
+    for css_file in sorted(css_files):
+        total_checked += 1
+        content = css_file.read_text(encoding="utf-8", errors="ignore")
+        lines = content.splitlines()
+        depth = 0
+        file_err = False
+
+        for idx, line in enumerate(lines, 1):
+            depth += line.count('{') - line.count('}')
+            if depth < 0:
+                report_fail(f"{css_file.relative_to(ROOT_DIR)}: Line {idx} negative brace depth ({depth}): {line.strip()}")
+                file_err = True
+                syntax_errors += 1
+                depth = 0
+
+        if depth != 0:
+            report_fail(f"{css_file.relative_to(ROOT_DIR)}: Unclosed brace block (depth ending at {depth})")
+            syntax_errors += 1
+        elif not file_err:
+            report_pass(f"{css_file.relative_to(ROOT_DIR)} ({len(lines)} lines): Perfectly balanced braces.")
+
 def check_app_data():
-    print(f"\n{BOLD}{CYAN}3. Checking App Data Integrity & Schemas...{RESET}")
+    print(f"\n{BOLD}{CYAN}4. Checking App Data Integrity & Schemas...{RESET}")
     apps_data_file = ROOT_DIR / "assets" / "js" / "apps-data.js"
     modular_apps_dir = ROOT_DIR / "assets" / "data" / "apps"
 
@@ -144,7 +171,7 @@ def check_app_data():
             report_warn("Modular apps directory exists but has no .js files yet.")
 
 def check_localhost_http():
-    print(f"\n{BOLD}{CYAN}4. Checking Local Server Smoke Test (port 8000)...{RESET}", flush=True)
+    print(f"\n{BOLD}{CYAN}5. Checking Local Server Smoke Test (port 8000)...{RESET}", flush=True)
     base_url = "http://127.0.0.1:8000"
 
     endpoints = [
@@ -154,6 +181,12 @@ def check_localhost_http():
         "/about.html",
         "/privacy.html",
         "/admin.html",
+        "/assets/css/core.css",
+        "/assets/css/pages/home.css",
+        "/assets/css/pages/catalog.css",
+        "/assets/css/pages/app-details.css",
+        "/assets/css/pages/about.css",
+        "/assets/css/pages/privacy.css",
         "/assets/css/styles.css",
         "/assets/js/apps-data.js",
         "/assets/images/tasbeeh/tasbeeh_banner.webp",
@@ -182,6 +215,7 @@ def main():
 
     check_html_asset_links()
     check_css_imports()
+    check_css_syntax_and_braces()
     check_app_data()
     check_localhost_http()
 
