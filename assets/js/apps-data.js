@@ -7,35 +7,48 @@ const defaultAppsData = [
   {
     "id": "tasbeeh",
     "name": "Tasbeeh",
-    "tagline": "Minimalist AMOLED Islamic Tasbeeh & Adhkar Companion",
-    "shortDescription": "A peaceful, distraction-free digital Tasbeeh counter and daily supplication companion with custom haptics.",
-    "fullDescription": "Tasbeeh is a beautifully simple digital counter and Dhikr tracking application designed to encourage spiritual mindfulness throughout the day. Built with a deeply optimized AMOLED-black interface to eliminate eye fatigue and reduce battery consumption, the app delivers multi-pattern haptic clicks, authentic morning/evening supplications with verified translations, and visual historical habit streaks.",
+    "tagline": "Distraction-Free Digital Counter and Adhkar Companion",
+    "shortDescription": "A clean, distraction-free digital Tasbeeh counter and daily supplication tracker with responsive haptics and habit analytics.",
+    "fullDescription": "Tasbeeh is a focused digital counter and Dhikr tracking application built for mindful daily recitation. Designed with an optimized interface to reduce visual distractions and battery consumption, it offers tactile haptic feedback, a curated authentic library of daily supplications with meanings and virtues, interactive habit streaks, and optional secure cloud synchronization.",
     "icon": "assets/images/tasbeeh/tasbeeh_icon.webp",
-    "banner": "",
-    "screenshots": [],
+    "banner": "assets/images/tasbeeh/tasbeeh_banner.webp",
+    "screenshots": [
+      "assets/images/tasbeeh/Tasbeeh_01.webp",
+      "assets/images/tasbeeh/Tasbeeh_02.webp",
+      "assets/images/tasbeeh/Tasbeeh_03.webp",
+      "assets/images/tasbeeh/Tasbeeh_04.webp",
+      "assets/images/tasbeeh/Tasbeeh_05.webp",
+      "assets/images/tasbeeh/Tasbeeh_06.webp",
+      "assets/images/tasbeeh/Tasbeeh_07.webp",
+      "assets/images/tasbeeh/Tasbeeh_08.webp"
+    ],
     "features": [
-      "Precision haptic engine simulating physical counter clicks with zero latency",
-      "Curated authentic library of daily Adhkar, morning/evening Duas, and audio pronunciations",
-      "Daily streak tracking, milestone goals, and persistent local historical calendar logs",
-      "AMOLED true-black dark theme engineered specifically for OLED energy preservation",
-      "Responsive home screen widget for 1-tap counting without unlocking the application"
+      "Tactile haptic engine with multi-pattern vibration clicks and sound feedback",
+      "Curated library of authentic Adhkar with Arabic script, Bengali/English meanings, and virtues",
+      "Daily goals, milestone targets, and streak tracking to build long-term habits",
+      "Visual weekly activity charts and historical monthly recitation logs",
+      "Personalized custom Tasbeeh creation with user-defined target thresholds",
+      "Offline-first local storage with optional Firebase cloud backup and sync"
     ],
     "version": "4.1.0",
     "apkSize": "9.9 MB",
-    "lastUpdated": "July 07, 2026",
-    "downloadUrl": "assets/apks/Tasbeeh v20260707.apk",
+    "lastUpdated": "September 09, 2026",
+    "downloadUrl": "https://github.com/ToukirMunna/toukirmunna.github.io/releases/download/tasbeeh-v4.1.0/Tasbeeh-v4.1.0.apk",
     "githubUrl": "",
     "category": "Lifestyle",
-    "architecture": "Kotlin 2.0 \u2022 Jetpack Compose \u2022 Room SQLite \u2022 Haptic Engine",
+    "architecture": "Kotlin • Jetpack Compose • DataStore • Firebase Auth & Firestore • Custom Canvas Charts",
     "compatibility": "Android 10+ (API 29+)",
-    "storage": "100% Offline \u2022 Private Sandboxed Storage",
+    "storage": "Offline First • Sandboxed Storage • Optional Cloud Sync",
     "changelog": [
       {
         "version": "4.1.0",
-        "date": "July 07, 2026",
+        "date": "September 09, 2026",
         "notes": [
-          "Production release candidate compiled with Golden Stack standard",
-          "Optimized for Android 10+ (API 29+) with 100% offline private storage"
+          "Modernized user interface built completely with Jetpack Compose",
+          "Added interactive weekly activity charts and monthly recitation breakdowns",
+          "Integrated optional secure cloud sync via Firebase Authentication",
+          "Refined haptic vibration engine with customizable click patterns and sound toggles",
+          "Added comprehensive bilingual support for English and Bengali"
         ]
       }
     ],

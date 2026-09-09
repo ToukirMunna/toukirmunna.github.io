@@ -13,6 +13,7 @@ desktop.ini
 # Project Specific
 .artifacts/
 *.log
+*.apk
 
 # Web specific
 node_modules/
