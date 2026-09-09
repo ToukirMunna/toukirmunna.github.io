@@ -1,0 +1,52 @@
+/* --- BADGES & PILL TAGS --- */
+.category-pill {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent-primary);
+  background: var(--accent-light);
+  border: 1px solid rgba(47, 128, 237, 0.2);
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  letter-spacing: -0.1px;
+}
+
+.studio-pill {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  background: var(--accent-light);
+  color: var(--accent-primary);
+  border: 1px solid rgba(37, 99, 235, 0.25);
+  margin-left: 0.4rem;
+  vertical-align: middle;
+}
+
+.spotlight-flagship-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #f59e0b;
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  padding: 0.25rem 0.65rem;
+  border-radius: 100px;
+}
+
+.spotlight-tag {
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+  background: var(--skill-bg);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+}
