@@ -22,9 +22,33 @@ document.addEventListener("DOMContentLoaded", () => {
     const allApps = window.appsData.filter(app => !app.hidden);
 
     if (mode === "featured") {
-      // Homepage: show only featured, non-hidden apps
+      // Homepage: show only featured, non-hidden apps by default
       const featuredApps = allApps.filter(app => app.featured);
-      renderCards(featuredApps, appsGrid);
+      renderCards(featuredApps.length > 0 ? featuredApps : allApps.slice(0, 6), appsGrid);
+
+      // Homepage quick-filter tabs
+      const homeChips = document.querySelectorAll(".homepage-filter-chip");
+      homeChips.forEach(chip => {
+        chip.addEventListener("click", () => {
+          homeChips.forEach(c => c.classList.remove("active"));
+          chip.classList.add("active");
+
+          const filterVal = chip.dataset.filter || "featured";
+          let filteredList = [];
+
+          if (filterVal === "featured") {
+            filteredList = allApps.filter(app => app.featured);
+          } else if (filterVal === "all") {
+            filteredList = allApps.slice(0, 9);
+          } else {
+            filteredList = allApps.filter(app =>
+              (app.category || "").toLowerCase().includes(filterVal.toLowerCase())
+            );
+          }
+
+          renderCards(filteredList.length > 0 ? filteredList : allApps.slice(0, 6), appsGrid);
+        });
+      });
     } else {
       // Projects / Catalog page: live search and category filters
       setupCatalog(allApps, appsGrid);

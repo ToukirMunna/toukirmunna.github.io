@@ -1,97 +1,64 @@
-/* Philosophy Section */
-.philosophy-section {
-  padding: 80px 0;
+/* ==========================================================================
+   TOUKIR STUDIO — APP GUIDELINES SECTION
+   Quiet, restrained architectural principles
+   ========================================================================== */
+
+.guidelines-section {
+  padding: 60px 0 80px;
   border-top: 1px solid var(--border-color);
 }
 
-.philosophy-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.75rem;
-  margin-top: 3rem;
+.guidelines-header {
+  margin-bottom: 2.5rem;
 }
 
-.philosophy-card {
-  padding: 2.5rem 2rem;
-  height: 100%;
-}
-
-.philosophy-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 10px;
-  background: var(--accent-light);
-  color: var(--accent-primary);
+.guidelines-list {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1.5rem;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid var(--border-color);
 }
 
-.philosophy-icon svg {
-  width: 24px;
-  height: 24px;
+.guideline-item {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 2rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--border-color);
+  align-items: baseline;
 }
 
-.philosophy-card h3 {
+.guideline-num {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.guideline-content h3 {
+  font-family: var(--font-heading);
   font-size: 1.25rem;
   font-weight: 700;
-  margin-bottom: 0.9rem;
   color: var(--text-primary);
+  margin-bottom: 0.4rem;
 }
 
-.philosophy-card p {
+.guideline-content p {
   font-size: 0.95rem;
-  line-height: 1.6;
+  line-height: 1.65;
   color: var(--text-secondary);
+  margin: 0;
+  max-width: 680px;
 }
 
-/* Tech Stack Section */
-.tech-section {
-  padding: 80px 0;
-  border-top: 1px solid var(--border-color);
-}
+@media (max-width: 640px) {
+  .guideline-item {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    padding: 1.5rem 0;
+  }
 
-.tech-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
-  margin-top: 3rem;
+  .guideline-num {
+    font-size: 0.9rem;
+  }
 }
-
-.tech-card {
-  padding: 1.75rem 1.5rem;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  transition: transform 0.2s ease, border-color 0.2s ease;
-}
-
-.tech-card:hover {
-  transform: translateY(-2px);
-  border-color: var(--accent-primary);
-}
-
-.tech-icon-wrapper {
-  width: 40px;
-  height: 40px;
-  border-radius: 8px;
-  background: var(--border-color);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.tech-icon-wrapper svg {
-  width: 22px;
-  height: 22px;
-  color: var(--text-secondary);
-}
-
-.tech-card:hover .tech-icon-wrapper svg {
-  color: var(--accent-primary);
-}
-
-.tech-info h3 {
-  font-size: 1.05rem;

@@ -1,77 +1,69 @@
-/* --- STUDIO ABOUT / FOUNDER SECTION --- */
-.studio-about-section {
-  padding: 60px 0;
-  border-top: 1px solid var(--border-color);
+/* ==========================================================================
+   TOUKIR STUDIO — MOBILE CREATOR SECTION
+   Displayed strictly on mobile devices right before the footer
+   ========================================================================== */
+
+.creator-mobile-section {
+  display: none; /* Hidden on PC / Desktop */
 }
 
-.studio-about-card {
-  display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 3rem;
-  align-items: center;
-  padding: 2.75rem;
-  border-radius: 20px;
-}
-
-.studio-about-avatar-wrapper {
-  display: flex;
-  justify-content: center;
-}
-
-.studio-about-avatar {
-  width: 180px;
-  height: 180px;
-  border-radius: 24px;
-  object-fit: cover;
-  border: 2px solid var(--accent-primary);
-  box-shadow: 0 12px 32px rgba(37, 99, 235, 0.15);
-}
-
-[data-theme="dark"] .studio-about-avatar {
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
-}
-
-.studio-about-subtitle {
-  display: inline-block;
-  font-size: 0.8rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--accent-primary);
-  margin-bottom: 0.5rem;
-}
-
-.studio-about-content h2 {
-  font-size: 1.85rem;
-  font-weight: 800;
-  letter-spacing: -0.5px;
-  margin-bottom: 1rem;
-}
-
-.studio-about-content p {
-  font-size: 0.98rem;
-  line-height: 1.7;
-  color: var(--text-secondary);
-  margin-bottom: 1rem;
-}
-
-.studio-about-links {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-  margin-top: 1.5rem;
-  flex-wrap: wrap;
-}
-
-@media (max-width: 820px) {
-  .studio-about-card {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    padding: 2rem 1.5rem;
-    text-align: center;
+@media (max-width: 768px) {
+  .creator-mobile-section {
+    display: block;
+    padding: 50px 0 60px;
+    border-top: 1px solid var(--border-color);
   }
-  .studio-about-links {
-    justify-content: center;
+
+  .creator-mobile-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .creator-mobile-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 12px;
+    object-fit: cover;
+    border: 1px solid var(--border-color);
+    background: var(--card-bg);
+  }
+
+  .creator-mobile-name {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+  }
+
+  .creator-mobile-caption {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--text-secondary);
+    margin-bottom: 1.25rem;
+  }
+
+  .creator-mobile-links {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .creator-mobile-links a {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-decoration: none;
+    padding-bottom: 2px;
+    border-bottom: 1px solid var(--border-color);
+    transition: border-color var(--transition-fast);
+  }
+
+  .creator-mobile-links a:hover {
+    border-color: var(--text-primary);
   }
 }
 

@@ -33,14 +33,13 @@
     <div class="container">
       <a href="./" class="nav-brand">
         <img src="assets/images/light_logo.png" alt="Toukir Studio Logo" class="nav-logo" id="nav-logo">
-        <span>Toukir</span> Studio <span class="studio-pill">Lab</span>
+        <span>Toukir</span> Studio
       </a>
       <div class="nav-right">
         <nav class="nav-menu" id="nav-menu">
           <a href="./" class="nav-link active">Studio</a>
-          <a href="#spotlight" class="nav-link">Spotlight</a>
-          <a href="projects.html" class="nav-link">Catalog</a>
-          <a href="#philosophy" class="nav-link">Manifesto</a>
+          <a href="#apps" class="nav-link">Apps</a>
+          <a href="#guidelines" class="nav-link">Guidelines</a>
           <a href="about.html" class="nav-link">About</a>
         </nav>
         <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Dark Mode">
@@ -56,309 +55,218 @@
     </div>
   </header>
 
-  <!-- Studio Hero Section -->
-  <section class="portfolio-hero">
-    <div class="container">
-      <div class="portfolio-hero-layout reveal active">
-        <!-- Studio Bio & Mission -->
-        <div class="portfolio-hero-text">
-          <div class="role-tag">
-            <svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
-            Independent Android Software Lab
-          </div>
-          <h1>Toukir Studio</h1>
-          <p class="bio">
-            Crafting focused, 100% offline-first Android applications with tactile haptics, battery-friendly AMOLED aesthetics, and zero predatory ads. Built with quiet craft and deep respect for privacy by Toukir Ahmed.
-          </p>
-          <div class="hero-social-links">
-            <a href="#spotlight" class="btn btn-primary">
-              Featured Spotlight
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-            </a>
-            <a href="projects.html" class="btn btn-secondary">
-              Browse All 31+ Apps
-            </a>
-            <a href="https://github.com/toukirmunna" target="_blank" rel="noopener noreferrer" class="hero-social-btn github-btn" aria-label="GitHub Profile">
-              <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
-              GitHub
-            </a>
-            <a href="https://wa.me/8801726538440" target="_blank" rel="noopener noreferrer" class="hero-social-btn whatsapp-btn" aria-label="Chat on WhatsApp">
-              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <main>
+    <!-- Minimalist Hero Section -->
+    <section class="minimal-hero">
+      <div class="container">
+        <div class="minimal-hero-layout reveal active">
+          <!-- Left Column: Heading & Mission -->
+          <div class="hero-text-col">
+            <span class="hero-label">Independent Android Studio</span>
+            <h1 class="hero-heading">
+              Quiet, bloat-free Android tools that do exactly what they say.
+            </h1>
+            <p class="hero-bio">
+              I build focused, native mobile utilities engineered with local-first storage, small app footprints, and deep respect for user privacy. No telemetry, no behavioral tracking, and zero advertising bloat.
+            </p>
+            <a href="#apps" class="hero-action-link">
+              View starred releases &darr;
             </a>
           </div>
-        </div>
 
-        <!-- Founder Portrait / Studio Identity -->
-        <div class="portfolio-photo-col">
-          <div class="portfolio-avatar-ring">
-            <img src="assets/images/profile.png" alt="Toukir Ahmed" class="portfolio-avatar" onerror="this.style.background='var(--card-bg)'">
-          </div>
-          <span style="font-size:0.85rem;font-weight:600;color:var(--text-secondary)">Toukir Ahmed &bull; Founder</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Studio Stats Strip Section -->
-  <section class="stats-strip reveal">
-    <div class="container">
-      <div class="stats-strip-container glass-panel">
-        <div class="stat-item">
-          <span class="stat-value">31+</span>
-          <span class="stat-label">Native Android Apps</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-value">100%</span>
-          <span class="stat-label">Offline First</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-value">0</span>
-          <span class="stat-label">Ads & Trackers</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-value">Free</span>
-          <span class="stat-label">Open Releases</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Flagship Spotlight Showcase -->
-  <section class="studio-spotlight-section" id="spotlight">
-    <div class="container">
-      <div class="section-header reveal">
-        <h2>Studio Spotlight</h2>
-        <p>Featured mobile release, engineered from the ground up with Jetpack Compose &amp; precision haptics.</p>
-      </div>
-
-      <div class="studio-spotlight-card reveal">
-        <div class="spotlight-banner-wrapper">
-          <a href="app.html?id=tasbeeh">
-            <img src="assets/images/tasbeeh/tasbeeh_banner.webp" alt="Tasbeeh 3D Banner Showcase" class="spotlight-banner-img">
-          </a>
-        </div>
-        <div class="spotlight-info">
-          <div class="spotlight-badge-row">
-            <span class="spotlight-flagship-badge">
-              <svg viewBox="0 0 24 24" fill="currentColor" style="width:12px;height:12px"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              Flagship App
-            </span>
-            <span class="category-pill">Lifestyle &bull; Islamic</span>
-            <span class="spotlight-tag" style="background:var(--accent-light);color:var(--accent-primary);border-color:rgba(37,99,235,0.2)">v4.1.0</span>
-          </div>
-
-          <div class="spotlight-title-group">
-            <img src="assets/images/tasbeeh/tasbeeh_icon.webp" alt="Tasbeeh Icon" class="spotlight-app-icon" onerror="this.src='assets/images/light_logo.png'">
+          <!-- Right Column: Desktop Photo & Caption (Hidden on Mobile) -->
+          <div class="hero-creator-desktop">
+            <img src="assets/images/profile.png" alt="Toukir Ahmed" class="creator-photo" onerror="this.src='assets/images/light_logo.png'">
             <div>
-              <h3 class="spotlight-app-title">Tasbeeh</h3>
-              <p class="spotlight-app-tagline">Distraction-Free Digital Counter &amp; Adhkar</p>
+              <div class="creator-name">Toukir Ahmed</div>
+              <p class="creator-caption">
+                Educator &amp; independent Android developer based in Bangladesh.
+              </p>
             </div>
           </div>
-
-          <p class="spotlight-desc">
-            A peaceful, distraction-free digital Tasbeeh counter and daily supplication companion with custom haptics, authentic Arabic &amp; Bengali translations, AMOLED dark mode, and habit streaks.
-          </p>
-
-          <div class="spotlight-tags">
-            <span class="spotlight-tag">Kotlin Compose</span>
-            <span class="spotlight-tag">Precision Haptics</span>
-            <span class="spotlight-tag">100% Offline</span>
-            <span class="spotlight-tag">Zero Ads</span>
-          </div>
-
-          <div class="spotlight-actions">
-            <a href="https://github.com/ToukirMunna/toukirmunna.github.io/releases/download/tasbeeh-v4.1.0/Tasbeeh-v4.1.0.apk" class="btn btn-primary">
-              <svg style="width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2" viewBox="0 0 24 24">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
-              </svg>
-              Download APK (9.9 MB)
-            </a>
-            <a href="app.html?id=tasbeeh" class="btn btn-secondary">
-              Full Showcase &amp; Specs &rarr;
-            </a>
-          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Studio Catalog Section -->
-  <section class="apps-section" id="projects">
+  <!-- 4 Starred Apps Showcase -->
+  <section class="starred-apps-section" id="apps">
     <div class="container">
-      <div class="section-header reveal">
-        <h2>The Studio Catalog</h2>
-        <p>A few of our curated apps &mdash; handcrafted native Android utilities built to solve specific everyday needs.</p>
+      <div class="starred-apps-header reveal">
+        <span class="section-label">Featured Releases</span>
+        <h2 class="section-title">Starred Applications</h2>
+        <p class="section-desc">Handcrafted native Android tools built for specific daily utility.</p>
       </div>
 
-      <!-- Dynamic Grid loaded by main.js (featured mode = 3 apps) -->
-      <div class="apps-grid" data-mode="featured">
-        <div class="loading-placeholder">
-          <p>Loading projects...</p>
-        </div>
+      <div class="starred-grid reveal">
+        <!-- 1. Tasbeeh -->
+        <a href="app.html?id=tasbeeh" class="starred-card">
+          <div>
+            <div class="starred-card-top">
+              <img src="assets/images/tasbeeh/tasbeeh_icon.webp" alt="Tasbeeh Icon" class="starred-app-icon" onerror="this.src='assets/images/light_logo.png'">
+              <div>
+                <div class="starred-app-name">Tasbeeh</div>
+                <div class="starred-app-cat">Lifestyle &bull; Islamic</div>
+              </div>
+            </div>
+            <p class="starred-card-desc">
+              Distraction-free digital counter and authentic Adhkar companion with tactile haptics, AMOLED dark mode, and habit streaks.
+            </p>
+          </div>
+          <div class="starred-card-footer">
+            <span class="starred-card-meta">v4.1.0 &bull; 9.9 MB</span>
+            <span class="starred-card-link">View details &rarr;</span>
+          </div>
+        </a>
+
+        <!-- 2. Expense Tracker -->
+        <a href="app.html?id=expense" class="starred-card">
+          <div>
+            <div class="starred-card-top">
+              <img src="assets/images/expense/expense_icon.webp" alt="Expense Tracker Icon" class="starred-app-icon" onerror="this.src='assets/images/light_logo.png'">
+              <div>
+                <div class="starred-app-name">Expense Tracker</div>
+                <div class="starred-app-cat">Finance</div>
+              </div>
+            </div>
+            <p class="starred-card-desc">
+              Private personal bookkeeping utility with interactive category analytics, budget thresholds, and local CSV export.
+            </p>
+          </div>
+          <div class="starred-card-footer">
+            <span class="starred-card-meta">v2.1.0 &bull; 6.2 MB</span>
+            <span class="starred-card-link">View details &rarr;</span>
+          </div>
+        </a>
+
+        <!-- 3. Loop Habits -->
+        <a href="app.html?id=loophabits" class="starred-card">
+          <div>
+            <div class="starred-card-top">
+              <img src="assets/images/loophabits/loophabits_icon.webp" alt="Loop Habits Icon" class="starred-app-icon" onerror="this.src='assets/images/light_logo.png'">
+              <div>
+                <div class="starred-app-name">Loop Habits</div>
+                <div class="starred-app-cat">Productivity</div>
+              </div>
+            </div>
+            <p class="starred-card-desc">
+              Minimalist offline micro-habit tracker engineered to build durable daily routines with clear streak visualizations.
+            </p>
+          </div>
+          <div class="starred-card-footer">
+            <span class="starred-card-meta">v2.0.1 &bull; 4.8 MB</span>
+            <span class="starred-card-link">View details &rarr;</span>
+          </div>
+        </a>
+
+        <!-- 4. EesyPOS -->
+        <a href="app.html?id=eesypos" class="starred-card">
+          <div>
+            <div class="starred-card-top">
+              <img src="assets/images/eesypos/eesypos_icon.webp" alt="EesyPOS Icon" class="starred-app-icon" onerror="this.src='assets/images/light_logo.png'">
+              <div>
+                <div class="starred-app-name">EesyPOS</div>
+                <div class="starred-app-cat">Business &bull; POS</div>
+              </div>
+            </div>
+            <p class="starred-card-desc">
+              Fast point of sale, inventory manager, and receipt generator designed for small shops with complete offline SQLite reliability.
+            </p>
+          </div>
+          <div class="starred-card-footer">
+            <span class="starred-card-meta">v3.4.0 &bull; 8.5 MB</span>
+            <span class="starred-card-link">View details &rarr;</span>
+          </div>
+        </a>
       </div>
 
-      <!-- View All CTA -->
-      <div class="view-all-cta reveal">
-        <p>Looking for the full catalog? Explore all 31+ applications with category filters.</p>
-        <a href="projects.html" class="btn-view-all" id="view-all-projects-btn">
-          View All 31+ Projects
-          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
+      <div class="show-all-wrapper reveal">
+        <a href="projects.html" class="btn-show-all">
+          Show all apps &rarr;
         </a>
       </div>
     </div>
   </section>
 
-  <!-- Engineering Manifesto Section -->
-  <section class="philosophy-section" id="manifesto">
+  <!-- App Guidelines Section -->
+  <section class="guidelines-section" id="guidelines">
     <div class="container">
-      <div class="section-header reveal">
-        <h2>Our Engineering Manifesto</h2>
-        <p>Four uncompromising design principles guiding every application built at Toukir Studio.</p>
+      <div class="guidelines-header reveal">
+        <span class="section-label">Engineering Values</span>
+        <h2 class="section-title">App Guidelines</h2>
+        <p class="section-desc">Principles guiding every application engineered at Toukir Studio.</p>
       </div>
-      <div class="philosophy-grid">
-        <div class="glass-card philosophy-card reveal">
-          <div class="philosophy-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
-              <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
-              <line x1="6" y1="6" x2="6.01" y2="6"></line>
-              <line x1="6" y1="18" x2="6.01" y2="18"></line>
-            </svg>
+
+      <div class="guidelines-list reveal">
+        <!-- 01 -->
+        <div class="guideline-item">
+          <span class="guideline-num">01</span>
+          <div class="guideline-content">
+            <h3>Bloat-free by design</h3>
+            <p>Every tool has a single, well-defined purpose. No unnecessary features, no subscription upsells, no popups begging for ratings, and zero gimmicks.</p>
           </div>
-          <h3>100% Offline-First</h3>
-          <p>Every app functions entirely without internet connectivity. Your local databases (Room/SQLite) reside strictly on your device with zero mandatory server sync.</p>
         </div>
-        <div class="glass-card philosophy-card reveal">
-          <div class="philosophy-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-            </svg>
+
+        <!-- 02 -->
+        <div class="guideline-item">
+          <span class="guideline-num">02</span>
+          <div class="guideline-content">
+            <h3>Small app size footprint</h3>
+            <p>Applications are built with lean native Kotlin and minimal dependencies, keeping download sizes small and memory consumption light on any device.</p>
           </div>
-          <h3>Zero Ads &amp; Telemetry</h3>
-          <p>No advertising SDKs, no behavioral tracking, no third-party analytic bloat. Pure utilities crafted with deep respect for your privacy, bandwidth, and attention.</p>
         </div>
-        <div class="glass-card philosophy-card reveal">
-          <div class="philosophy-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-            </svg>
+
+        <!-- 03 -->
+        <div class="guideline-item">
+          <span class="guideline-num">03</span>
+          <div class="guideline-content">
+            <h3>No telemetry, no tracking</h3>
+            <p>Zero analytic SDKs, zero user tracking, and zero advertising frameworks. The software does not monitor what you do or phone home with your behavioral data.</p>
           </div>
-          <h3>AMOLED &amp; Battery Native</h3>
-          <p>Engineered with true-black (#000000) AMOLED dark modes and minimal CPU overhead to eliminate background battery drain and extend device longevity.</p>
         </div>
-        <div class="glass-card philosophy-card reveal">
-          <div class="philosophy-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-              <polyline points="2 17 12 22 22 17"></polyline>
-              <polyline points="2 12 12 17 22 12"></polyline>
-            </svg>
+
+        <!-- 04 -->
+        <div class="guideline-item">
+          <span class="guideline-num">04</span>
+          <div class="guideline-content">
+            <h3>Offline first always</h3>
+            <p>Full functionality without an active internet connection. Databases reside strictly on your device flash memory, with optional personal Google Drive backups you control.</p>
           </div>
-          <h3>Modern Jetpack &amp; Compose</h3>
-          <p>Built in native Kotlin leveraging modern Android architecture components, coroutines, and declarative Jetpack Compose UI for fluid 120Hz performance.</p>
+        </div>
+
+        <!-- 05 -->
+        <div class="guideline-item">
+          <span class="guideline-num">05</span>
+          <div class="guideline-content">
+            <h3>No selling of data</h3>
+            <p>Your information is never collected, monetized, or shared with third parties. Software is provided cleanly and transparently as open releases.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Studio Founder Section -->
-  <section class="studio-about-section">
+  <!-- Mobile-Only Creator Section (Displayed strictly on mobile above footer) -->
+  <section class="creator-mobile-section">
     <div class="container">
-      <div class="glass-card studio-about-card reveal">
-        <div class="studio-about-avatar-wrapper">
-          <img src="assets/images/profile.png" alt="Toukir Ahmed" class="studio-about-avatar" onerror="this.src='assets/images/light_logo.png'">
-        </div>
-        <div class="studio-about-content">
-          <span class="studio-about-subtitle">Behind Toukir Studio</span>
-          <h2>Crafted by an Independent Developer &amp; Educator</h2>
-          <p>
-            Toukir Studio is an independent Android software lab founded by <strong>Toukir Ahmed</strong> &mdash; an educator and native Android software craftsperson based in Bangladesh.
+      <div class="creator-mobile-card reveal">
+        <img src="assets/images/profile.png" alt="Toukir Ahmed" class="creator-mobile-photo" onerror="this.src='assets/images/light_logo.png'">
+        <div>
+          <div class="creator-mobile-name">Toukir Ahmed</div>
+          <p class="creator-mobile-caption">
+            Teacher &amp; independent Android developer based in Bangladesh. Crafting quiet, bloat-free tools that solve everyday friction.
           </p>
-          <p>
-            Frustrated by modern apps bloated with subscriptions, predatory telemetry, and intrusive popups, Toukir builds focused native Android utilities. Today, the catalog spans 31+ specialized tools &mdash; ranging from distraction-free spiritual companions and offline dictionaries to everyday utilities &mdash; built for people who value speed, privacy, and craftsmanship.
-          </p>
-          <div class="studio-about-links">
-            <a href="about.html" class="btn btn-secondary">Read Full Story &rarr;</a>
-            <a href="https://github.com/toukirmunna" target="_blank" rel="noopener noreferrer" class="btn-link">View GitHub &rarr;</a>
+          <div class="creator-mobile-links">
+            <a href="about.html">About &rarr;</a>
+            <a href="https://github.com/toukirmunna" target="_blank" rel="noopener noreferrer">GitHub &rarr;</a>
+            <a href="https://wa.me/8801726538440" target="_blank" rel="noopener noreferrer">WhatsApp &rarr;</a>
           </div>
         </div>
       </div>
     </div>
   </section>
+</main>
 
-  <!-- Tech Stack Section -->
-  <section class="tech-section">
-    <div class="container">
-      <div class="section-header reveal">
-        <h2>Engineering Toolkit</h2>
-        <p>Modern Android libraries and frameworks powering the studio's releases.</p>
-      </div>
-      <div class="tech-grid">
-        <div class="glass-card tech-card reveal">
-          <div class="tech-icon-wrapper">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-          </div>
-          <div class="tech-info">
-            <h3>Kotlin / Compose</h3>
-            <p>Native Languages &amp; UI</p>
-          </div>
-        </div>
-        <div class="glass-card tech-card reveal">
-          <div class="tech-icon-wrapper">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
-          </div>
-          <div class="tech-info">
-            <h3>Room / SQLite</h3>
-            <p>Local Offline Storage</p>
-          </div>
-        </div>
-        <div class="glass-card tech-card reveal">
-          <div class="tech-icon-wrapper">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-          </div>
-          <div class="tech-info">
-            <h3>Android Jetpack</h3>
-            <p>Coroutines &amp; Architecture</p>
-          </div>
-        </div>
-        <div class="glass-card tech-card reveal">
-          <div class="tech-icon-wrapper">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-          </div>
-          <div class="tech-info">
-            <h3>Git &amp; GitHub</h3>
-            <p>Releases &amp; Open Source</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Feedback Banner Section -->
-  <section class="feedback-section">
-    <div class="container">
-      <div class="glass-card feedback-banner reveal">
-        <span class="feedback-badge">💡 Direct Feedback</span>
-        <h2>Have an App Idea or Feature Request?</h2>
-        <p>Whether you've found a bug, want to suggest an improvement, or have a concept for a custom offline Android utility, reach out directly to the developer.</p>
-        <div class="feedback-buttons">
-          <a href="https://wa.me/8801726538440" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-            <svg viewBox="0 0 24 24" style="width:20px;height:20px;margin-right:0.5rem;fill:currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            Send WhatsApp Message
-          </a>
-          <a href="https://github.com/toukirmunna" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-            <svg viewBox="0 0 24 24" style="width:20px;height:20px;margin-right:0.5rem;fill:currentColor"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
-            Follow on GitHub
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
+  <!-- Clean Footer -->
   <footer class="footer">
     <div class="container">
       <div class="footer-layout">
@@ -368,14 +276,14 @@
         </a>
         <div class="footer-links">
           <a href="./" class="footer-link">Home</a>
-          <a href="projects.html" class="footer-link">Catalog (31+)</a>
+          <a href="projects.html" class="footer-link">Apps</a>
           <a href="about.html" class="footer-link">About</a>
           <a href="privacy.html" class="footer-link">Privacy Policy</a>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; 2026 Toukir Studio &bull; Handcrafted by Toukir Ahmed. 100% Native &bull; Offline-First &bull; Zero Ads.</p>
+        <p>&copy; 2026 Toukir Studio &bull; Built by Toukir Ahmed. Native, offline-first, bloat-free.</p>
         <div class="footer-socials">
           <a href="https://github.com/toukirmunna" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="social-icon">
             <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>

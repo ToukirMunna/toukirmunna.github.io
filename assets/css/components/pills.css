@@ -50,3 +50,48 @@
   color: var(--text-secondary);
   border: 1px solid var(--border-color);
 }
+
+/* Homepage Quick-Filter Pills */
+.homepage-filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+
+.homepage-filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.45rem 1.1rem;
+  border-radius: 100px;
+  border: 1px solid var(--border-color);
+  background: var(--card-bg);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.homepage-filter-chip:hover {
+  border-color: var(--accent-primary);
+  color: var(--text-primary);
+  transform: translateY(-1px);
+}
+
+.homepage-filter-chip.active {
+  background: var(--accent-primary);
+  color: #ffffff;
+  border-color: var(--accent-primary);
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
+}
+
+[data-theme="dark"] .homepage-filter-chip.active {
+  background: var(--accent-primary);
+  color: #0d1117;
+  font-weight: 700;
+  box-shadow: 0 4px 16px rgba(56, 189, 248, 0.3);
+}
