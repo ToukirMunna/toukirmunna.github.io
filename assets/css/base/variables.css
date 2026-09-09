@@ -12,8 +12,8 @@
   --border-color-hover: #cfccc4;
   
   --text-primary: #121212;           /* 3. Primary Text & Tone */
-  --text-secondary: #5c5c58;
-  --text-muted: #8c8c86;
+  --text-secondary: #52524e;
+  --text-muted: #5e5e5a;
   
   --accent-primary: #121212;         /* Pure minimalist accent */
   --accent-hover: #333333;
@@ -49,8 +49,8 @@
   --border-color-hover: #333333;
   
   --text-primary: #f4f4f4;           /* 3. Crisp Off-White Text */
-  --text-secondary: #888888;
-  --text-muted: #555555;
+  --text-secondary: #a6a6a6;
+  --text-muted: #949494;
   
   --accent-primary: #f4f4f4;
   --accent-hover: #ffffff;
