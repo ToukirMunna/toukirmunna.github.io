@@ -56,18 +56,6 @@ document.addEventListener("DOMContentLoaded", () => {
     iconEl.onerror = () => { iconEl.src = 'assets/images/light_logo.png'; };
   }
 
-  // Hero Screen Banner
-  const bannerWrapper = document.getElementById("hero-banner-wrapper");
-  const bannerImg = document.getElementById("hero-screen-img");
-  if (bannerWrapper && bannerImg) {
-    if (app.banner && app.banner.trim().length > 0) {
-      bannerImg.src = app.banner;
-      bannerImg.alt = `${app.name} Hero Banner`;
-      bannerWrapper.style.display = "block";
-    } else {
-      bannerWrapper.style.display = "none";
-    }
-  }
 
   // Populate Technical Architecture Specs Card
   const techSpecsGrid = document.getElementById("tech-specs-grid");

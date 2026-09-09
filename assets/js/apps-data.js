@@ -1199,13 +1199,30 @@ const defaultAppsData = [
 
 // Initialize localStorage or update to authoritative 31-app catalog
 (function () {
-  const CATALOG_VERSION = "2026.09.07.v31";
+  const CATALOG_VERSION = "2026.09.09.v4.1.0";
   try {
     const currentVersion = localStorage.getItem("appsData_catalog_version");
     const stored = localStorage.getItem("appsData");
     
-    // Force refresh if catalog version is older or stored count is different
-    if (!stored || currentVersion !== CATALOG_VERSION || JSON.parse(stored).length !== defaultAppsData.length) {
+    // Force refresh if catalog version is older, stored count is different, or tasbeeh screenshots are missing
+    let needsRefresh = !stored || currentVersion !== CATALOG_VERSION;
+    if (!needsRefresh && stored) {
+      try {
+        const parsed = JSON.parse(stored);
+        if (parsed.length !== defaultAppsData.length) {
+          needsRefresh = true;
+        } else {
+          const tasbeehApp = parsed.find(a => a.id === "tasbeeh");
+          if (!tasbeehApp || !tasbeehApp.screenshots || tasbeehApp.screenshots.length === 0) {
+            needsRefresh = true;
+          }
+        }
+      } catch (_) {
+        needsRefresh = true;
+      }
+    }
+
+    if (needsRefresh) {
       localStorage.setItem("appsData", JSON.stringify(defaultAppsData));
       localStorage.setItem("appsData_catalog_version", CATALOG_VERSION);
       window.appsData = defaultAppsData;
