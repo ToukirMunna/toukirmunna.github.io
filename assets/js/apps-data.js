@@ -23,12 +23,14 @@ const defaultAppsData = [
       "assets/images/tasbeeh/Tasbeeh_08.webp"
     ],
     "features": [
-      "Tactile haptic engine with multi-pattern vibration clicks and sound feedback",
-      "Curated library of authentic Adhkar with Arabic script, Bengali/English meanings, and virtues",
-      "Daily goals, milestone targets, and streak tracking to build long-term habits",
-      "Visual weekly activity charts and historical monthly recitation logs",
-      "Personalized custom Tasbeeh creation with user-defined target thresholds",
-      "Offline-first local storage with optional Firebase cloud backup and sync"
+      "Precision haptic engine simulating tactile counter clicks with customizable vibration patterns and acoustic feedback",
+      "Curated authentic Adhkar library featuring Arabic script, Bengali and English translations, and recorded virtues",
+      "Daily goal setting, milestone thresholds, and streak counters to reinforce spiritual mindfulness",
+      "Interactive weekly activity bar charts and historical recitation breakdowns by day and month",
+      "Custom Dhikr creation allowing users to define personalized phrases, initial counts, and loop targets",
+      "AMOLED pure black theme and adaptive color accents engineered for optimal contrast and OLED power preservation",
+      "Offline-first architecture with optional secure Google Sign-In and cloud synchronization via Firebase",
+      "Distraction-free black screen mode for discreet and focused tactile recitation without visual glare"
     ],
     "version": "4.1.0",
     "apkSize": "9.9 MB",
@@ -1199,7 +1201,7 @@ const defaultAppsData = [
 
 // Initialize localStorage or update to authoritative 31-app catalog
 (function () {
-  const CATALOG_VERSION = "2026.09.09.v4.1.0";
+  const CATALOG_VERSION = "2026.09.09.v4.1.1";
   try {
     const currentVersion = localStorage.getItem("appsData_catalog_version");
     const stored = localStorage.getItem("appsData");

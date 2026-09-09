@@ -323,7 +323,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (app.features && app.features.length > 0) {
       app.features.forEach(feature => {
         const item = document.createElement("div");
-        item.className = "feature-item reveal";
+        item.className = "feature-item reveal active";
         item.innerHTML = `
           <span class="feature-check-icon">
             <svg viewBox="0 0 24 24">
