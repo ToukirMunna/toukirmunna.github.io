@@ -23,8 +23,21 @@
   <meta name="twitter:description" content="Learn about Toukir Studio and Toukir Ahmed — an independent Android software lab building distraction-free, 100% offline utilities.">
   <meta name="twitter:image" content="https://toukir.pro.bd/assets/images/profile.png">
 
+  <!-- Google Fonts Preconnect & Stylesheet -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap">
+
   <!-- CSS Stylesheets -->
   <link rel="stylesheet" href="assets/css/styles.css">
+
+  <!-- Zero-FOUC Theme Initialization -->
+  <script>
+    (function(){
+      var t=localStorage.getItem("theme")||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");
+      if(t==="dark")document.documentElement.setAttribute("data-theme","dark");
+    })();
+  </script>
 </head>
 <body>
 
@@ -32,7 +45,7 @@
   <header class="navbar">
     <div class="container">
       <a href="./" class="nav-brand">
-        <img src="assets/images/light_logo.png" alt="Toukir Studio Logo" class="nav-logo" id="nav-logo">
+        <img src="assets/images/light_logo.webp" alt="Toukir Studio Logo" class="nav-logo" id="nav-logo" width="28" height="28">
         <span>Toukir</span> Studio
         <span class="studio-pill">Indie Lab</span>
       </a>
@@ -61,7 +74,7 @@
       <!-- Profile sticky column -->
       <aside class="about-profile reveal">
         <div class="profile-avatar-container">
-          <img src="assets/images/profile.png" alt="Toukir Ahmed" class="profile-avatar" onerror="this.src='assets/images/light_logo.png'">
+          <img src="assets/images/profile.webp" alt="Toukir Ahmed" class="profile-avatar" width="140" height="140" decoding="async" onerror="this.src='assets/images/profile.png'">
         </div>
         <h2>Toukir Ahmed</h2>
         <div class="dev-tag">Founder &bull; Android Craftsperson</div>
@@ -134,7 +147,7 @@
     <div class="container">
       <div class="footer-layout">
         <a href="./" class="footer-brand">
-          <img src="assets/images/light_logo.png" alt="Toukir Studio Logo" class="footer-logo">
+          <img src="assets/images/light_logo.webp" alt="Toukir Studio Logo" class="footer-logo" width="28" height="28" loading="lazy" decoding="async">
           <span>Toukir</span> Studio
         </a>
         <div class="footer-links">

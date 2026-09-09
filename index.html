@@ -3,28 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Toukir Ahmed — Hobbyist Android Developer</title>
-  <meta name="description" content="Toukir Ahmed is a teacher and hobbyist Android developer who builds apps to solve real-world problems from daily life. Explore his personal projects.">
+  <title>Toukir Studio — Independent Android Studio</title>
+  <meta name="description" content="Toukir Studio crafts focused, bloat-free Android applications engineered with offline-first storage, small app footprints, and zero telemetry.">
 
   <link rel="icon" type="image/png" id="favicon" href="assets/images/light_favicon.png">
   <link rel="canonical" href="https://toukir.pro.bd/">
 
   <!-- OpenGraph Social Preview -->
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Toukir Ahmed Portfolio">
-  <meta property="og:title" content="Toukir Ahmed — Hobbyist Android Developer">
-  <meta property="og:description" content="Toukir Ahmed is a teacher and hobbyist Android developer who builds apps to solve real-world problems from daily life. Explore his personal projects.">
+  <meta property="og:site_name" content="Toukir Studio">
+  <meta property="og:title" content="Toukir Studio — Independent Android Studio">
+  <meta property="og:description" content="Focused, bloat-free Android applications engineered with offline-first storage, small app footprints, and zero telemetry.">
   <meta property="og:url" content="https://toukir.pro.bd/">
   <meta property="og:image" content="https://toukir.pro.bd/assets/images/light_logo.png">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Toukir Ahmed — Hobbyist Android Developer">
-  <meta name="twitter:description" content="Toukir Ahmed is a teacher and hobbyist Android developer who builds apps to solve real-world problems from daily life. Explore his personal projects.">
+  <meta name="twitter:title" content="Toukir Studio — Independent Android Studio">
+  <meta name="twitter:description" content="Focused, bloat-free Android applications engineered with offline-first storage, small app footprints, and zero telemetry.">
   <meta name="twitter:image" content="https://toukir.pro.bd/assets/images/light_logo.png">
+
+  <!-- Google Fonts Preconnect & Stylesheet -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap">
 
   <!-- CSS Stylesheets -->
   <link rel="stylesheet" href="assets/css/styles.css">
+
+  <!-- Zero-FOUC Theme Initialization -->
+  <script>
+    (function(){
+      var t=localStorage.getItem("theme")||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");
+      if(t==="dark")document.documentElement.setAttribute("data-theme","dark");
+    })();
+  </script>
 </head>
 <body>
 
@@ -32,7 +45,7 @@
   <header class="navbar">
     <div class="container">
       <a href="./" class="nav-brand">
-        <img src="assets/images/light_logo.png" alt="Toukir Studio Logo" class="nav-logo" id="nav-logo">
+        <img src="assets/images/light_logo.webp" alt="Toukir Studio Logo" class="nav-logo" id="nav-logo" width="28" height="28">
         <span>Toukir</span> Studio
       </a>
       <div class="nav-right">
@@ -93,7 +106,7 @@
         <a href="app.html?id=tasbeeh" class="starred-card">
           <div>
             <div class="starred-card-top">
-              <img src="assets/images/tasbeeh/tasbeeh_icon.webp" alt="Tasbeeh Icon" class="starred-app-icon" onerror="this.src='assets/images/light_logo.png'">
+              <img src="assets/images/tasbeeh/tasbeeh_icon.webp" alt="Tasbeeh Icon" class="starred-app-icon" width="48" height="48" loading="lazy" decoding="async" onerror="this.src='assets/images/light_logo.webp'">
               <div>
                 <div class="starred-app-name">Tasbeeh</div>
                 <div class="starred-app-cat">Lifestyle &bull; Islamic</div>
@@ -113,7 +126,7 @@
         <a href="app.html?id=expense" class="starred-card">
           <div>
             <div class="starred-card-top">
-              <img src="assets/images/expense/expense_icon.webp" alt="Expense Tracker Icon" class="starred-app-icon" onerror="this.src='assets/images/light_logo.png'">
+              <img src="assets/images/expense/expense_icon.webp" alt="Expense Tracker Icon" class="starred-app-icon" width="48" height="48" loading="lazy" decoding="async" onerror="this.src='assets/images/light_logo.webp'">
               <div>
                 <div class="starred-app-name">Expense Tracker</div>
                 <div class="starred-app-cat">Finance</div>
@@ -133,7 +146,7 @@
         <a href="app.html?id=loophabits" class="starred-card">
           <div>
             <div class="starred-card-top">
-              <img src="assets/images/loophabits/loophabits_icon.webp" alt="Loop Habits Icon" class="starred-app-icon" onerror="this.src='assets/images/light_logo.png'">
+              <img src="assets/images/loophabits/loophabits_icon.webp" alt="Loop Habits Icon" class="starred-app-icon" width="48" height="48" loading="lazy" decoding="async" onerror="this.src='assets/images/light_logo.webp'">
               <div>
                 <div class="starred-app-name">Loop Habits</div>
                 <div class="starred-app-cat">Productivity</div>
@@ -153,7 +166,7 @@
         <a href="app.html?id=eesypos" class="starred-card">
           <div>
             <div class="starred-card-top">
-              <img src="assets/images/eesypos/eesypos_icon.webp" alt="EesyPOS Icon" class="starred-app-icon" onerror="this.src='assets/images/light_logo.png'">
+              <img src="assets/images/eesypos/eesypos_icon.webp" alt="EesyPOS Icon" class="starred-app-icon" width="48" height="48" loading="lazy" decoding="async" onerror="this.src='assets/images/light_logo.webp'">
               <div>
                 <div class="starred-app-name">EesyPOS</div>
                 <div class="starred-app-cat">Business &bull; POS</div>
@@ -240,7 +253,7 @@
   <section class="creator-section">
     <div class="container">
       <div class="creator-card reveal">
-        <img src="assets/images/profile.png" alt="Toukir Ahmed" class="creator-photo" onerror="this.src='assets/images/light_logo.png'">
+        <img src="assets/images/profile.webp" alt="Toukir Ahmed" class="creator-photo" width="130" height="130" loading="lazy" decoding="async" onerror="this.src='assets/images/profile.png'">
         <div class="creator-info">
           <span class="creator-label">Craftsman Behind the Apps</span>
           <div class="creator-name">Toukir Ahmed</div>
@@ -263,7 +276,7 @@
     <div class="container">
       <div class="footer-layout">
         <a href="./" class="footer-brand">
-          <img src="assets/images/light_logo.png" alt="Toukir Studio Logo" class="footer-logo">
+          <img src="assets/images/light_logo.webp" alt="Toukir Studio Logo" class="footer-logo" width="28" height="28" loading="lazy" decoding="async">
           <span>Toukir</span> Studio
         </a>
         <div class="footer-links">
@@ -289,7 +302,6 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="assets/js/apps-data.js?v=20260909_411"></script>
   <script type="module" src="assets/js/main.js?v=20260909_411"></script>
 </body>
 </html>

@@ -21,8 +21,8 @@ export function updateBrandAssets(theme) {
   
   const isDark = theme === "dark";
   if (favicon) favicon.href = isDark ? "assets/images/dark_favicon.png" : "assets/images/light_favicon.png";
-  if (navLogo) navLogo.src = isDark ? "assets/images/light_logod.png" : "assets/images/light_logo.png";
-  if (footerLogo) footerLogo.src = isDark ? "assets/images/light_logod.png" : "assets/images/light_logo.png";
+  if (navLogo) navLogo.src = isDark ? "assets/images/light_logod.webp" : "assets/images/light_logo.webp";
+  if (footerLogo) footerLogo.src = isDark ? "assets/images/light_logod.webp" : "assets/images/light_logo.webp";
 }
 
 export function setupThemeToggle() {
