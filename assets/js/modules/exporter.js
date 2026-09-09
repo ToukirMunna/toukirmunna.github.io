@@ -5,33 +5,46 @@
 
 function compileJavascriptFile(data) {
   const formattedJson = JSON.stringify(data, null, 2);
+  const now = new Date();
+  const dateStr = now.toISOString().slice(0, 10).replace(/-/g, ".");
+  const versionStr = `${dateStr}.v${now.getTime()}`;
   
   return `/**
- * App Portfolio Data - Toukir Ahmed
- * Easily extend your portfolio by adding new app objects to this array.
- * Fields: id, name, tagline, shortDescription, fullDescription, icon,
- *         screenshots, features, version, apkSize, lastUpdated,
- *         downloadUrl, githubUrl, category, changelog,
- *         featured (bool), hidden (bool)
+ * App Portfolio Data - Toukir Studio (Toukir Ahmed)
+ * Authoritative Catalog for toukir.pro.bd / toukirmunna.github.io
  */
 const defaultAppsData = ${formattedJson};
 
-// Expose resolved apps data (checking local storage overrides first)
-let appsData = defaultAppsData;
-try {
-  const storedApps = localStorage.getItem("appsData");
-  if (storedApps) {
-    appsData = JSON.parse(storedApps);
-  }
-} catch (e) {
-  console.error("Error loading appsData from localStorage:", e);
-}
+// Initialize localStorage or update to authoritative catalog
+(function () {
+  const CATALOG_VERSION = "${versionStr}";
+  try {
+    const currentVersion = localStorage.getItem("appsData_catalog_version");
+    const stored = localStorage.getItem("appsData");
+    
+    let needsRefresh = !stored || currentVersion !== CATALOG_VERSION;
+    if (!needsRefresh && stored) {
+      try {
+        const parsed = JSON.parse(stored);
+        if (parsed.length !== defaultAppsData.length) {
+          needsRefresh = true;
+        }
+      } catch (_) {
+        needsRefresh = true;
+      }
+    }
 
-// Export if module environment, otherwise expose to window
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = appsData;
-} else {
-  window.appsData = appsData;
-}
+    if (needsRefresh) {
+      localStorage.setItem("appsData", JSON.stringify(defaultAppsData));
+      localStorage.setItem("appsData_catalog_version", CATALOG_VERSION);
+      window.appsData = defaultAppsData;
+    } else {
+      window.appsData = JSON.parse(stored);
+    }
+  } catch (e) {
+    console.error("Error loading appsData from localStorage:", e);
+    window.appsData = defaultAppsData;
+  }
+})();
 `;
 }

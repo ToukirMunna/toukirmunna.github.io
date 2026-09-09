@@ -467,7 +467,12 @@ function initFormHandlers(onSubmitCallback) {
         return { version, date, notes };
       }).filter(entry => entry.version !== "");
 
+      const existingApp = (editingAppId && window.appsData)
+        ? (window.appsData.find(a => a.id === editingAppId) || {})
+        : {};
+
       const appObject = {
+        ...existingApp,
         id: document.getElementById("app-id").value.trim().toLowerCase(),
         name: document.getElementById("app-name").value.trim(),
         tagline: document.getElementById("app-tagline").value.trim(),
