@@ -13,13 +13,16 @@ if (savedTheme === "dark") {
 function updateBrandAssets(theme) {
   const favicon = document.getElementById("favicon");
   const navLogo = document.getElementById("nav-logo");
+  const footerLogo = document.querySelector(".footer-logo");
   
   if (theme === "dark") {
     if (favicon) favicon.href = "assets/images/dark_favicon.png";
     if (navLogo) navLogo.src = "assets/images/light_logod.png";
+    if (footerLogo) footerLogo.src = "assets/images/light_logod.png";
   } else {
     if (favicon) favicon.href = "assets/images/light_favicon.png";
     if (navLogo) navLogo.src = "assets/images/light_logo.png";
+    if (footerLogo) footerLogo.src = "assets/images/light_logo.png";
   }
 }
 
