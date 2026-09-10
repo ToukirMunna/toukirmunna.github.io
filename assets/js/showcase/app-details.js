@@ -108,6 +108,7 @@ export function initAppDetails() {
       bannerImg.src = app.banner;
       bannerImg.alt = `${app.name} Showcase Banner`;
       bannerWrapper.style.display = "block";
+      bannerWrapper.classList.add("active");
     } else {
       bannerWrapper.style.display = "none";
     }
@@ -118,6 +119,7 @@ export function initAppDetails() {
   const galleryContainer = document.getElementById("gallery-container");
   if (galleryContainer && app.screenshots && app.screenshots.length > 0) {
     galleryContainer.innerHTML = "";
+    const lightbox = setupLightbox(app.screenshots);
     app.screenshots.forEach((src, index) => {
       const img = document.createElement("img");
       img.src = src;
@@ -126,23 +128,27 @@ export function initAppDetails() {
       img.addEventListener("click", () => lightbox.open(index));
       galleryContainer.appendChild(img);
     });
-    if (gallerySection) gallerySection.style.display = "block";
-    const lightbox = setupLightbox(app.screenshots);
+    if (gallerySection) {
+      gallerySection.style.display = "block";
+      gallerySection.classList.add("active");
+    }
   } else if (gallerySection) {
     gallerySection.style.display = "none";
   }
 
   // Descriptions & Features
-  const fullDescEl = document.getElementById("app-full-description");
+  const fullDescEl = document.getElementById("app-description") || document.getElementById("app-full-description");
   if (fullDescEl) {
     fullDescEl.textContent = app.fullDescription || app.shortDescription || "";
+    const descSection = fullDescEl.closest(".desc-section");
+    if (descSection) descSection.classList.add("active");
   }
 
-  const featuresList = document.getElementById("app-features-list");
-  if (featuresList && app.features) {
+  const featuresList = document.getElementById("features-list") || document.getElementById("app-features-list");
+  if (featuresList && app.features && app.features.length > 0) {
     featuresList.innerHTML = "";
     app.features.forEach(feat => {
-      const li = document.createElement("li");
+      const li = document.createElement("div");
       li.className = "feature-item reveal active";
       li.innerHTML = `
         <span class="feature-bullet">•</span>
@@ -150,11 +156,19 @@ export function initAppDetails() {
       `;
       featuresList.appendChild(li);
     });
+    const featSection = featuresList.closest(".features-section");
+    if (featSection) {
+      featSection.style.display = "block";
+      featSection.classList.add("active");
+    }
+  } else {
+    const featSection = document.querySelector(".features-section");
+    if (featSection) featSection.style.display = "none";
   }
 
   // Changelog
-  const changelogSection = document.getElementById("changelog-section");
-  const changelogList = document.getElementById("changelog-list");
+  const changelogSection = document.getElementById("changelog-section") || document.querySelector(".changelog-section");
+  const changelogList = document.getElementById("changelog-timeline") || document.getElementById("changelog-list");
   if (changelogList && app.changelog && app.changelog.length > 0) {
     changelogList.innerHTML = "";
     app.changelog.forEach(entry => {
@@ -168,16 +182,20 @@ export function initAppDetails() {
       `;
       changelogList.appendChild(item);
     });
-    if (changelogSection) changelogSection.style.display = "block";
+    if (changelogSection) {
+      changelogSection.style.display = "block";
+      changelogSection.classList.add("active");
+    }
   } else if (changelogSection) {
     changelogSection.style.display = "none";
   }
 
   // Sidebar Actions & Download Button
-  const dlBtn = document.getElementById("app-download-btn");
+  const dlBtn = document.getElementById("btn-download") || document.getElementById("app-download-btn");
   if (dlBtn) {
     if (app.downloadUrl) {
       dlBtn.href = app.downloadUrl;
+      dlBtn.style.display = "inline-flex";
       dlBtn.innerHTML = `
         <svg style="width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2" viewBox="0 0 24 24">
           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
@@ -189,9 +207,19 @@ export function initAppDetails() {
     }
   }
 
-  const verMeta = document.getElementById("sidebar-app-version");
-  const sizeMeta = document.getElementById("sidebar-app-size");
-  const updateMeta = document.getElementById("sidebar-app-updated");
+  const ghBtn = document.getElementById("btn-github") || document.getElementById("app-github-btn");
+  if (ghBtn) {
+    if (app.githubUrl) {
+      ghBtn.href = app.githubUrl;
+      ghBtn.style.display = "inline-flex";
+    } else {
+      ghBtn.style.display = "none";
+    }
+  }
+
+  const verMeta = document.getElementById("meta-version") || document.getElementById("sidebar-app-version");
+  const sizeMeta = document.getElementById("meta-size") || document.getElementById("sidebar-app-size");
+  const updateMeta = document.getElementById("meta-updated") || document.getElementById("sidebar-app-updated");
   if (verMeta) verMeta.textContent = `v${app.version || "1.0.0"}`;
   if (sizeMeta) sizeMeta.textContent = app.apkSize || "—";
   if (updateMeta) updateMeta.textContent = app.lastUpdated || "—";
