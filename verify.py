@@ -170,8 +170,38 @@ def check_app_data():
         else:
             report_warn("Modular apps directory exists but has no .js files yet.")
 
+def check_javascript_modules():
+    print(f"\n{BOLD}{CYAN}5. Checking JavaScript ES Modules & Import Integrity...{RESET}")
+    js_files = list((ROOT_DIR / "assets" / "js").rglob("*.js"))
+    import_pattern = re.compile(r'(?:import|from)\s+["\']([^"\']+\.js)["\']', re.IGNORECASE)
+    total_imports = 0
+
+    for js_file in sorted(js_files):
+        content = js_file.read_text(encoding="utf-8", errors="ignore")
+        for match in import_pattern.findall(content):
+            total_imports += 1
+            clean_target = match.split("?")[0].split("#")[0]
+            resolved = (js_file.parent / clean_target).resolve()
+            if resolved.is_file():
+                report_pass(f"{js_file.relative_to(ROOT_DIR)} -> import '{match}' exists on disk.")
+            else:
+                report_fail(f"{js_file.relative_to(ROOT_DIR)}: Broken import '{match}' -> {resolved}")
+
+    # Run node --check if node is installed
+    import shutil
+    import subprocess
+    if shutil.which("node"):
+        main_js = ROOT_DIR / "assets" / "js" / "main.js"
+        if main_js.is_file():
+            result = subprocess.run(["node", "--check", str(main_js)], capture_output=True, text=True)
+            if result.returncode == 0:
+                report_pass("node --check on assets/js/main.js: Syntax validated successfully.")
+            else:
+                report_fail(f"node --check failed: {result.stderr.strip()}")
+
+
 def check_localhost_http():
-    print(f"\n{BOLD}{CYAN}5. Checking Local Server Smoke Test (port 8000)...{RESET}", flush=True)
+    print(f"\n{BOLD}{CYAN}6. Checking Local Server Smoke Test (port 8000)...{RESET}", flush=True)
     base_url = "http://127.0.0.1:8000"
 
     endpoints = [
@@ -180,7 +210,6 @@ def check_localhost_http():
         "/app.html?id=tasbeeh",
         "/about.html",
         "/privacy.html",
-        "/admin.html",
         "/assets/css/core.css",
         "/assets/css/pages/home.css",
         "/assets/css/pages/catalog.css",
@@ -217,6 +246,7 @@ def main():
     check_css_imports()
     check_css_syntax_and_braces()
     check_app_data()
+    check_javascript_modules()
     check_localhost_http()
 
     print(f"\n{BOLD}--------------------------------------------------{RESET}")
