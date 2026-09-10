@@ -132,18 +132,18 @@ def bundle_from_modular():
  * Compatible with direct browser script tags and local storage caching.
  */
 
-const CATALOG_VERSION = "2026.09.09.v4.1.2";
+const CATALOG_VERSION = "2026.09.10.v4.1.3";
 
 const defaultAppsData = {apps_json};
 
-// Invalidate stale cache if version bumped or missing critical data
-const cachedVersion = localStorage.getItem("toukir_apps_version");
-if (cachedVersion !== CATALOG_VERSION) {{
-  localStorage.setItem("toukir_apps_version", CATALOG_VERSION);
-  localStorage.setItem("toukir_apps_data", JSON.stringify(defaultAppsData));
+// Always prioritize fresh authoritative data from script
+let appsData = defaultAppsData;
+if (typeof localStorage !== "undefined") {{
+  try {{
+    localStorage.setItem("toukir_apps_version", CATALOG_VERSION);
+    localStorage.setItem("toukir_apps_data", JSON.stringify(defaultAppsData));
+  }} catch (e) {{}}
 }}
-
-let appsData = JSON.parse(localStorage.getItem("toukir_apps_data")) || defaultAppsData;
 
 // Global browser window attachment
 if (typeof window !== "undefined") {{
