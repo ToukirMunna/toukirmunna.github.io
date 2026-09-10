@@ -1,11 +1,7 @@
 /**
- * Toukir Studio — Authoritative App Catalog (Bundled Distribution)
- * Auto-generated from modular records in assets/data/apps/
- * Compatible with direct browser script tags and local storage caching.
+ * App Portfolio Data - Toukir Studio (Toukir Ahmed)
+ * Authoritative Catalog for toukir.pro.bd / toukirmunna.github.io
  */
-
-const CATALOG_VERSION = "2026.09.09.v4.1.2";
-
 const defaultAppsData = [
   {
     "id": "tasbeeh",
@@ -134,7 +130,7 @@ const defaultAppsData = [
       }
     ],
     "featured": true,
-    "hidden": false
+    "hidden": true
   },
   {
     "id": "curio",
@@ -1202,25 +1198,34 @@ const defaultAppsData = [
   }
 ];
 
-// Invalidate stale cache if version bumped or missing critical data
-const cachedVersion = localStorage.getItem("toukir_apps_version");
-if (cachedVersion !== CATALOG_VERSION) {
-  localStorage.setItem("toukir_apps_version", CATALOG_VERSION);
-  localStorage.setItem("toukir_apps_data", JSON.stringify(defaultAppsData));
-}
+// Initialize localStorage or update to authoritative catalog
+(function () {
+  const CATALOG_VERSION = "2026.09.10.v1789024009870";
+  try {
+    const currentVersion = localStorage.getItem("appsData_catalog_version");
+    const stored = localStorage.getItem("appsData");
+    
+    let needsRefresh = !stored || currentVersion !== CATALOG_VERSION;
+    if (!needsRefresh && stored) {
+      try {
+        const parsed = JSON.parse(stored);
+        if (parsed.length !== defaultAppsData.length) {
+          needsRefresh = true;
+        }
+      } catch (_) {
+        needsRefresh = true;
+      }
+    }
 
-let appsData = JSON.parse(localStorage.getItem("toukir_apps_data")) || defaultAppsData;
-
-// Global browser window attachment
-if (typeof window !== "undefined") {
-  window.CATALOG_VERSION = CATALOG_VERSION;
-  window.defaultAppsData = defaultAppsData;
-  window.appsData = appsData;
-}
-
-// ES module exports when imported as a module
-if (typeof exports !== "undefined") {
-  exports.CATALOG_VERSION = CATALOG_VERSION;
-  exports.defaultAppsData = defaultAppsData;
-  exports.appsData = appsData;
-}
+    if (needsRefresh) {
+      localStorage.setItem("appsData", JSON.stringify(defaultAppsData));
+      localStorage.setItem("appsData_catalog_version", CATALOG_VERSION);
+      window.appsData = defaultAppsData;
+    } else {
+      window.appsData = JSON.parse(stored);
+    }
+  } catch (e) {
+    console.error("Error loading appsData from localStorage:", e);
+    window.appsData = defaultAppsData;
+  }
+})();
