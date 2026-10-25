@@ -23,3 +23,8 @@ build/
 .parcel-cache/
 .next/
 out/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
