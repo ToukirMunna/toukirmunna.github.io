@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 
+# Disallow heavy offline data packs and binary archives from consuming crawl budget
+Disallow: /assets/apks/
+
 Sitemap: https://toukir.pro.bd/sitemap.xml
