@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!contentEl) return;
   
   let appName = "Our Apps";
-  let lastUpdated = "July 04, 2026";
+  let lastUpdated = "October 30, 2026";
   let isSpecificApp = false;
   
   // Find app if parameter is provided
@@ -59,8 +59,23 @@ document.addEventListener("DOMContentLoaded", () => {
       <h2>4. Real-Time Location Information</h2>
       <p>This Application does not collect, monitor, or track precise real-time location data of your mobile device.</p>
 
-      <h2>5. Third-Party Access & Google Cloud Compliance</h2>
-      <p>We do not sell, trade, or rent your personal information to third parties. We do not integrate intrusive ad tracking SDKs. Any integration with Google Cloud APIs or Google Play Services adheres strictly to the Google API Services User Data Policy, including Limited Use requirements.</p>
+      <h2>5. Google API Services, Google Drive Scopes & Limited Use Policy</h2>
+      <p>Certain applications in the Toukir Studio portfolio offer optional, user-initiated cloud backup, sync, and restore capabilities powered by Google Cloud APIs and Google Drive. When you choose to connect your Google Account, the Application requests only the minimal scopes necessary to fulfill user-requested features:</p>
+      <ul>
+        <li><strong>Google Drive App Data (<code>.../auth/drive.appdata</code>):</strong> Allows the Application to create, read, and update its own private configuration and backup data in a dedicated, hidden application folder in your Google Drive. Other apps cannot access this space, and our apps cannot access any other files in your Drive.</li>
+        <li><strong>Google Drive File-Specific Access (<code>.../auth/drive.file</code>):</strong> Used specifically by document tools (such as our PDF reader/library manager) to create a dedicated backup folder in your Google Drive and upload or restore user-selected documents and backups. The Application can only access, modify, or delete files and folders that were explicitly created or opened by the Application itself; it has no access to any other files or folders in your Google Drive.</li>
+      </ul>
+      <p><strong>Limited Use Requirements Compliance:</strong><br>
+      Toukir Studio's use and transfer to any other app of information received from Google APIs will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener noreferrer" style="color:var(--accent-primary);font-weight:600;text-decoration:underline;">Google API Services User Data Policy</a>, including the Limited Use requirements:</p>
+      <ul>
+        <li>We only use access to Google user data to provide or improve user-facing features that are prominent in the requesting application's user interface (e.g., user-triggered backup and restore).</li>
+        <li>We do <strong>not</strong> transfer or share Google user data with any third parties unless necessary to comply with applicable laws or as part of a merger/acquisition with user consent.</li>
+        <li>We do <strong>not</strong> use or transfer Google user data for serving advertisements, including retargeting, personalized, or interest-based advertising.</li>
+        <li>We do <strong>not</strong> use or transfer Google user data to train generalized artificial intelligence (AI) and/or machine learning (ML) models.</li>
+        <li>We do <strong>not</strong> allow humans to read your Google user data unless you have given explicit affirmative agreement for troubleshooting, or if required for security investigations or legal compliance.</li>
+      </ul>
+      <p><strong>Revocation & Data Deletion:</strong><br>
+      You can disconnect Google Drive access at any time directly within the Application's settings or via your <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener noreferrer" style="color:var(--accent-primary);font-weight:600;">Google Account Third-Party Permissions</a> page. You can delete backed-up data directly from the app or by removing the corresponding backup folder in your Google Drive.</p>
 
       <h2>6. Security & Data Retention</h2>
       <p>We implement industry-standard procedural, electronic, and physical safeguards to protect local device data. Since data is stored locally in sandboxed application containers, uninstalling the Application cleanly removes all locally stored data from your device.</p>
